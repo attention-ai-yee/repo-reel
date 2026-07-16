@@ -1,0 +1,24 @@
+{
+  "video": "output/github-weekly-v2-pilot.mp4",
+  "duration_seconds": 46.6,
+  "expected_duration_seconds": 46.4667,
+  "resolution": "1080x1920",
+  "fps": 30,
+  "video_codec": "h264",
+  "audio_codec": "aac",
+  "audio_sample_rate": 48000,
+  "full_decode": "ok",
+  "render_engine": "Remotion 4.0.489 + FFmpeg",
+  "voice": {
+    "current_pilot": "Microsoft Edge zh-CN-XiaoxiaoNeural",
+    "external_service": true,
+    "api_key": false,
+    "status": "user-selected female A; still a temporary online voice"
+  },
+  "generative_visual_model": false,
+  "real_project_assets": [
+    "pbakaus/impeccable before-after images",
+    "ogulcancelik/herdr product demo"
+  ],
+  "scope": "V2 style pilot: hook + ranks 10 and 9"
+}

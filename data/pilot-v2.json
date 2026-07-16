@@ -1,0 +1,40 @@
+{
+  "edition": "2026-07-15",
+  "fps": 30,
+  "voice": {
+    "provider": "edge",
+    "name": "zh-CN-XiaoxiaoNeural",
+    "rate": "+4%",
+    "pitch": "+0Hz",
+    "note": "用户指定的女声 A；联网、免 API key，正式品牌声线仍建议通过本地盲听门"
+  },
+  "segments": [
+    {
+      "id": "hook",
+      "kind": "spoken",
+      "spoken": "这周 GitHub 增长最快的项目，七天涨了一万三千个 Star。它把找工作拆成职位抓取、匹配、简历和面试准备。第一名留到最后，我们从第十名开始。",
+      "onscreen": ["7 DAYS", "+13,195", "一套 AI 求职工作流"],
+      "tail_seconds": 0.35
+    },
+    {
+      "id": "scope",
+      "kind": "silent",
+      "fixed_seconds": 1.8,
+      "onscreen": ["GitHub Trending", "THIS WEEK", "22 个项目重排"]
+    },
+    {
+      "id": "impeccable",
+      "kind": "spoken",
+      "spoken": "第十名 Impeccable。它给编码助手加入二十三个设计命令和四十六条检查规则，用来调整版式、层级、动效和细节。生成网页时，可以直接调用这些规则。",
+      "onscreen": ["#10", "IMPECCABLE", "23 COMMANDS", "46 RULES"],
+      "tail_seconds": 0.45
+    },
+    {
+      "id": "herdr",
+      "kind": "spoken",
+      "spoken": "第九名 Herder。它把多个编码 Agent 放进真实终端窗格，集中显示运行、阻塞和完成状态。断线后任务继续运行，也可以通过 SSH 远程查看。",
+      "onscreen": ["#09", "HERDR", "WORKING", "BLOCKED", "DONE"],
+      "tail_seconds": 0.7
+    }
+  ]
+}

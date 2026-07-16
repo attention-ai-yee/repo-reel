@@ -1,0 +1,144 @@
+{
+  "edition": "2026-07-15",
+  "captured_at": "2026-07-15T23:53:46+08:00",
+  "source_url": "https://github.com/trending?since=weekly",
+  "title": "GitHub 本周增星最快的 10 个热门项目",
+  "scope": "GitHub Trending 周榜入选项目，按页面显示的 stars this week 重排",
+  "target_duration_seconds": 178,
+  "intro": {
+    "eyebrow": "GITHUB WEEKLY · 2026/07/15",
+    "headline": "本周增星\nTOP 10",
+    "dek": "三分钟，从第 10 名一路看到冠军",
+    "narration": "AI 项目每周都在换热点，但真正值得看的，往往藏在增长速度里。这里是 GitHub 周榜增星 Top Ten，三分钟，从第十名一路看到冠军。"
+  },
+  "method": {
+    "headline": "这份榜单\n怎么算？",
+    "narration": "先说明口径。数据来自 GitHub Trending 的本周页面。我们把全部二十二个入选项目，按照页面显示的本周新增 Star 重新排序。这不是全站完整统计，却足够捕捉当周热度。"
+  },
+  "outro": {
+    "headline": "工作流，正在成为\nAI 的新界面",
+    "narration": "这周的共同趋势很清楚：AI 正从单点工具，走向可以组合、可以自动运行的工作流。你最想试哪一个？关注我，下周继续更新 GitHub 增星榜。"
+  },
+  "repos": [
+    {
+      "rank": 1,
+      "owner": "MadsLorentzen",
+      "name": "ai-job-search",
+      "url": "https://github.com/MadsLorentzen/ai-job-search",
+      "language": "TypeScript",
+      "stars_total": 22805,
+      "stars_week": 13195,
+      "summary": "在本机运行的 AI 求职申请框架",
+      "tags": ["职位抓取", "简历定制", "面试准备"],
+      "narration": "第一名，AI Job Search，本周新增一万三千一百九十五颗 Star。它把 Claude Code 变成一套求职流水线：抓取职位、判断匹配度、定制简历和求职信，还能继续准备面试。"
+    },
+    {
+      "rank": 2,
+      "owner": "OpenCut-app",
+      "name": "OpenCut",
+      "url": "https://github.com/OpenCut-app/OpenCut",
+      "language": "TypeScript",
+      "stars_total": 70382,
+      "stars_week": 7247,
+      "summary": "开源的 CapCut 替代品",
+      "tags": ["视频编辑", "跨平台", "批量渲染"],
+      "narration": "第二名，Open Cut，本周新增七千二百四十七颗 Star。它想做一款覆盖网页、桌面和移动端的开源剪辑器。新架构还计划加入插件、脚本编辑、无头批量渲染和 Agent 接口。"
+    },
+    {
+      "rank": 3,
+      "owner": "iOfficeAI",
+      "name": "OfficeCLI",
+      "url": "https://github.com/iOfficeAI/OfficeCLI",
+      "language": "C#",
+      "stars_total": 17432,
+      "stars_week": 7129,
+      "summary": "面向 AI Agent 的 Office 自动化套件",
+      "tags": ["Word", "Excel", "PowerPoint"],
+      "narration": "第三名，Office C L I，本周新增七千一百二十九颗 Star。它让 Agent 用一个独立程序读写 Word、Excel 和 PowerPoint，不要求安装 Office，还能把结果渲染成图片做视觉检查。"
+    },
+    {
+      "rank": 4,
+      "owner": "stablyai",
+      "name": "orca",
+      "url": "https://github.com/stablyai/orca",
+      "language": "TypeScript",
+      "stars_total": 19653,
+      "stars_week": 5724,
+      "summary": "管理并行 Agent 集群的开发环境",
+      "tags": ["并行 Agent", "Git worktree", "集中审阅"],
+      "narration": "第四名，Orca，本周新增五千七百二十四颗 Star。它把 Codex、Claude Code 等多个编码 Agent 放进独立的 Git 工作区并行运行，再集中追踪状态、比较差异和审阅结果。"
+    },
+    {
+      "rank": 5,
+      "owner": "Zackriya-Solutions",
+      "name": "meetily",
+      "url": "https://github.com/Zackriya-Solutions/meetily",
+      "language": "Rust",
+      "stars_total": 24864,
+      "stars_week": 4389,
+      "summary": "隐私优先、可自托管的 AI 会议助手",
+      "tags": ["本地优先", "会议转写", "数据主权"],
+      "narration": "第五名，Meetily，本周新增四千三百八十九颗 Star。它在用户自己的设备或服务器上完成会议录音、说话人识别、转写和摘要，核心卖点是敏感内容不必上传云端。"
+    },
+    {
+      "rank": 6,
+      "owner": "diegosouzapw",
+      "name": "OmniRoute",
+      "url": "https://github.com/diegosouzapw/OmniRoute",
+      "language": "TypeScript",
+      "stars_total": 17590,
+      "stars_week": 4297,
+      "summary": "多种 AI 编码工具的统一模型网关",
+      "tags": ["统一接入", "自动切换", "上下文压缩"],
+      "narration": "第六名，Omni Route，本周新增四千二百九十七颗 Star。它用一个接口连接多种模型提供商，让 Codex、Cursor 和 Claude Code 共用一套接入，并支持自动故障切换和上下文压缩。"
+    },
+    {
+      "rank": 7,
+      "owner": "HKUDS",
+      "name": "Vibe-Trading",
+      "url": "https://github.com/HKUDS/Vibe-Trading",
+      "language": "Python",
+      "stars_total": 23415,
+      "stars_week": 4252,
+      "summary": "把交易研究能力封装给 Agent",
+      "tags": ["市场数据", "回测", "MCP"],
+      "narration": "第七名，Vibe Trading，本周新增四千二百五十二颗 Star。它把市场数据、分析、回测和交易研究封装成 Agent 可调用的工具，并提供 API 和 M C P 接入。注意，它是研究框架，不代表收益承诺。"
+    },
+    {
+      "rank": 8,
+      "owner": "Shubhamsaboo",
+      "name": "awesome-llm-apps",
+      "url": "https://github.com/Shubhamsaboo/awesome-llm-apps",
+      "language": "Python",
+      "stars_total": 121595,
+      "stars_week": 3827,
+      "summary": "100 多个可运行的 Agent 与 RAG 案例",
+      "tags": ["案例库", "Agent", "RAG"],
+      "narration": "第八名，Awesome L L M Apps，本周新增三千八百二十七颗 Star。这是一个可以直接克隆和修改的 AI 应用案例库，覆盖 Agent、技能和 RAG，适合开发者快速寻找原型。"
+    },
+    {
+      "rank": 9,
+      "owner": "ogulcancelik",
+      "name": "herdr",
+      "url": "https://github.com/ogulcancelik/herdr",
+      "language": "Rust",
+      "stars_total": 16681,
+      "stars_week": 3115,
+      "summary": "运行在真实终端里的 Agent 多路复用器",
+      "tags": ["终端窗格", "断线重连", "Socket API"],
+      "narration": "第九名，Herder，本周新增三千一百一十五颗 Star。它把多个 Agent 的工作、阻塞和完成状态集中到真实终端窗格中，支持断开后继续运行、重新连接和远程 S S H。"
+    },
+    {
+      "rank": 10,
+      "owner": "pbakaus",
+      "name": "impeccable",
+      "url": "https://github.com/pbakaus/impeccable",
+      "language": "JavaScript",
+      "stars_total": 46922,
+      "stars_week": 2494,
+      "summary": "提升 AI 编码 Agent 的设计质量",
+      "tags": ["设计语言", "23 个命令", "46 条规则"],
+      "narration": "第十名，Impeccable，本周新增二千四百九十四颗 Star。它给 AI 编码助手补上一套设计语言，包含二十三个设计命令和四十六条检查规则，目标是让生成的前端不再千篇一律。"
+    }
+  ]
+}

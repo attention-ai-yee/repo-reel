@@ -1,0 +1,89 @@
+{
+  "edition": "2026-07-15",
+  "fps": 30,
+  "voice": {
+    "provider": "edge",
+    "name": "zh-CN-XiaoxiaoNeural",
+    "rate": "+4%",
+    "pitch": "+0Hz",
+    "note": "用户指定的女声 A；正式品牌声线仍应通过本地盲听门"
+  },
+  "segments": [
+    {
+      "id": "pilot_clip",
+      "kind": "silent",
+      "fixed_seconds": 46.4667,
+      "onscreen": ["HOOK", "#10 IMPECCABLE", "#09 HERDR"]
+    },
+    {
+      "id": "awesome_llm_apps",
+      "kind": "spoken",
+      "spoken": "第八名 Awesome LLM Apps。仓库收录上百个可以直接运行的 Agent 和 RAG 项目，包含代码、依赖和启动方法。制作原型时，可以从相近案例开始修改。",
+      "onscreen": ["#08", "AWESOME LLM APPS", "100+ RUNNABLE EXAMPLES", "AGENT / RAG"],
+      "tail_seconds": 0.3
+    },
+    {
+      "id": "vibe_trading",
+      "kind": "spoken",
+      "spoken": "第七名 Vibe Trading。它把市场数据、分析和回测做成 Agent 可以调用的工具，同时提供 API 和 MCP 接口。这个项目用于交易研究和策略验证。",
+      "onscreen": ["#07", "VIBE TRADING", "DATA → ANALYSIS → BACKTEST", "RESEARCH ≠ RETURN"],
+      "tail_seconds": 0.3
+    },
+    {
+      "id": "omniroute",
+      "kind": "spoken",
+      "spoken": "第六名 OmniRoute。它给 Codex、Cursor 和 Claude Code 提供同一个模型网关，支持供应商切换、故障转移和上下文压缩。多种编码工具可以共用一套模型配置。",
+      "onscreen": ["#06", "OMNIROUTE", "ONE GATEWAY", "FAILOVER", "CONTEXT COMPRESSION"],
+      "tail_seconds": 0.3
+    },
+    {
+      "id": "mid_reset",
+      "kind": "spoken",
+      "spoken": "前五名开始。接下来的项目集中在本地数据、并行开发、Office 文件、视频剪辑和求职流程。",
+      "onscreen": ["TOP 5", "LOCAL DATA", "PARALLEL DEV", "CREATOR TOOLS"],
+      "tail_seconds": 0.35
+    },
+    {
+      "id": "meetily",
+      "kind": "spoken",
+      "spoken": "第五名 Meetily。录音、说话人识别、转写和摘要都可以在本机或自己的服务器运行。会议内容无需上传第三方云端。",
+      "onscreen": ["#05", "MEETILY", "LOCAL / SELF-HOSTED", "NO CLOUD REQUIRED"],
+      "tail_seconds": 0.3
+    },
+    {
+      "id": "orca",
+      "kind": "spoken",
+      "spoken": "第四名 Orca。它为每个编码 Agent 创建独立的 Git 工作区，并在一个界面查看状态、比较差异和审阅结果。多个任务可以同时推进。",
+      "onscreen": ["#04", "ORCA", "ISOLATED WORKTREES", "REVIEW TOGETHER"],
+      "tail_seconds": 0.3
+    },
+    {
+      "id": "officecli",
+      "kind": "spoken",
+      "spoken": "第三名 OfficeCLI。它通过独立程序读写 Word、Excel 和 PowerPoint，并把结果渲染成图片进行版式检查。它可以接进 Agent 自动化流程。",
+      "onscreen": ["#03", "OFFICECLI", "NO OFFICE REQUIRED", "RENDER & CHECK"],
+      "tail_seconds": 0.3
+    },
+    {
+      "id": "opencut",
+      "kind": "spoken",
+      "spoken": "第二名 OpenCut。它正在开发网页、桌面和移动端的开源视频编辑器。规划中的新架构包括插件、脚本、无头批量渲染和 Agent 接口，部分能力仍在开发。",
+      "onscreen": ["#02", "OPENCUT", "WEB · DESKTOP · MOBILE", "PLANNED: PLUGINS / HEADLESS / AGENT API"],
+      "tail_seconds": 0.3
+    },
+    {
+      "id": "ai_job_search",
+      "kind": "spoken",
+      "spoken": "第一名 AI Job Search。它用 Claude Code 抓取职位、计算匹配度、修改简历和求职信，并生成面试准备材料。这个项目七天新增一万三千个 Star。",
+      "onscreen": ["#01", "AI JOB SEARCH", "+13,195 / 7 DAYS", "JOBS → MATCH → RESUME → INTERVIEW"],
+      "tail_seconds": 0.4
+    },
+    {
+      "id": "outro",
+      "kind": "spoken",
+      "spoken": "这周上榜项目覆盖设计、终端、交易研究、会议、Office、剪辑和求职。它们都把多个步骤串成可执行流程。下周我会挑一个完整测试，看看实际体验。你想先看哪个？",
+      "onscreen": ["THIS WEEK", "10 PROJECTS", "NEXT WEEK · REAL TEST", "你想先看哪个？"],
+      "tail_seconds": 0.8
+    }
+  ]
+}

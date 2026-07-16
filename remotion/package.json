@@ -1,0 +1,21 @@
+{
+  "name": "video-flow-remotion",
+  "version": "0.2.0",
+  "private": true,
+  "scripts": {
+    "studio": "remotion studio src/index.ts",
+    "render:pilot:raw": "remotion render src/index.ts GitHubWeeklyV2Pilot ../output/github-weekly-v2-pilot-raw.mp4 --codec=h264 --crf=18 --pixel-format=yuv420p --audio-codec=aac --audio-bitrate=192k"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.489",
+    "@remotion/transitions": "4.0.489",
+    "react": "19.2.7",
+    "react-dom": "19.2.7",
+    "remotion": "4.0.489"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "typescript": "5.9.3"
+  }
+}

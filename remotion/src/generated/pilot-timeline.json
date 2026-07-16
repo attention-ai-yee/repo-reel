@@ -1,0 +1,128 @@
+{
+  "fps": 30,
+  "voice": "zh-CN-XiaoxiaoNeural",
+  "segments": [
+    {
+      "id": "hook",
+      "kind": "spoken",
+      "spoken": "这周 GitHub 增长最快的项目，七天涨了一万三千个 Star。它把找工作拆成职位抓取、匹配、简历和面试准备。第一名留到最后，我们从第十名开始。",
+      "onscreen": [
+        "7 DAYS",
+        "+13,195",
+        "一套 AI 求职工作流"
+      ],
+      "tail_seconds": 0.35,
+      "audio": "audio/pilot-hook.mp3",
+      "audioSeconds": 13.824,
+      "startFrame": 0,
+      "durationInFrames": 425,
+      "words": [
+        {
+          "text": "这周 GitHub 增长最快的项目，七天涨了一万三千个 Star。",
+          "start": 0.1,
+          "duration": 5.0101,
+          "boundary": "SentenceBoundary"
+        },
+        {
+          "text": "它把找工作拆成职位抓取、匹配、简历和面试准备。",
+          "start": 5.0601,
+          "duration": 5.2644,
+          "boundary": "SentenceBoundary"
+        },
+        {
+          "text": "第一名留到最后，我们从第十名开始。",
+          "start": 10.3245,
+          "duration": 3.4495,
+          "boundary": "SentenceBoundary"
+        }
+      ]
+    },
+    {
+      "id": "scope",
+      "kind": "silent",
+      "fixed_seconds": 1.8,
+      "onscreen": [
+        "GitHub Trending",
+        "THIS WEEK",
+        "22 个项目重排"
+      ],
+      "startFrame": 425,
+      "durationInFrames": 54,
+      "words": []
+    },
+    {
+      "id": "impeccable",
+      "kind": "spoken",
+      "spoken": "第十名 Impeccable。它给编码助手加入二十三个设计命令和四十六条检查规则，用来调整版式、层级、动效和细节。生成网页时，可以直接调用这些规则。",
+      "onscreen": [
+        "#10",
+        "IMPECCABLE",
+        "23 COMMANDS",
+        "46 RULES"
+      ],
+      "tail_seconds": 0.45,
+      "audio": "audio/pilot-impeccable.mp3",
+      "audioSeconds": 14.808,
+      "startFrame": 479,
+      "durationInFrames": 458,
+      "words": [
+        {
+          "text": "第十名 Impeccable。",
+          "start": 0.1,
+          "duration": 2.0413,
+          "boundary": "SentenceBoundary"
+        },
+        {
+          "text": "它给编码助手加入二十三个设计命令和四十六条检查规则，用来调整版式、层级、动效和细节。",
+          "start": 2.0913,
+          "duration": 9.0865,
+          "boundary": "SentenceBoundary"
+        },
+        {
+          "text": "生成网页时，可以直接调用这些规则。",
+          "start": 11.1779,
+          "duration": 3.5817,
+          "boundary": "SentenceBoundary"
+        }
+      ]
+    },
+    {
+      "id": "herdr",
+      "kind": "spoken",
+      "spoken": "第九名 Herder。它把多个编码 Agent 放进真实终端窗格，集中显示运行、阻塞和完成状态。断线后任务继续运行，也可以通过 SSH 远程查看。",
+      "onscreen": [
+        "#09",
+        "HERDR",
+        "WORKING",
+        "BLOCKED",
+        "DONE"
+      ],
+      "tail_seconds": 0.7,
+      "audio": "audio/pilot-herdr.mp3",
+      "audioSeconds": 14.544,
+      "startFrame": 937,
+      "durationInFrames": 457,
+      "words": [
+        {
+          "text": "第九名 Herder。",
+          "start": 0.1,
+          "duration": 1.7889,
+          "boundary": "SentenceBoundary"
+        },
+        {
+          "text": "它把多个编码 Agent 放进真实终端窗格，集中显示运行、阻塞和完成状态。",
+          "start": 1.8389,
+          "duration": 7.3558,
+          "boundary": "SentenceBoundary"
+        },
+        {
+          "text": "断线后任务继续运行，也可以通过 SSH 远程查看。",
+          "start": 9.1947,
+          "duration": 5.3005,
+          "boundary": "SentenceBoundary"
+        }
+      ]
+    }
+  ],
+  "durationInFrames": 1394
+}
