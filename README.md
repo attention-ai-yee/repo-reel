@@ -9,64 +9,58 @@ V1 的卡片式画面与 Windows SAPI 旁白只保留作技术验证，不再作
 ## 当前产物
 
 - 41 秒风格样段：`output/github-weekly-v2-pilot.mp4`
-- 约 3 分钟完整成片：`output/github-weekly-2026-07-15-v2.mp4`（本地生成，不提交进 Git）
-- 完整片配置：`data/full-v2.json`
-- 素材来源清单：`remotion/public/assets/full-asset-manifest.json`
-- 成片 QA：`output/github-weekly-2026-07-15-v2-manifest.json`
+- 约 3 分钟完整成片：`output/github-weekly-2026-07-29-v2.mp4`（本地生成，不提交进 Git）
+- 本期编辑方案：`data/editorial-2026-07-29.json`
+- 本期完整配置：`data/episode-2026-07-29.json`
+- 素材来源清单：`remotion/public/assets/weekly-2026-07-29/asset-manifest.json`
+- 成片 QA：`output/github-weekly-2026-07-29-v2-manifest.json`
 
 ## 每周工作流
 
-统一入口：
+完整周更只有一个入口：
 
 ```powershell
-.\video-flow.ps1 doctor
+.\video-flow.ps1 weekly
+```
+
+它会依次完成环境检查、榜单采集、README/元数据整理、Codex 结构化编辑、官方素材下载、女声配音、Remotion 渲染、FFmpeg 响度处理和成片 QA。中间不需要手动修改代码或 JSON。首次使用先运行：
+
+```powershell
 .\video-flow.ps1 setup
-.\video-flow.ps1 prepare -Edition 2026-07-23
-.\video-flow.ps1 preview -Edition 2026-07-23 -Episode data\episode-2026-07-23.json
-.\video-flow.ps1 full -Edition 2026-07-23 -Episode data\episode-2026-07-23.json
-.\video-flow.ps1 publish
 ```
 
-### 1. 自动采集榜单并生成编辑提纲
+只想先看低分辨率预览：
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File scripts/run_weekly.ps1 `
-  -Phase Prepare `
-  -Edition 2026-07-23
+.\video-flow.ps1 weekly -PreviewOnly
 ```
 
-这会生成：
-
-- `data/weekly-2026-07-23.json`
-- `data/episode-2026-07-23.draft.json`
-
-提纲故意不自动填满最终口播。每周仍保留一次 Codex 编辑、素材映射和事实核查门，避免重新产生模板腔文案和虚假产品画面。当前 Remotion 场景是本期项目专属设计，新一期需要让 Codex 根据 draft 更新 `v2-pilot.tsx`、`v2-full.tsx` 和素材脚本；它不是无人值守的通用模板引擎。
-
-### 2. 渲染半分辨率预览
+更换编辑模型或女声：
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File scripts/run_weekly.ps1 `
-  -Phase Preview `
-  -Edition 2026-07-23 `
-  -Episode data\episode-2026-07-23.json
+.\video-flow.ps1 weekly -Model gpt-5.4
+.\video-flow.ps1 weekly -Voice zh-CN-XiaoyiNeural
 ```
 
-### 3. 渲染正式成片并自动 QA
+默认值统一放在 [`config/weekly.json`](config/weekly.json)。Codex CLI 只承担“根据事实包写口播、选镜头和填结构化编辑方案”；它不渲染视频，也不生成配音。画面由 Remotion 在本机逐帧渲染，FFmpeg 负责编码与响度，Edge TTS 生成当前女声。
+
+脚本会自动拒绝禁用句式、项目缺失、顺序错误、半句截断、异常 JSON 字符和超长口播。README 素材下载失败时会切换到 GitHub 仓库封面；封面也失败时使用本地仓库占位图，不会让整期无限等待。
+
+### 可复现重跑
+
+保留同一期 `data/weekly-*`、`data/dossier-*`、`data/editorial-*`、`data/episode-*`、素材目录、音频和时间轴后，Remotion/FFmpeg 层可确定性重跑。想保留已审核文案、重新做配音和画面：
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File scripts/run_weekly.ps1 `
-  -Phase Full `
-  -Edition 2026-07-23 `
-  -Episode data\episode-2026-07-23.json
+.\video-flow.ps1 weekly -Edition 2026-07-29 -ReuseEditorial
 ```
 
-已有素材、声音和依赖时可加：
+只检查采集与事实包：
 
 ```powershell
--SkipAssets -SkipVoice -SkipInstall
+.\video-flow.ps1 weekly -DossierOnly
 ```
 
-详细步骤与质量门见 [`docs/WEEKLY_RUNBOOK.md`](docs/WEEKLY_RUNBOOK.md) 和 [`docs/V2_QUALITY_PIPELINE.md`](docs/V2_QUALITY_PIPELINE.md)。
+编辑模型本身有采样差异，因此重新生成 editorial 不承诺逐字一致；使用 `-ReuseEditorial` 才会固定文案。完整 1080×1920 本地编码仍需数分钟到十几分钟，但执行过程不再要求人工介入。详细产物和故障策略见 [`docs/WEEKLY_RUNBOOK.md`](docs/WEEKLY_RUNBOOK.md)。
 
 ## 环境
 
@@ -94,7 +88,7 @@ powershell -ExecutionPolicy Bypass -File scripts/run_weekly.ps1 `
 .\video-flow.ps1 package
 ```
 
-输出 `dist/repo-reel-0.3.0-source.zip`。加入本期最终 MP4：
+输出 `dist/repo-reel-0.4.0-source.zip`。加入本期最终 MP4：
 
 ```powershell
 .\video-flow.ps1 package -IncludeFinalVideo

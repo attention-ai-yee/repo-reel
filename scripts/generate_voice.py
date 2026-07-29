@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import argparse
 import asyncio
+import hashlib
 import json
 from pathlib import Path
 import subprocess
@@ -49,24 +50,60 @@ async def synthesize(
     voice: str,
     rate: str,
     pitch: str,
+    attempts: int = 4,
 ) -> list[dict]:
     output.parent.mkdir(parents=True, exist_ok=True)
-    words: list[dict] = []
-    communicate = edge_tts.Communicate(text, voice=voice, rate=rate, pitch=pitch)
-    with output.open("wb") as media:
-        async for event in communicate.stream():
-            if event["type"] == "audio":
-                media.write(event["data"])
-            elif event["type"] in {"WordBoundary", "SentenceBoundary"}:
-                words.append(
-                    {
-                        "text": event["text"],
-                        "start": round(event["offset"] / 10_000_000, 4),
-                        "duration": round(event["duration"] / 10_000_000, 4),
-                        "boundary": event["type"],
-                    }
+    boundaries_path = output.with_suffix(".words.json")
+    if output.exists() and output.stat().st_size >= 512 and boundaries_path.exists():
+        try:
+            cached_words = json.loads(boundaries_path.read_text(encoding="utf-8"))
+            if cached_words:
+                return cached_words
+        except (json.JSONDecodeError, OSError):
+            pass
+    temporary = output.with_name(f"{output.stem}.part{output.suffix}")
+    last_error: Exception | None = None
+    for attempt in range(1, attempts + 1):
+        words: list[dict] = []
+        temporary.unlink(missing_ok=True)
+        communicate = edge_tts.Communicate(text, voice=voice, rate=rate, pitch=pitch)
+        try:
+            with temporary.open("wb") as media:
+                async for event in communicate.stream():
+                    if event["type"] == "audio":
+                        media.write(event["data"])
+                    elif event["type"] in {"WordBoundary", "SentenceBoundary"}:
+                        words.append(
+                            {
+                                "text": event["text"],
+                                "start": round(event["offset"] / 10_000_000, 4),
+                                "duration": round(event["duration"] / 10_000_000, 4),
+                                "boundary": event["type"],
+                            }
+                        )
+            if temporary.stat().st_size < 512 or not words:
+                raise RuntimeError(
+                    f"incomplete speech output: bytes={temporary.stat().st_size} "
+                    f"boundaries={len(words)}"
                 )
-    return words
+            temporary.replace(output)
+            boundaries_path.write_text(
+                json.dumps(words, ensure_ascii=False), encoding="utf-8"
+            )
+            return words
+        except Exception as error:
+            last_error = error
+            temporary.unlink(missing_ok=True)
+            if attempt == attempts:
+                break
+            print(
+                f"voice_retry={attempt}/{attempts} "
+                f"error={type(error).__name__}"
+            )
+            await asyncio.sleep(attempt * 2)
+    raise RuntimeError(
+        f"Speech generation failed after {attempts} attempts: {last_error}"
+    ) from last_error
 
 
 async def main() -> None:
@@ -85,15 +122,48 @@ async def main() -> None:
     audio_prefix = args.input.stem.replace("-v2", "")
     cursor = 0
     timeline = {"fps": fps, "voice": voice, "segments": []}
+    speech_results: dict[str, tuple[Path, list[dict], float]] = {}
+    semaphore = asyncio.Semaphore(4)
+
+    async def prepare_speech(segment: dict) -> None:
+        fingerprint = hashlib.sha1(
+            (
+                segment["spoken"]
+                + "\0"
+                + voice
+                + "\0"
+                + rate
+                + "\0"
+                + pitch
+            ).encode("utf-8")
+        ).hexdigest()[:10]
+        target = PUBLIC_AUDIO / (
+            f"{audio_prefix}-{segment['id']}-{fingerprint}.mp3"
+        )
+        async with semaphore:
+            words = await synthesize(
+                segment["spoken"], target, voice, rate, pitch
+            )
+        speech_results[segment["id"]] = (
+            target,
+            words,
+            duration_seconds(target),
+        )
+
+    await asyncio.gather(
+        *[
+            prepare_speech(segment)
+            for segment in data["segments"]
+            if segment["kind"] != "silent"
+        ]
+    )
 
     for segment in data["segments"]:
         if segment["kind"] == "silent":
             frames = round(float(segment["fixed_seconds"]) * fps)
             item = {**segment, "startFrame": cursor, "durationInFrames": frames, "words": []}
         else:
-            target = PUBLIC_AUDIO / f"{audio_prefix}-{segment['id']}.mp3"
-            words = await synthesize(segment["spoken"], target, voice, rate, pitch)
-            audio_seconds = duration_seconds(target)
+            target, words, audio_seconds = speech_results[segment["id"]]
             frames = round((audio_seconds + float(segment.get("tail_seconds", 0.35))) * fps)
             item = {
                 **segment,

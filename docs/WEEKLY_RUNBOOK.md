@@ -1,99 +1,99 @@
-# GitHub 周榜视频：每周运行手册
+# GitHub 周榜视频：一键运行手册
 
-## 目标
-
-每周生成一条约 170–180 秒、1080×1920、H.264 + AAC 的中文竖屏视频。机械步骤一键执行，但保留两个人工质量门：
-
-1. Codex 编辑口播并核验事实；
-2. 先看半分辨率预览，再允许正式渲染。
-
-这两个门是为了避免 V1 出现的模板文案、假界面和机械节奏。
-
-## 周一：准备数据
+## 每周只跑这一条
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File scripts/run_weekly.ps1 `
-  -Phase Prepare `
-  -Edition 2026-07-23
+.\video-flow.ps1 weekly
 ```
 
-输出：
+默认使用当天日期，完整输出约 170–190 秒、1080×1920、H.264 + AAC 的中文竖屏视频：
 
-- `data/weekly-2026-07-23.json`：Trending 候选池内按 weekly stars 重排的 Top 10；
-- `data/episode-2026-07-23.draft.json`：待编辑的口播、镜头和素材需求提纲。
+```text
+output/github-weekly-日期-v2.mp4
+```
 
-若 GitHub 页面结构改变，采集器会在解析不到 10 个项目时直接失败，不会静默生成错误榜单。
-
-## 编辑门
-
-让 Codex基于 draft 完成以下工作：
-
-1. 每项使用“具体痛点 → 功能证据 → 主播判断”；
-2. 直接说明项目做什么，禁止“不是 A，而是 B”“不等于”“说白了”“真正”“本质上”等套话；
-3. 总口播控制在约 880–930 个字符；
-4. 不逐个朗读精确 Star；
-5. 每个项目至少登记一个官方截图、GIF、MP4 或可核验 README 证据；
-6. 规划中能力必须明确标成 roadmap，不能说成已完成；
-7. 第 6 名后加入一次注意力重置；
-8. 生成最终 `data/episode-日期.json` 和该期素材脚本/清单。
-
-## 预览门
+首次运行前执行一次：
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File scripts/run_weekly.ps1 `
-  -Phase Preview `
-  -Edition 2026-07-23 `
-  -Episode data\episode-2026-07-23.json
+.\video-flow.ps1 setup
 ```
 
-检查：
+## 配置模型、声音和渲染
 
-- 开头 8 秒是否立刻出现异常数字或冲突；
-- 相邻项目是否使用了不同镜头结构；
-- 项目真实界面是否占主要画面；
-- 字幕是否最多两至三行且不挡核心 UI；
-- 英文项目名、数字和停顿是否自然；
-- 是否存在整屏黑帧、长时间静止或重复卡片。
+长期默认值在 `config/weekly.json`：
 
-## 正式渲染
+- `editorial.model`：Codex CLI 用来写编辑方案的模型；
+- `editorial.reasoning_effort`：编辑推理强度；
+- `editorial.timeout_seconds`、`max_attempts`：单次超时与自动重试次数；
+- `voice.name`、`rate`、`pitch`：Edge TTS 声线；
+- `render.concurrency`：Remotion 并发数。
+
+单次覆盖不用改文件：
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File scripts/run_weekly.ps1 `
-  -Phase Full `
-  -Edition 2026-07-23 `
-  -Episode data\episode-2026-07-23.json
+.\video-flow.ps1 weekly -Model gpt-5.4
+.\video-flow.ps1 weekly -Voice zh-CN-XiaoyiNeural
+.\video-flow.ps1 weekly -Concurrency 4
 ```
 
-流水线依次执行：
+模型名必须受本机 Codex CLI 版本支持。当前项目默认固定为 `gpt-5.4`，升级 CLI 后可直接在配置或命令行更换。
 
-1. 下载并预处理官方素材；
-2. 生成旁白和句子级精确时间轴；
-3. 生成不含排名切换提示音的原创配乐；
-4. TypeScript 类型检查；
-5. Remotion 1080×1920 渲染；
-6. FFmpeg 调整到约 -16 LUFS；
-7. 全程解码、分辨率、帧率、音频和黑帧检查；
-8. 输出 MP4 与 QA manifest。
+## 自动执行的阶段
 
-## 快速重跑
+1. `doctor.ps1` 检查 Python、Node、FFmpeg、Chromium 和依赖；
+2. `collect_weekly.py` 抓取 GitHub Trending weekly 候选并重排；
+3. `auto_prepare.py` 并行读取十个仓库的元数据、README 和官方素材线索；
+4. Codex CLI 在 JSON Schema 下生成口播、标题、判断、布局和素材索引；
+5. 机器规则检查项目集合、倒序、总字数、禁用 AI 句式、句尾和异常 JSON 字符；
+6. 并行下载素材，失败时依次回退到 GitHub 仓库封面和本地占位图；
+7. Edge TTS 生成旁白与句子级时间轴；
+8. Remotion 渲染，FFmpeg 做最终响度与 fast-start；
+9. `verify_full.py` 解码并检查时长、分辨率、帧率、音轨、黑帧和静音。
 
-只有画面代码变化时：
+视频不是由 Codex 内置视频模型直接生成。Codex 只做第 4 步的编辑决策；视觉、音频与编码全部由仓库里的可重复脚本完成。
+
+## 常用模式
+
+先出半分辨率预览：
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File scripts/run_weekly.ps1 `
-  -Phase Full `
-  -Edition 2026-07-23 `
-  -Episode data\episode-2026-07-23.json `
-  -SkipAssets -SkipVoice -SkipInstall
+.\video-flow.ps1 weekly -PreviewOnly
 ```
 
-文案发生变化时不要加 `-SkipVoice`，否则会错误复用旧旁白。
+保留已审核的编辑稿，重新配音和渲染：
 
-## 声音说明
+```powershell
+.\video-flow.ps1 weekly -Edition 2026-07-29 -ReuseEditorial
+```
 
-当前 Edge 声线只用于验证流程。固定栏目声线的推荐步骤：
+只验证榜单和仓库事实包，不调用模型、不渲染：
 
-1. 准备 10–20 秒干净、自有版权、无背景音乐的参考录音及准确文字；
-2. 用 GPT-SoVITS CPU 与 VoxCPM 本地生成同一段 15 秒盲听样本；
-3. 只比较自然度、停顿、英文项目名和客服腔；
-4. 通过后把本地提供器接入 `generate_voice.py` 的时间轴输出格式。
+```powershell
+.\video-flow.ps1 weekly -DossierOnly
+```
+
+## 每期可审计产物
+
+- `output/work/weekly-日期/effective-config.json`：本次实际使用的配置；
+- `data/weekly-日期.json`：榜单快照；
+- `data/dossier-日期.json`：元数据、README 摘要和素材候选；
+- `data/editorial-日期.json`：Codex 结构化编辑结果；
+- `data/episode-日期.json`：配音与镜头的最终输入；
+- `remotion/public/assets/weekly-日期/asset-manifest.json`：实际素材来源；
+- `remotion/src/generated/full-timeline.json`：音频和字幕时间轴；
+- `output/github-weekly-日期-v2-manifest.json`：成片 QA。
+
+同一期重新调用模型会有措辞差异。需要固定文案时保留 `editorial` 并加 `-ReuseEditorial`；需要逐帧重现时还要保留实际素材、旁白音频、时间轴、依赖锁文件和有效配置。
+
+## 网络故障策略
+
+- GitHub Trending 临时失败：自动重试；若同日期快照已经存在，会明确告警并使用缓存；
+- 某个仓库 API 失败：退回榜单描述和 raw README；
+- README 图片或视频超时：退回仓库封面；
+- 仓库封面也失败：生成本地占位图；
+- Codex 输出不合格：带机器检查结果自动重试；
+- Codex 超时：在 `timeout_seconds` 后终止本次尝试，不会无限等待。
+
+## 数据口径
+
+当前榜单来自 GitHub Trending weekly 页面候选，再按页面显示的 `stars this week` 重排。它表示 Trending 候选池内的周热度，不是全 GitHub 严格意义上的七日增星排行。若要升级为严格榜单，需要每天保存候选仓库 Star 总数，并计算当天与七日前的差值。

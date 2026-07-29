@@ -1,11 +1,17 @@
 param(
     [Parameter(Position = 0)]
-    [ValidateSet("setup", "doctor", "prepare", "preview", "full", "package", "publish")]
+    [ValidateSet("setup", "doctor", "weekly", "prepare", "preview", "full", "package", "publish")]
     [string]$Command = "doctor",
     [string]$Edition = (Get-Date -Format "yyyy-MM-dd"),
+    [string]$Config = "config\weekly.json",
+    [string]$Model = "",
+    [string]$Voice = "",
     [string]$Episode = "data\full-v2.json",
     [string]$AssetScript = "scripts\fetch_full_assets.py",
     [int]$Concurrency = 3,
+    [switch]$ReuseEditorial,
+    [switch]$DossierOnly,
+    [switch]$PreviewOnly,
     [switch]$SkipCollect,
     [switch]$SkipAssets,
     [switch]$SkipVoice,
@@ -25,6 +31,18 @@ try {
         }
         "doctor" {
             & scripts\doctor.ps1
+        }
+        "weekly" {
+            & scripts\auto_weekly.ps1 `
+                -Edition $Edition `
+                -Config $Config `
+                -Model $Model `
+                -Voice $Voice `
+                -Concurrency $Concurrency `
+                -ReuseEditorial:$ReuseEditorial `
+                -DossierOnly:$DossierOnly `
+                -PreviewOnly:$PreviewOnly `
+                -SkipInstall:$SkipInstall
         }
         "prepare" {
             & scripts\run_weekly.ps1 `

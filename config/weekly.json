@@ -1,0 +1,31 @@
+{
+  "editorial": {
+    "provider": "codex_cli",
+    "model": "gpt-5.4",
+    "reasoning_effort": "medium",
+    "service_tier": "fast",
+    "disable_mcp": true,
+    "max_attempts": 2,
+    "timeout_seconds": 240
+  },
+  "voice": {
+    "provider": "edge",
+    "name": "zh-CN-XiaoxiaoNeural",
+    "rate": "+4%",
+    "pitch": "+0Hz"
+  },
+  "episode": {
+    "spoken_characters_min": 880,
+    "spoken_characters_max": 950,
+    "target_duration_seconds": [
+      170,
+      190
+    ]
+  },
+  "assets": {
+    "candidates_per_repo": 8
+  },
+  "render": {
+    "concurrency": 3
+  }
+}

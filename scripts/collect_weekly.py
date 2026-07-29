@@ -6,9 +6,11 @@ from __future__ import annotations
 import argparse
 from datetime import datetime
 import html
+from http.client import IncompleteRead
 import json
 from pathlib import Path
 import re
+import time
 import urllib.request
 
 
@@ -79,6 +81,59 @@ def parse_articles(page: str) -> list[dict]:
     return repos
 
 
+def fetch_trending_page(attempts: int = 4) -> str:
+    """Fetch Trending defensively.
+
+    GitHub occasionally closes a chunked response after the useful HTML has
+    arrived. Keep a parseable partial response as a fallback, but prefer a
+    clean retry so a truncated candidate list never silently becomes a chart.
+    """
+    best_page = ""
+    best_count = 0
+    for attempt in range(1, attempts + 1):
+        request = urllib.request.Request(
+            TRENDING_URL,
+            headers={
+                "User-Agent": "RepoReel-weekly-collector/0.3",
+                "Accept": "text/html,application/xhtml+xml",
+                "Accept-Encoding": "identity",
+                "Accept-Language": "en-US,en;q=0.8",
+                "Connection": "close",
+            },
+        )
+        try:
+            with urllib.request.urlopen(request, timeout=60) as response:
+                payload = response.read()
+        except IncompleteRead as error:
+            payload = error.partial
+            print(
+                f"warning=incomplete_response attempt={attempt}/{attempts} "
+                f"bytes={len(payload)}"
+            )
+        except Exception as error:
+            payload = b""
+            print(
+                f"warning=trending_fetch_failed attempt={attempt}/{attempts} "
+                f"error={type(error).__name__}"
+            )
+        page = payload.decode("utf-8", errors="replace")
+        parsed_count = len(parse_articles(page))
+        if parsed_count > best_count:
+            best_page = page
+            best_count = parsed_count
+        if parsed_count >= 10 and "</html>" in page.lower():
+            return page
+        if attempt < attempts:
+            time.sleep(attempt)
+    if best_count >= 10:
+        print(f"warning=using_parseable_partial_response repositories={best_count}")
+        return best_page
+    raise RuntimeError(
+        f"Only parsed {best_count} repositories after {attempts} attempts; "
+        "GitHub markup or network delivery may have changed"
+    )
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--edition", default=datetime.now().strftime("%Y-%m-%d"))
@@ -88,15 +143,7 @@ def main() -> None:
     if not output.is_absolute():
         output = ROOT / output
 
-    request = urllib.request.Request(
-        TRENDING_URL,
-        headers={
-            "User-Agent": "video-flow-weekly-collector/0.3",
-            "Accept-Language": "en-US,en;q=0.8",
-        },
-    )
-    with urllib.request.urlopen(request, timeout=60) as response:
-        page = response.read().decode("utf-8", errors="replace")
+    page = fetch_trending_page()
     candidates = parse_articles(page)
     if len(candidates) < 10:
         raise RuntimeError(

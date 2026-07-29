@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "hook",
+    "mid_reset",
+    "outro",
+    "projects"
+  ],
+  "properties": {
+    "hook": {
+      "type": "string",
+      "minLength": 20,
+      "maxLength": 100
+    },
+    "mid_reset": {
+      "type": "string",
+      "minLength": 15,
+      "maxLength": 80
+    },
+    "outro": {
+      "type": "string",
+      "minLength": 20,
+      "maxLength": 100
+    },
+    "projects": {
+      "type": "array",
+      "minItems": 10,
+      "maxItems": 10,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "repo",
+          "spoken",
+          "headline",
+          "verdict",
+          "facts",
+          "layout",
+          "accent",
+          "primary_asset",
+          "secondary_asset"
+        ],
+        "properties": {
+          "repo": {
+            "type": "string",
+            "pattern": "^[^/]+/[^/]+$"
+          },
+          "spoken": {
+            "type": "string",
+            "minLength": 40,
+            "maxLength": 130
+          },
+          "headline": {
+            "type": "string",
+            "minLength": 8,
+            "maxLength": 40
+          },
+          "verdict": {
+            "type": "string",
+            "minLength": 10,
+            "maxLength": 60
+          },
+          "facts": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": {
+              "type": "string",
+              "minLength": 3,
+              "maxLength": 24,
+              "pattern": "^[A-Za-z0-9+._/ -]+$"
+            }
+          },
+          "layout": {
+            "type": "string",
+            "enum": [
+              "split",
+              "cinematic",
+              "signal",
+              "terminal",
+              "stack",
+              "focus"
+            ]
+          },
+          "accent": {
+            "type": "string",
+            "pattern": "^#[0-9A-Fa-f]{6}$"
+          },
+          "primary_asset": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 7
+          },
+          "secondary_asset": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 7
+          }
+        }
+      }
+    }
+  }
+}

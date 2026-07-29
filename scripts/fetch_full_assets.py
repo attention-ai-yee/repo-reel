@@ -117,6 +117,48 @@ ASSETS = [
         "repo": "https://github.com/MadsLorentzen/ai-job-search",
         "license": "MIT",
     },
+    {
+        "path": "hallmark/og.png",
+        "url": "https://raw.githubusercontent.com/Nutlope/hallmark/main/site/OG-hallmark.png",
+        "repo": "https://github.com/Nutlope/hallmark",
+        "license": "MIT",
+    },
+    {
+        "path": "hallmark/hero-hum.jpg",
+        "url": "https://raw.githubusercontent.com/Nutlope/hallmark/main/docs/screenshots/hero-hum-07.jpg",
+        "repo": "https://github.com/Nutlope/hallmark",
+        "license": "MIT",
+    },
+    {
+        "path": "hallmark/hero-cobalt.jpg",
+        "url": "https://raw.githubusercontent.com/Nutlope/hallmark/main/docs/screenshots/hero-cobalt-01.jpg",
+        "repo": "https://github.com/Nutlope/hallmark",
+        "license": "MIT",
+    },
+    {
+        "path": "hallmark/hero-carnival.jpg",
+        "url": "https://raw.githubusercontent.com/Nutlope/hallmark/main/docs/screenshots/hero-carnival-01.jpg",
+        "repo": "https://github.com/Nutlope/hallmark",
+        "license": "MIT",
+    },
+    {
+        "path": "_raw/desktop-commander-demo.mp4",
+        "url": "https://raw.githubusercontent.com/wonderwhy-er/DesktopCommanderMCP/main/1080_60.mp4",
+        "repo": "https://github.com/wonderwhy-er/DesktopCommanderMCP",
+        "license": "MIT",
+    },
+    {
+        "path": "desktop-commander/header.png",
+        "url": "https://raw.githubusercontent.com/wonderwhy-er/DesktopCommanderMCP/main/header.png",
+        "repo": "https://github.com/wonderwhy-er/DesktopCommanderMCP",
+        "license": "MIT",
+    },
+    {
+        "path": "desktop-commander/docker-config.png",
+        "url": "https://raw.githubusercontent.com/wonderwhy-er/DesktopCommanderMCP/main/screenshots/docker-config.png",
+        "repo": "https://github.com/wonderwhy-er/DesktopCommanderMCP",
+        "license": "MIT",
+    },
 ]
 
 
@@ -157,6 +199,7 @@ def normalize() -> None:
         (RAW / "orca-worktrees.gif", OUT / "orca" / "worktrees.mp4", 7),
         (RAW / "office-word.gif", OUT / "officecli" / "word.mp4", 6),
         (RAW / "office-excel.gif", OUT / "officecli" / "excel.mp4", 6),
+        (RAW / "desktop-commander-demo.mp4", OUT / "desktop-commander" / "demo.mp4", 8),
     ]
     for source, target, seconds in transcodes:
         target.parent.mkdir(parents=True, exist_ok=True)

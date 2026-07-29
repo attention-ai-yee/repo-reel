@@ -6,6 +6,8 @@ output/v2-stills/
 output/full-stills/
 output/playwright/
 output/voice-tests/
+output/*-frame-*.png
+output/*-contact-sheet.jpg
 output/*-test.json
 output/*-manifest.json
 !output/v2-pilot-manifest.json
@@ -13,6 +15,8 @@ output/*.mp4
 !output/github-weekly-v2-pilot.mp4
 dist/
 assets/avatars/
+assets/cache/
+.playwright-cli/
 remotion/node_modules/
 remotion/public/assets/
 remotion/public/audio/
