@@ -87,6 +87,18 @@ const scopeDate =
 const clamp = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
 const editorialFont = '"Noto Serif SC", "Source Han Serif SC", serif';
 const uiFont = '"Bahnschrift", "Noto Sans SC", sans-serif';
+const MOBILE_SAFE = {
+  top: 240,
+  right: 240,
+  bottom: 470,
+  left: 120,
+} as const;
+const MOBILE_SAFE_WIDTH = 1080 - MOBILE_SAFE.left - MOBILE_SAFE.right;
+const MOBILE_SAFE_HEIGHT = 1920 - MOBILE_SAFE.top - MOBILE_SAFE.bottom;
+const MOBILE_SAFE_INSET = 16;
+const MOBILE_CONTENT_LEFT = MOBILE_SAFE.left + MOBILE_SAFE_INSET;
+const MOBILE_CONTENT_RIGHT = MOBILE_SAFE.right + MOBILE_SAFE_INSET;
+const MOBILE_CONTENT_WIDTH = MOBILE_SAFE_WIDTH - MOBILE_SAFE_INSET * 2;
 
 const map = (
   value: number,
@@ -124,21 +136,141 @@ const Grid: React.FC<{color?: string; opacity?: number}> = ({
   />
 );
 
-const Chrome: React.FC<{section: string; accent: string; source?: string}> = ({
+const MobileSafeOverlay: React.FC = () => {
+  const danger = 'rgba(255,67,67,.2)';
+  const safeWidth = MOBILE_SAFE_WIDTH;
+  const safeHeight = MOBILE_SAFE_HEIGHT;
+  return (
+    <AbsoluteFill style={{pointerEvents: 'none', fontFamily: uiFont, zIndex: 9999}}>
+      <div
+        style={{
+          position: 'absolute',
+          inset: `0 0 auto 0`,
+          height: MOBILE_SAFE.top,
+          background: danger,
+        }}
+      />
+      <div
+        style={{
+          position: 'absolute',
+          inset: `auto 0 0 0`,
+          height: MOBILE_SAFE.bottom,
+          background: danger,
+        }}
+      />
+      <div
+        style={{
+          position: 'absolute',
+          left: 0,
+          top: MOBILE_SAFE.top,
+          bottom: MOBILE_SAFE.bottom,
+          width: MOBILE_SAFE.left,
+          background: danger,
+        }}
+      />
+      <div
+        style={{
+          position: 'absolute',
+          right: 0,
+          top: MOBILE_SAFE.top,
+          bottom: MOBILE_SAFE.bottom,
+          width: MOBILE_SAFE.right,
+          background: danger,
+        }}
+      />
+      <div
+        style={{
+          position: 'absolute',
+          left: MOBILE_SAFE.left,
+          top: MOBILE_SAFE.top,
+          width: safeWidth,
+          height: safeHeight,
+          border: '4px solid #57FF76',
+          boxSizing: 'border-box',
+          boxShadow: 'inset 0 0 0 1px rgba(7,10,9,.8)',
+        }}
+      >
+        <div
+          style={{
+            position: 'absolute',
+            left: 0,
+            top: -39,
+            padding: '7px 10px',
+            background: '#57FF76',
+            color: C.ink,
+            fontSize: 15,
+            fontWeight: 950,
+            letterSpacing: 1.5,
+          }}
+        >
+          DOUYIN SAFE · {safeWidth} × {safeHeight}
+        </div>
+      </div>
+      <div
+        style={{
+          position: 'absolute',
+          right: 35,
+          top: 620,
+          display: 'grid',
+          gap: 35,
+          justifyItems: 'center',
+          color: '#fff',
+          fontSize: 14,
+          fontWeight: 850,
+        }}
+      >
+        {['头像', '点赞', '评论', '分享'].map((label) => (
+          <div key={label} style={{textAlign: 'center'}}>
+            <div
+              style={{
+                width: 72,
+                height: 72,
+                marginBottom: 7,
+                borderRadius: '50%',
+                border: '3px solid rgba(255,255,255,.88)',
+                background: 'rgba(0,0,0,.42)',
+              }}
+            />
+            {label}
+          </div>
+        ))}
+      </div>
+      <div
+        style={{
+          position: 'absolute',
+          left: 34,
+          right: 34,
+          bottom: 70,
+          height: 245,
+          padding: '28px 30px',
+          border: '2px dashed rgba(255,255,255,.75)',
+          background: 'rgba(0,0,0,.35)',
+          color: '#fff',
+          fontSize: 23,
+          lineHeight: 1.45,
+          fontWeight: 800,
+        }}
+      >
+        抖音账号、文案、音乐与底部导航区域
+      </div>
+    </AbsoluteFill>
+  );
+};
+
+const Chrome: React.FC<{section: string; accent: string}> = ({
   section,
   accent,
-  source,
 }) => (
   <>
     <div
       style={{
         position: 'absolute',
-        left: 54,
-        top: 45,
+        left: MOBILE_CONTENT_LEFT,
+        top: MOBILE_SAFE.top,
         fontFamily: uiFont,
         fontWeight: 850,
-        fontSize: 21,
-        letterSpacing: 3.6,
+        fontSize: 18,
+        letterSpacing: 3,
         color: C.paper,
       }}
     >
@@ -147,12 +279,12 @@ const Chrome: React.FC<{section: string; accent: string; source?: string}> = ({
     <div
       style={{
         position: 'absolute',
-        right: 54,
-        top: 42,
+        right: MOBILE_CONTENT_RIGHT,
+        top: MOBILE_SAFE.top - 3,
         border: `1px solid ${accent}`,
         padding: '8px 12px',
         fontFamily: uiFont,
-        fontSize: 17,
+        fontSize: 16,
         letterSpacing: 2,
         color: accent,
       }}
@@ -162,28 +294,13 @@ const Chrome: React.FC<{section: string; accent: string; source?: string}> = ({
     <div
       style={{
         position: 'absolute',
-        left: 54,
-        right: 54,
-        top: 96,
+        left: MOBILE_CONTENT_LEFT,
+        right: MOBILE_CONTENT_RIGHT,
+        top: MOBILE_SAFE.top + 58,
         height: 1,
         background: 'rgba(242,239,231,.2)',
       }}
     />
-    {source ? (
-      <div
-        style={{
-          position: 'absolute',
-          left: 55,
-          bottom: 46,
-          fontFamily: uiFont,
-          fontSize: 15,
-          letterSpacing: 1.2,
-          color: C.dim,
-        }}
-      >
-        SOURCE / {source}
-      </div>
-    ) : null}
   </>
 );
 
@@ -201,51 +318,60 @@ const RankStrip: React.FC<{project: Project; accent: string}> = ({
     <div
       style={{
         position: 'absolute',
-        left: 55,
-        top: 128,
+        left: MOBILE_CONTENT_LEFT,
+        right: MOBILE_CONTENT_RIGHT,
+        top: MOBILE_SAFE.top + 88,
         display: 'flex',
         alignItems: 'center',
-        gap: 17,
+        gap: 18,
         opacity: pop,
-        transform: `translateX(${(1 - pop) * -48}px)`,
+        transform: `translateY(${(1 - pop) * 18}px)`,
       }}
     >
       <div
         style={{
-          minWidth: 102,
-          padding: '9px 14px',
+          minWidth: 104,
+          padding: '12px 14px',
           background: accent,
           color: C.ink,
           textAlign: 'center',
           fontFamily: uiFont,
           fontWeight: 950,
-          fontSize: 37,
+          fontSize: 40,
         }}
       >
         #{String(project.rank).padStart(2, '0')}
       </div>
-      <div>
+      <div style={{minWidth: 0, flex: 1}}>
         <div
           style={{
-            color: accent,
+            color: C.paper,
             fontFamily: uiFont,
-            fontSize: 24,
-            fontWeight: 850,
-            letterSpacing: 1.8,
+            fontSize: project.name.length > 28 ? 25 : project.name.length > 22 ? 29 : 36,
+            lineHeight: 1.04,
+            fontWeight: 950,
+            letterSpacing: 0.2,
+            whiteSpace: 'nowrap',
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
           }}
         >
-          +{project.stars_week.toLocaleString('en-US')} / 7 DAYS
+          {project.name}
         </div>
         <div
           style={{
-            marginTop: 4,
-            color: C.dim,
+            marginTop: 8,
+            color: accent,
             fontFamily: uiFont,
-            fontSize: 16,
-            letterSpacing: 1.4,
+            fontSize: 19,
+            fontWeight: 800,
+            letterSpacing: 1,
+            whiteSpace: 'nowrap',
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
           }}
         >
-          {project.owner.toUpperCase()} / {project.name.toUpperCase()}
+          {project.owner.toUpperCase()} · +{project.stars_week.toLocaleString('en-US')} / 7 DAYS
         </div>
       </div>
     </div>
@@ -290,21 +416,38 @@ const CaptionTrack: React.FC<{segment: FullSegment; accent: string}> = ({
   const opacity =
     Math.min(1, Math.max(0, local / 0.12)) *
     Math.min(1, Math.max(0, (active.duration + 0.12 - local) / 0.14));
+  const captionFontSize =
+    active.text.length > 48
+      ? 28
+      : active.text.length > 36
+        ? 32
+        : active.text.length > 28
+          ? 36
+          : 42;
   return (
     <div
       style={{
         position: 'absolute',
-        left: 64,
-        right: 64,
-        bottom: 112,
+        left: MOBILE_CONTENT_LEFT,
+        right: MOBILE_CONTENT_RIGHT,
+        bottom: MOBILE_SAFE.bottom + 12,
+        padding: '16px 22px 18px',
+        borderLeft: `5px solid ${accent}`,
+        background:
+          'linear-gradient(90deg, rgba(7,10,9,.96), rgba(7,10,9,.88) 82%, rgba(7,10,9,.4))',
         textAlign: 'center',
         fontFamily: '"Noto Sans SC", sans-serif',
-        fontSize: 46,
-        lineHeight: 1.32,
+        fontSize: captionFontSize,
+        lineHeight: 1.28,
         fontWeight: 900,
         letterSpacing: -1.15,
         opacity,
-        transform: `translateY(${map(Math.max(0, local), [0, 0.18], [16, 0])}px)`,
+        transform: `translateY(${map(Math.max(0, local), [0, 0.18], [-10, 0])}px)`,
+        display: '-webkit-box',
+        WebkitBoxOrient: 'vertical',
+        WebkitLineClamp: 3,
+        overflow: 'hidden',
+        wordBreak: 'break-word',
         textShadow:
           '0 3px 0 #070A09, 3px 0 0 #070A09, -3px 0 0 #070A09, 0 -3px 0 #070A09, 0 8px 26px rgba(0,0,0,.92)',
       }}
@@ -396,8 +539,9 @@ const Facts: React.FC<{items: string[]; accent: string; progress: number}> = ({
   <div
     style={{
       position: 'absolute',
-      left: 56,
-      top: 1392,
+      left: MOBILE_CONTENT_LEFT,
+      right: MOBILE_CONTENT_RIGHT,
+      top: 1165,
       display: 'flex',
       gap: 12,
       opacity: reveal(progress, 0.6, 0.76),
@@ -415,6 +559,11 @@ const Facts: React.FC<{items: string[]; accent: string; progress: number}> = ({
           fontWeight: 850,
           fontSize: 17,
           letterSpacing: 1.15,
+          minWidth: 0,
+          flex: items.length === 1 ? '0 1 auto' : '1 1 0',
+          whiteSpace: 'nowrap',
+          overflow: 'hidden',
+          textOverflow: 'ellipsis',
         }}
       >
         {item}
@@ -460,24 +609,53 @@ const ProjectScene: React.FC<{segment: FullSegment}> = ({segment}) => {
   const project = segment.project;
   const headlineEnter = reveal(progress, 0.02, 0.18);
   const layout = segment.layout ?? 'cinematic';
+  const headlineLength = segment.headline?.length ?? 0;
+  const headlineFontSize =
+    headlineLength > 32 ? 34 : headlineLength > 24 ? 40 : headlineLength > 18 ? 48 : 60;
+  const verdictLength = segment.verdict?.length ?? 0;
+  const verdictFontSize = verdictLength > 34 ? 21 : verdictLength > 24 ? 23 : 26;
 
   const primaryStyle: React.CSSProperties =
     layout === 'focus'
-      ? {position: 'absolute', left: 35, right: 35, top: 515, height: 845}
+      ? {
+          position: 'absolute',
+          left: MOBILE_CONTENT_LEFT,
+          right: MOBILE_CONTENT_RIGHT,
+          top: 600,
+          height: 560,
+        }
       : layout === 'cinematic'
-        ? {position: 'absolute', left: 58, right: 58, top: 550, height: 800}
+        ? {
+            position: 'absolute',
+            left: MOBILE_SAFE.left,
+            right: MOBILE_SAFE.right,
+            top: 610,
+            height: 550,
+          }
         : layout === 'terminal'
-          ? {position: 'absolute', left: 55, right: 55, top: 535, height: 805}
+          ? {
+              position: 'absolute',
+              left: MOBILE_SAFE.left,
+              right: MOBILE_SAFE.right,
+              top: 610,
+              height: 550,
+            }
           : layout === 'stack'
             ? {
                 position: 'absolute',
                 left: 145,
-                right: 145,
-                top: 555,
-                height: 720,
+                right: 265,
+                top: 620,
+                height: 520,
                 transform: `rotate(${map(progress, [0, 1], [-2.2, 1.2])}deg)`,
               }
-            : {position: 'absolute', left: 48, right: 48, top: 525, height: 500};
+            : {
+                position: 'absolute',
+                left: MOBILE_SAFE.left,
+                right: MOBILE_SAFE.right,
+                top: 610,
+                height: 480,
+              };
 
   return (
     <AbsoluteFill style={{background: C.ink, overflow: 'hidden'}}>
@@ -493,23 +671,28 @@ const ProjectScene: React.FC<{segment: FullSegment}> = ({segment}) => {
       <Chrome
         section={`RANK ${String(project.rank).padStart(2, '0')}`}
         accent={accent}
-        source={`${project.owner}/${project.name}`}
       />
       <RankStrip project={project} accent={accent} />
       <div
         style={{
           position: 'absolute',
-          left: 55,
-          right: 55,
-          top: 250,
+          left: MOBILE_CONTENT_LEFT,
+          right: MOBILE_CONTENT_RIGHT,
+          top: 420,
           fontFamily: editorialFont,
-          fontSize: segment.headline && segment.headline.length > 18 ? 60 : 68,
-          lineHeight: 1.12,
+          fontSize: headlineFontSize,
+          lineHeight: 1.14,
           fontWeight: 900,
-          letterSpacing: -2.7,
+          letterSpacing: headlineFontSize >= 48 ? -2.5 : -1.2,
           color: C.paper,
           opacity: headlineEnter,
           transform: `translateY(${(1 - headlineEnter) * 36}px)`,
+          display: '-webkit-box',
+          WebkitBoxOrient: 'vertical',
+          WebkitLineClamp: headlineLength > 24 ? 3 : 2,
+          maxHeight: 164,
+          overflow: 'hidden',
+          wordBreak: 'break-word',
         }}
       >
         {segment.headline}
@@ -521,13 +704,25 @@ const ProjectScene: React.FC<{segment: FullSegment}> = ({segment}) => {
             visual={segment.visual}
             accent={accent}
             progress={progress}
-            style={{position: 'absolute', left: 48, right: 410, top: 535, height: 790}}
+            style={{
+              position: 'absolute',
+              left: MOBILE_SAFE.left,
+              right: 500,
+              top: 610,
+              height: 550,
+            }}
           />
           <MediaWindow
             visual={segment.secondary_visual}
             accent={accent}
             progress={Math.max(0, progress - 0.12)}
-            style={{position: 'absolute', left: 650, right: 48, top: 635, height: 590}}
+            style={{
+              position: 'absolute',
+              left: 590,
+              right: MOBILE_SAFE.right,
+              top: 680,
+              height: 470,
+            }}
           />
         </>
       ) : (
@@ -539,10 +734,10 @@ const ProjectScene: React.FC<{segment: FullSegment}> = ({segment}) => {
               progress={progress}
               style={{
                 position: 'absolute',
-                left: 60,
-                right: 260,
-                top: 590,
-                height: 650,
+                left: 135,
+                right: 390,
+                top: 650,
+                height: 480,
                 transform: 'rotate(-4deg)',
                 opacity: 0.55,
               }}
@@ -561,8 +756,8 @@ const ProjectScene: React.FC<{segment: FullSegment}> = ({segment}) => {
         <div
           style={{
             position: 'absolute',
-            left: 82,
-            top: 1220,
+            left: MOBILE_SAFE.left + 20,
+            top: 1095,
             padding: '14px 18px',
             background: '#050706',
             borderLeft: `5px solid ${accent}`,
@@ -580,17 +775,22 @@ const ProjectScene: React.FC<{segment: FullSegment}> = ({segment}) => {
       <div
         style={{
           position: 'absolute',
-          left: 56,
-          right: 56,
-          top: 1460,
-          paddingTop: 20,
+          left: MOBILE_CONTENT_LEFT,
+          right: MOBILE_CONTENT_RIGHT,
+          top: 1210,
+          paddingTop: 10,
           borderTop: `3px solid ${accent}`,
           fontFamily: editorialFont,
-          fontSize: 31,
-          lineHeight: 1.35,
+          fontSize: verdictFontSize,
+          lineHeight: 1.24,
           fontWeight: 750,
           color: C.paper,
           opacity: reveal(progress, 0.68, 0.84),
+          display: '-webkit-box',
+          WebkitBoxOrient: 'vertical',
+          WebkitLineClamp: 2,
+          maxHeight: 72,
+          overflow: 'hidden',
         }}
       >
         <span style={{color: accent, marginRight: 12}}>EDITOR NOTE /</span>
@@ -621,13 +821,13 @@ const HookScene: React.FC<{segment: FullSegment}> = ({segment}) => {
       <div
         style={{
           position: 'absolute',
-          left: 55,
-          right: 55,
-          top: 188,
+          left: MOBILE_CONTENT_LEFT,
+          right: MOBILE_CONTENT_RIGHT,
+          top: 330,
           color: C.paper,
           fontFamily: editorialFont,
           fontWeight: 950,
-          fontSize: 94,
+          fontSize: 82,
           lineHeight: 0.98,
           letterSpacing: -5,
           transform: `translateY(${(1 - reveal(progress, 0.01, 0.2)) * 55}px)`,
@@ -641,8 +841,8 @@ const HookScene: React.FC<{segment: FullSegment}> = ({segment}) => {
       <div
         style={{
           position: 'absolute',
-          left: 57,
-          top: 425,
+          left: MOBILE_CONTENT_LEFT + 2,
+          top: 560,
           color: C.dim,
           fontFamily: uiFont,
           fontSize: 23,
@@ -651,12 +851,19 @@ const HookScene: React.FC<{segment: FullSegment}> = ({segment}) => {
       >
         TRENDING CANDIDATES / STARS THIS WEEK
       </div>
-      <div style={{position: 'absolute', left: 55, right: 55, top: 530}}>
+      <div
+        style={{
+          position: 'absolute',
+          left: MOBILE_CONTENT_LEFT,
+          right: MOBILE_CONTENT_RIGHT,
+          top: 650,
+        }}
+      >
         {chart.map((item, index) => {
           const appear = reveal(progress, 0.13 + index * 0.055, 0.35 + index * 0.055);
-          const width = (item.stars / max) * 860 * appear;
+          const width = (item.stars / max) * MOBILE_CONTENT_WIDTH * appear;
           return (
-            <div key={item.name} style={{height: 154, position: 'relative'}}>
+            <div key={item.name} style={{height: 132, position: 'relative'}}>
               <div
                 style={{
                   fontFamily: uiFont,
@@ -665,10 +872,28 @@ const HookScene: React.FC<{segment: FullSegment}> = ({segment}) => {
                   letterSpacing: 1.5,
                   color: index === 0 ? C.acid : C.paper,
                   marginBottom: 10,
+                  display: 'flex',
+                  alignItems: 'baseline',
+                  gap: 16,
                 }}
               >
-                {String(index + 1).padStart(2, '0')} / {item.name}
-                <span style={{float: 'right', color: index === 0 ? C.acid : C.dim}}>
+                <span
+                  style={{
+                    minWidth: 0,
+                    flex: 1,
+                    whiteSpace: 'nowrap',
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
+                  }}
+                >
+                  {String(index + 1).padStart(2, '0')} / {item.name}
+                </span>
+                <span
+                  style={{
+                    flexShrink: 0,
+                    color: index === 0 ? C.acid : C.dim,
+                  }}
+                >
                   +{item.stars.toLocaleString('en-US')}
                 </span>
               </div>
@@ -689,8 +914,8 @@ const HookScene: React.FC<{segment: FullSegment}> = ({segment}) => {
       <div
         style={{
           position: 'absolute',
-          right: 54,
-          bottom: 222,
+          right: MOBILE_CONTENT_RIGHT,
+          bottom: MOBILE_SAFE.bottom + MOBILE_SAFE_INSET,
           padding: '16px 20px',
           background: C.acid,
           color: C.ink,
@@ -736,11 +961,16 @@ const ScopeScene: React.FC<{segment: FullSegment}> = ({segment}) => {
       </div>
       <div
         style={{
+          position: 'absolute',
+          left: MOBILE_CONTENT_LEFT,
+          right: MOBILE_CONTENT_RIGHT,
+          top: 835,
           fontFamily: editorialFont,
-          fontSize: 74,
+          fontSize: 56,
           fontWeight: 950,
           textAlign: 'center',
           lineHeight: 1.08,
+          whiteSpace: 'nowrap',
           transform: `scale(${0.82 + enter * 0.18})`,
         }}
       >
@@ -751,7 +981,7 @@ const ScopeScene: React.FC<{segment: FullSegment}> = ({segment}) => {
       <div
         style={{
           position: 'absolute',
-          bottom: 540,
+          bottom: 520,
           padding: '10px 15px',
           border: '2px solid #070A09',
           fontFamily: uiFont,
@@ -796,8 +1026,8 @@ const MidResetScene: React.FC<{segment: FullSegment}> = ({segment}) => {
       <div
         style={{
           position: 'absolute',
-          left: 55,
-          top: 420,
+          left: MOBILE_CONTENT_LEFT,
+          top: 390,
           fontFamily: editorialFont,
           fontSize: 176,
           lineHeight: 0.86,
@@ -811,7 +1041,15 @@ const MidResetScene: React.FC<{segment: FullSegment}> = ({segment}) => {
         <br />
         FIVE.
       </div>
-      <div style={{position: 'absolute', left: 58, right: 58, top: 900}}>
+      <div
+        style={{
+          position: 'absolute',
+          left: MOBILE_CONTENT_LEFT,
+          right: MOBILE_CONTENT_RIGHT,
+          top: 850,
+          overflow: 'hidden',
+        }}
+      >
         {labels.map((label, index) => (
           <div
             key={label}
@@ -852,11 +1090,11 @@ const OutroScene: React.FC<{segment: FullSegment}> = ({segment}) => {
       <div
         style={{
           position: 'absolute',
-          left: 55,
-          right: 55,
-          top: 185,
+          left: MOBILE_CONTENT_LEFT,
+          right: MOBILE_CONTENT_RIGHT,
+          top: 330,
           fontFamily: editorialFont,
-          fontSize: 92,
+          fontSize: 78,
           fontWeight: 950,
           lineHeight: 0.98,
           letterSpacing: -4.5,
@@ -867,7 +1105,16 @@ const OutroScene: React.FC<{segment: FullSegment}> = ({segment}) => {
         <br />
         <span style={{color: C.acid}}>ONE WEEK.</span>
       </div>
-      <div style={{position: 'absolute', left: 55, right: 55, top: 515}}>
+      <div
+        style={{
+          position: 'absolute',
+          left: MOBILE_CONTENT_LEFT,
+          right: MOBILE_CONTENT_RIGHT,
+          top: 590,
+          overflow: 'hidden',
+          height: 520,
+        }}
+      >
         {projects.map((item, index) => {
           const enter = reveal(progress, 0.08 + index * 0.035, 0.25 + index * 0.035);
           return (
@@ -875,24 +1122,34 @@ const OutroScene: React.FC<{segment: FullSegment}> = ({segment}) => {
               key={item.id}
               style={{
                 position: 'absolute',
-                left: index % 2 ? 480 : 0,
-                top: Math.floor(index / 2) * 115,
-                width: 450,
-                height: 84,
+                left: index % 2 ? 358 : 0,
+                top: Math.floor(index / 2) * 105,
+                width: 330,
+                height: 78,
                 display: 'flex',
                 alignItems: 'center',
                 borderBottom: '1px solid rgba(242,239,231,.18)',
                 fontFamily: uiFont,
-                fontSize: 20,
+                fontSize: 18,
                 color: index >= 7 ? C.acid : C.paper,
                 opacity: enter,
                 transform: `translateX(${(1 - enter) * (index % 2 ? 70 : -70)}px)`,
               }}
             >
-              <span style={{color: C.dim, width: 52}}>
+              <span style={{color: C.dim, width: 52, flexShrink: 0}}>
                 {String(item.project?.rank).padStart(2, '0')}
               </span>
-              {item.project?.name.toUpperCase()}
+              <span
+                style={{
+                  minWidth: 0,
+                  flex: 1,
+                  whiteSpace: 'nowrap',
+                  overflow: 'hidden',
+                  textOverflow: 'ellipsis',
+                }}
+              >
+                {item.project?.name.toUpperCase()}
+              </span>
             </div>
           );
         })}
@@ -900,10 +1157,10 @@ const OutroScene: React.FC<{segment: FullSegment}> = ({segment}) => {
       <div
         style={{
           position: 'absolute',
-          left: 55,
-          right: 55,
-          top: 1170,
-          padding: '32px 34px',
+          left: MOBILE_CONTENT_LEFT,
+          right: MOBILE_CONTENT_RIGHT,
+          top: 1105,
+          padding: '22px 26px',
           background: C.acid,
           color: C.ink,
           opacity: reveal(progress, 0.52, 0.7),
@@ -917,7 +1174,7 @@ const OutroScene: React.FC<{segment: FullSegment}> = ({segment}) => {
           style={{
             marginTop: 12,
             fontFamily: editorialFont,
-            fontSize: 52,
+            fontSize: 42,
             fontWeight: 950,
           }}
         >
@@ -972,5 +1229,12 @@ export const GitHubWeeklyV2Full: React.FC = () => {
     </AbsoluteFill>
   );
 };
+
+export const GitHubWeeklyV2MobileSafe: React.FC = () => (
+  <AbsoluteFill>
+    <GitHubWeeklyV2Full />
+    <MobileSafeOverlay />
+  </AbsoluteFill>
+);
 
 export const fullDurationInFrames = timeline.durationInFrames;

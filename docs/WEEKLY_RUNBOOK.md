@@ -52,6 +52,25 @@ output/github-weekly-日期-v2.mp4
 
 视频不是由 Codex 内置视频模型直接生成。Codex 只做第 4 步的编辑决策；视觉、音频与编码全部由仓库里的可重复脚本完成。
 
+## 抖音移动端安全区
+
+正式模板按 1080×1920 画布保留以下关键内容安全区：
+
+- 顶部 240px：避开状态栏、频道标签和设备裁切；
+- 底部 470px：避开账号、发布文案、音乐和底部导航；
+- 左侧 120px：兼容圆角屏幕与轻微横向裁切；
+- 右侧 240px：避开头像、点赞、评论和分享按钮。
+
+项目名、排名、标题、字幕、判断和关键素材均限制在中央 720×1210 区域。该数值是面向普通推荐流的保守工程值；抖音界面会随设备、文案行数和版本变化。需要检查任意一帧时，可渲染带抖音界面模拟层的 QA Composition：
+
+```powershell
+cd remotion
+.\node_modules\.bin\remotion.cmd still `
+  src\index.ts GitHubWeeklyV2MobileSafe `
+  ..\output\mobile-safe-check.png `
+  --frame=500
+```
+
 ## 常用模式
 
 先出半分辨率预览：
