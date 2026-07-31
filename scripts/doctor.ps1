@@ -73,6 +73,19 @@ Add-Check "npm" ($null -ne (Get-Command npm -ErrorAction SilentlyContinue)) (Com
 Add-Check "FFmpeg" ($null -ne (Get-Command ffmpeg -ErrorAction SilentlyContinue)) (Command-Path "ffmpeg") $RuntimeRequired
 Add-Check "FFprobe" ($null -ne (Get-Command ffprobe -ErrorAction SilentlyContinue)) (Command-Path "ffprobe") $RuntimeRequired
 Add-Check "Chromium" ($null -ne $Browser) $(if ($Browser) { $Browser } else { "run setup to install" }) $RuntimeRequired
+$Codex = Get-Command codex -ErrorAction SilentlyContinue
+Add-Check "Codex CLI" ($null -ne $Codex) $(if ($Codex) { & codex --version } else { "run setup to install" }) $RuntimeRequired
+if ($Mode -eq "Runtime" -and $Codex) {
+    $PreviousErrorAction = $ErrorActionPreference
+    $ErrorActionPreference = "Continue"
+    & codex -c 'service_tier="fast"' login status *> $null
+    $CodexLoginExitCode = $LASTEXITCODE
+    $ErrorActionPreference = $PreviousErrorAction
+    Add-Check "Codex login" ($CodexLoginExitCode -eq 0) $(if ($CodexLoginExitCode -eq 0) { "authenticated" } else { "run codex login" })
+}
+elseif ($Mode -eq "Runtime") {
+    Add-Check "Codex login" $false "Codex CLI unavailable"
+}
 
 if ($Mode -eq "Runtime" -and $Python) {
     & $Python -c "import edge_tts, numpy; print('ok')" *> $null
@@ -87,10 +100,14 @@ $RequiredSource = @(
     "requirements.txt",
     "data\pilot-v2.json",
     "data\full-v2.json",
+    "config\weekly.json",
+    "schemas\editorial-plan.schema.json",
     "remotion\package-lock.json",
     "remotion\src\v2-pilot.tsx",
     "remotion\src\v2-full.tsx",
-    "scripts\run_weekly.ps1"
+    "scripts\run_weekly.ps1",
+    "scripts\auto_prepare.py",
+    "scripts\auto_weekly.ps1"
 )
 foreach ($relative in $RequiredSource) {
     Add-Check "Source: $relative" (Test-Path (Join-Path $Root $relative)) $relative

@@ -108,25 +108,42 @@ def main() -> None:
     )
     black_segments = black.stderr.count("black_start:")
 
-    required_ids = {
-        "pilot_clip",
-        "awesome_llm_apps",
-        "vibe_trading",
-        "omniroute",
-        "mid_reset",
-        "meetily",
-        "orca",
-        "officecli",
-        "opencut",
-        "ai_job_search",
-        "outro",
-    }
+    silence = run(
+        [
+            "ffmpeg",
+            "-hide_banner",
+            "-v",
+            "info",
+            "-i",
+            str(video),
+            "-af",
+            "silencedetect=n=-45dB:d=2.5",
+            "-vn",
+            "-f",
+            "null",
+            "-",
+        ],
+        check=False,
+    )
+    silence_segments = silence.stderr.count("silence_start:")
+
+    required_ids = {"hook", "scope", "mid_reset", "outro"}
     actual_ids = {item["id"] for item in timeline["segments"]}
-    if actual_ids != required_ids:
+    if not required_ids.issubset(actual_ids):
         errors.append(
             f"timeline ids mismatch: missing={sorted(required_ids - actual_ids)} "
-            f"extra={sorted(actual_ids - required_ids)}"
         )
+    project_segments = [item for item in timeline["segments"] if item.get("project")]
+    project_ranks = sorted(item["project"]["rank"] for item in project_segments)
+    if len(project_segments) != 10 or project_ranks != list(range(1, 11)):
+        errors.append(
+            f"expected ten project ranks 1-10, got count={len(project_segments)} "
+            f"ranks={project_ranks}"
+        )
+    if black_segments:
+        errors.append(f"detected {black_segments} black segment(s) over 0.3s")
+    if silence_segments:
+        errors.append(f"detected {silence_segments} silent segment(s) over 2.5s")
 
     result = {
         "video": str(video.relative_to(ROOT)).replace("\\", "/"),
@@ -139,6 +156,7 @@ def main() -> None:
         "audio_sample_rate": int(audio_stream["sample_rate"]),
         "full_decode": "ok" if not decode.returncode and not decode.stderr.strip() else "failed",
         "black_segments_over_0_3s": black_segments,
+        "silence_segments_over_2_5s": silence_segments,
         "episode_segments": [item["id"] for item in timeline["segments"]],
         "voice": timeline["voice"],
         "render_engine": "Remotion 4.0.489 + FFmpeg",

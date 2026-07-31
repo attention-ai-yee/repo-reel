@@ -30,6 +30,23 @@ foreach ($command in @("node", "npm", "ffmpeg", "ffprobe")) {
 $Python = Find-Python
 Push-Location $Root
 try {
+    if (-not (Get-Command codex -ErrorAction SilentlyContinue)) {
+        Write-Host "`n== Install Codex CLI ==" -ForegroundColor Cyan
+        npm install -g @openai/codex
+        if ($LASTEXITCODE -ne 0) { throw "Codex CLI installation failed." }
+    }
+
+    $PreviousErrorAction = $ErrorActionPreference
+    $ErrorActionPreference = "Continue"
+    & codex -c 'service_tier="fast"' login status *> $null
+    $CodexLoginExitCode = $LASTEXITCODE
+    $ErrorActionPreference = $PreviousErrorAction
+    if ($CodexLoginExitCode -ne 0) {
+        Write-Host "`n== Sign in to Codex ==" -ForegroundColor Cyan
+        & codex -c 'service_tier="fast"' login
+        if ($LASTEXITCODE -ne 0) { throw "Codex CLI login failed." }
+    }
+
     & $Python -m pip install -r requirements.txt
     if ($LASTEXITCODE -ne 0) { throw "Python dependency installation failed." }
 

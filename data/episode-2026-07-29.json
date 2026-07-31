@@ -1,0 +1,456 @@
+{
+  "edition": "2026-07-29",
+  "status": "auto_reviewed",
+  "source": "data/weekly-2026-07-29.json",
+  "dossier": "data/dossier-2026-07-29.json",
+  "editorial": "data/editorial-2026-07-29.json",
+  "fps": 30,
+  "target_duration_seconds": [
+    170,
+    190
+  ],
+  "voice": {
+    "provider": "edge",
+    "name": "zh-CN-XiaoxiaoNeural",
+    "rate": "+4%",
+    "pitch": "+0Hz"
+  },
+  "segments": [
+    {
+      "id": "hook",
+      "kind": "spoken",
+      "spoken": "本周GitHub热榜，我挑了十个能马上看懂用途的项目。有人在补工具链，有人已经做出能演示的产品。",
+      "onscreen": [
+        "GITHUB WEEKLY",
+        "TOP 10"
+      ],
+      "chart": [
+        {
+          "name": "BUZZ",
+          "stars": 15046
+        },
+        {
+          "name": "SKILLS",
+          "stars": 12794
+        },
+        {
+          "name": "WORLDMONITOR",
+          "stars": 12173
+        },
+        {
+          "name": "AI-AGENT-BOOK",
+          "stars": 10637
+        },
+        {
+          "name": "OMNIROUTE",
+          "stars": 10028
+        }
+      ],
+      "tail_seconds": 0.45
+    },
+    {
+      "id": "scope",
+      "kind": "silent",
+      "fixed_seconds": 1.8,
+      "onscreen": [
+        "GITHUB TRENDING",
+        "WEEKLY CANDIDATES",
+        "CAPTURED 2026-07-29"
+      ]
+    },
+    {
+      "id": "rank_10",
+      "kind": "spoken",
+      "layout": "split",
+      "accent": "#FFB000",
+      "spoken": "第十名Open Code Review，做AI代码审查命令行。README给出行级评论、全库scan和基准。取向偏高精度，召回率明确压低。",
+      "headline": "阿里把内部审查器开源了",
+      "verdict": "适合想把AI审查接进现有提交流程的团队。",
+      "facts": [
+        "line-level review",
+        "full repo scan"
+      ],
+      "project": {
+        "rank": 10,
+        "owner": "alibaba",
+        "name": "open-code-review",
+        "url": "https://github.com/alibaba/open-code-review",
+        "stars_week": 4672
+      },
+      "visual": {
+        "type": "image",
+        "path": "assets/weekly-2026-07-29/open-code-review/primary-0e6556472b.png",
+        "label": "OFFICIAL README ASSET",
+        "fit": "contain"
+      },
+      "onscreen": [
+        "#10",
+        "OPEN-CODE-REVIEW",
+        "+4,672"
+      ],
+      "tail_seconds": 0.3,
+      "secondary_visual": {
+        "type": "image",
+        "path": "assets/weekly-2026-07-29/open-code-review/secondary-77bbdca720.png",
+        "label": "OFFICIAL README ASSET",
+        "fit": "contain"
+      }
+    },
+    {
+      "id": "rank_09",
+      "kind": "spoken",
+      "layout": "cinematic",
+      "accent": "#00C2FF",
+      "spoken": "第九名ego-lite，是给代理跑浏览器自动化的共享浏览器。README有演示视频，也写明当前只支持macOS。Windows和Linux还在路线图上。",
+      "headline": "把登录态借给代理用的浏览器",
+      "verdict": "演示很顺，但平台覆盖现在还偏窄。",
+      "facts": [
+        "macOS only",
+        "demo video"
+      ],
+      "project": {
+        "rank": 9,
+        "owner": "citrolabs",
+        "name": "ego-lite",
+        "url": "https://github.com/citrolabs/ego-lite",
+        "stars_week": 4904
+      },
+      "visual": {
+        "type": "video",
+        "path": "assets/weekly-2026-07-29/ego-lite/primary-9ff76af00b.mp4",
+        "label": "OFFICIAL README ASSET",
+        "fit": "cover"
+      },
+      "onscreen": [
+        "#09",
+        "EGO-LITE",
+        "+4,904"
+      ],
+      "tail_seconds": 0.3,
+      "secondary_visual": {
+        "type": "image",
+        "path": "assets/weekly-2026-07-29/ego-lite/secondary-3d53c00ae3.png",
+        "label": "OFFICIAL README ASSET",
+        "fit": "contain"
+      }
+    },
+    {
+      "id": "rank_08",
+      "kind": "spoken",
+      "layout": "signal",
+      "accent": "#FF5A36",
+      "spoken": "第八名RuView，把普通WiFi变成空间感知和生命体征监测。README列了Home Assistant、Matter和Apple Home接入。核心证据很足，硬件门槛仍要自己评估。",
+      "headline": "用WiFi做空间感知",
+      "verdict": "概念够抓人，落地前先看你家设备条件。",
+      "facts": [
+        "WiFi sensing",
+        "smart home"
+      ],
+      "project": {
+        "rank": 8,
+        "owner": "ruvnet",
+        "name": "RuView",
+        "url": "https://github.com/ruvnet/RuView",
+        "stars_week": 5026
+      },
+      "visual": {
+        "type": "image",
+        "path": "assets/weekly-2026-07-29/ruview/primary-c0eac70806.png",
+        "label": "OFFICIAL README ASSET",
+        "fit": "contain"
+      },
+      "onscreen": [
+        "#08",
+        "RUVIEW",
+        "+5,026"
+      ],
+      "tail_seconds": 0.3,
+      "secondary_visual": {
+        "type": "image",
+        "path": "assets/weekly-2026-07-29/ruview/secondary-a219111c57.png",
+        "label": "GITHUB REPOSITORY",
+        "fit": "contain"
+      }
+    },
+    {
+      "id": "rank_07",
+      "kind": "spoken",
+      "layout": "terminal",
+      "accent": "#8CFF3F",
+      "spoken": "第七名Pi Agent Harness，是一套代理运行时加编码CLI。README拆成统一LLM接口、agent core和TUI。权限隔离内建缺席，容器化要自己补。",
+      "headline": "一套拆开的代理工具箱",
+      "verdict": "模块清楚，安全边界需要使用方自建。",
+      "facts": [
+        "agent runtime",
+        "no sandbox"
+      ],
+      "project": {
+        "rank": 7,
+        "owner": "earendil-works",
+        "name": "pi",
+        "url": "https://github.com/earendil-works/pi",
+        "stars_week": 5244
+      },
+      "visual": {
+        "type": "image",
+        "path": "assets/weekly-2026-07-29/pi/primary-92628044ec.png",
+        "label": "OFFICIAL README ASSET",
+        "fit": "contain"
+      },
+      "onscreen": [
+        "#07",
+        "PI",
+        "+5,244"
+      ],
+      "tail_seconds": 0.3,
+      "secondary_visual": {
+        "type": "image",
+        "path": "assets/weekly-2026-07-29/pi/secondary-2d20fefd76.png",
+        "label": "GITHUB REPOSITORY",
+        "fit": "contain"
+      }
+    },
+    {
+      "id": "rank_06",
+      "kind": "spoken",
+      "layout": "focus",
+      "accent": "#FFD400",
+      "spoken": "第六名i-have-adhd，是约束编码助手输出风格的技能包。README直接给前后对比，主打先结论再步骤。它解决表达层，业务能力仍看宿主代理。",
+      "headline": "专治答案埋太深的技能",
+      "verdict": "很轻，见效快，但只改说法不补能力。",
+      "facts": [
+        "output style",
+        "before after"
+      ],
+      "project": {
+        "rank": 6,
+        "owner": "ayghri",
+        "name": "i-have-adhd",
+        "url": "https://github.com/ayghri/i-have-adhd",
+        "stars_week": 6156
+      },
+      "visual": {
+        "type": "image",
+        "path": "assets/weekly-2026-07-29/i-have-adhd/primary-bbe94075ad.png",
+        "label": "OFFICIAL README ASSET",
+        "fit": "contain"
+      },
+      "onscreen": [
+        "#06",
+        "I-HAVE-ADHD",
+        "+6,156"
+      ],
+      "tail_seconds": 0.3,
+      "secondary_visual": {
+        "type": "image",
+        "path": "assets/weekly-2026-07-29/i-have-adhd/secondary-d8a346d130.png",
+        "label": "GITHUB REPOSITORY",
+        "fit": "contain"
+      }
+    },
+    {
+      "id": "mid_reset",
+      "kind": "spoken",
+      "spoken": "前五个偏产品和平台，后五个更贴近开发流。下面继续往上排。",
+      "onscreen": [
+        "TOP 5"
+      ],
+      "tail_seconds": 0.35
+    },
+    {
+      "id": "rank_05",
+      "kind": "spoken",
+      "layout": "stack",
+      "accent": "#00E5A8",
+      "spoken": "第五名OmniRoute，想做一个聚合多家模型的免费网关。README写到单端点、自动回退和免费额度面板。额度两周复核一次，数字会随目录变化。",
+      "headline": "把免费模型额度拢成一个入口",
+      "verdict": "对多模型工作流很实用，运营数据会持续波动。",
+      "facts": [
+        "single endpoint",
+        "quota fallback"
+      ],
+      "project": {
+        "rank": 5,
+        "owner": "diegosouzapw",
+        "name": "OmniRoute",
+        "url": "https://github.com/diegosouzapw/OmniRoute",
+        "stars_week": 10028
+      },
+      "visual": {
+        "type": "image",
+        "path": "assets/weekly-2026-07-29/omniroute/primary-eb8d1955b8.png",
+        "label": "OFFICIAL README ASSET",
+        "fit": "contain"
+      },
+      "onscreen": [
+        "#05",
+        "OMNIROUTE",
+        "+10,028"
+      ],
+      "tail_seconds": 0.3,
+      "secondary_visual": {
+        "type": "image",
+        "path": "assets/weekly-2026-07-29/omniroute/secondary-e6092f2ea1.svg",
+        "label": "OFFICIAL README ASSET",
+        "fit": "contain"
+      }
+    },
+    {
+      "id": "rank_04",
+      "kind": "spoken",
+      "layout": "cinematic",
+      "accent": "#FF6B6B",
+      "spoken": "第四名ai-agent-book，是一本把Agent原理讲到工程实践的开源书。README列出十章正文、九十三个实验和九种语言。优势是系统化，产品演示型素材偏少。",
+      "headline": "把Agent工程化写成整本书",
+      "verdict": "适合系统补课，视觉资产主要靠封面。",
+      "facts": [
+        "93 labs",
+        "9 languages"
+      ],
+      "project": {
+        "rank": 4,
+        "owner": "bojieli",
+        "name": "ai-agent-book",
+        "url": "https://github.com/bojieli/ai-agent-book",
+        "stars_week": 10637
+      },
+      "visual": {
+        "type": "image",
+        "path": "assets/weekly-2026-07-29/ai-agent-book/primary-a5d6b1c243.png",
+        "label": "GITHUB REPOSITORY",
+        "fit": "contain"
+      },
+      "onscreen": [
+        "#04",
+        "AI-AGENT-BOOK",
+        "+10,637"
+      ],
+      "tail_seconds": 0.3
+    },
+    {
+      "id": "rank_03",
+      "kind": "spoken",
+      "layout": "cinematic",
+      "accent": "#39D0FF",
+      "spoken": "第三名worldmonitor，做全球情报监控和新闻聚合大盘。README写了五百多个信源、十五类主题和MCP发布。功能面很宽，许可证栏目前给的是NOASSERTION。",
+      "headline": "把全球新闻揉成态势面板",
+      "verdict": "信息密度高，商用前先核对授权边界。",
+      "facts": [
+        "500+ feeds",
+        "MCP server"
+      ],
+      "project": {
+        "rank": 3,
+        "owner": "koala73",
+        "name": "worldmonitor",
+        "url": "https://github.com/koala73/worldmonitor",
+        "stars_week": 12173
+      },
+      "visual": {
+        "type": "image",
+        "path": "assets/weekly-2026-07-29/worldmonitor/primary-9ca15c59c4.jpg",
+        "label": "OFFICIAL README ASSET",
+        "fit": "contain"
+      },
+      "onscreen": [
+        "#03",
+        "WORLDMONITOR",
+        "+12,173"
+      ],
+      "tail_seconds": 0.3,
+      "secondary_visual": {
+        "type": "image",
+        "path": "assets/weekly-2026-07-29/worldmonitor/secondary-fe93b2d46f.svg",
+        "label": "OFFICIAL README ASSET",
+        "fit": "contain"
+      }
+    },
+    {
+      "id": "rank_02",
+      "kind": "spoken",
+      "layout": "signal",
+      "accent": "#FF8A00",
+      "spoken": "第二名mattpocock/skills，给工程师整理可组合的代理技能。README强调小而可改，支持插件安装和skills.sh分发。装两套会重复，这个限制写得很直白。",
+      "headline": "工程师味很重的技能仓",
+      "verdict": "方法论清楚，安装路径要提前选一种。",
+      "facts": [
+        "composable skills",
+        "dual install"
+      ],
+      "project": {
+        "rank": 2,
+        "owner": "mattpocock",
+        "name": "skills",
+        "url": "https://github.com/mattpocock/skills",
+        "stars_week": 12794
+      },
+      "visual": {
+        "type": "image",
+        "path": "assets/weekly-2026-07-29/skills/primary-748cce7bc9.png",
+        "label": "OFFICIAL README ASSET",
+        "fit": "contain"
+      },
+      "onscreen": [
+        "#02",
+        "SKILLS",
+        "+12,794"
+      ],
+      "tail_seconds": 0.3,
+      "secondary_visual": {
+        "type": "image",
+        "path": "assets/weekly-2026-07-29/skills/secondary-523ae74f8c.svg",
+        "label": "OFFICIAL README ASSET",
+        "fit": "contain"
+      }
+    },
+    {
+      "id": "rank_01",
+      "kind": "spoken",
+      "layout": "terminal",
+      "accent": "#7CFF00",
+      "spoken": "第一名block/buzz，做人和代理同房间协作的自托管工作区。README把消息、审批和git事件都放进同一签名日志。今天主打单relay，多社区托管是运营形态。",
+      "headline": "把代理直接拉进团队工作区",
+      "verdict": "方向很完整，当前默认部署形态还偏单点。",
+      "facts": [
+        "self-hostable",
+        "signed event log"
+      ],
+      "project": {
+        "rank": 1,
+        "owner": "block",
+        "name": "buzz",
+        "url": "https://github.com/block/buzz",
+        "stars_week": 15046
+      },
+      "visual": {
+        "type": "image",
+        "path": "assets/weekly-2026-07-29/buzz/primary-51b6373923.png",
+        "label": "OFFICIAL README ASSET",
+        "fit": "contain"
+      },
+      "onscreen": [
+        "#01",
+        "BUZZ",
+        "+15,046"
+      ],
+      "tail_seconds": 0.3,
+      "secondary_visual": {
+        "type": "image",
+        "path": "assets/weekly-2026-07-29/buzz/secondary-81fe4ecef3.png",
+        "label": "OFFICIAL README ASSET",
+        "fit": "contain"
+      }
+    },
+    {
+      "id": "outro",
+      "kind": "spoken",
+      "spoken": "这周前十能看出一个方向：大家都在把代理、接口和协作，往可交付产品继续压实。",
+      "onscreen": [
+        "10 PROJECTS",
+        "ONE WEEK",
+        "NEXT · REAL TEST"
+      ],
+      "tail_seconds": 0.8
+    }
+  ]
+}
