@@ -116,6 +116,8 @@ def main() -> None:
             "real product evidence for every repository",
             "no repeated sentence openings",
             "no 不是 A 而是 B, 不等于, 说白了, 真正, 本质上 phrasing",
+            "vary rhythm: avoid the uniform 痛点 + 它把A、B、C变成D tricolon on every item",
+            "no slogan-style 从X到Y endings or 主线只有一条 framing; keep all numbers/names/licenses",
             "one mid-video attention reset",
             "preview approval before full render",
         ],
