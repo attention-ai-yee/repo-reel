@@ -8,7 +8,8 @@ param(
     [switch]$SkipAssets,
     [switch]$SkipVoice,
     [switch]$SkipInstall,
-    [int]$Concurrency = 3
+    [int]$Concurrency = 3,
+    [int]$Port = 3333
 )
 
 $ErrorActionPreference = "Stop"
@@ -128,7 +129,7 @@ try {
                     src\index.ts GitHubWeeklyV2Full $Preview `
                     --codec=h264 --crf=22 --pixel-format=yuv420p `
                     --audio-codec=aac --audio-bitrate=160k `
-                    --scale=0.5 --concurrency=$Concurrency
+                    --scale=0.5 --concurrency=$Concurrency --port=$Port
             }
             Write-Host "`nPreview ready: $Preview" -ForegroundColor Green
             exit 0
@@ -139,7 +140,7 @@ try {
                 src\index.ts GitHubWeeklyV2Full $Raw `
                 --codec=h264 --crf=18 --pixel-format=yuv420p `
                 --audio-codec=aac --audio-bitrate=192k `
-                --concurrency=$Concurrency
+                --concurrency=$Concurrency --port=$Port
         }
     }
     finally {

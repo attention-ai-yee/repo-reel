@@ -1,0 +1,109 @@
+{
+  "edition": "2026-07-31",
+  "captured_at": "2026-07-31T01:36:54+08:00",
+  "source_url": "https://github.com/trending?since=weekly",
+  "scope": "GitHub Trending weekly page candidates, re-ranked by displayed stars this week",
+  "candidate_count": 21,
+  "repos": [
+    {
+      "owner": "block",
+      "name": "buzz",
+      "url": "https://github.com/block/buzz",
+      "language": "Rust",
+      "description": "A hive mind communication platform",
+      "stars_total": 18144,
+      "stars_week": 13317,
+      "rank": 1
+    },
+    {
+      "owner": "mattpocock",
+      "name": "skills",
+      "url": "https://github.com/mattpocock/skills",
+      "language": "Shell",
+      "description": "Skills for Real Engineers. Straight from my .agents directory.",
+      "stars_total": 195993,
+      "stars_week": 12680,
+      "rank": 2
+    },
+    {
+      "owner": "diegosouzapw",
+      "name": "OmniRoute",
+      "url": "https://github.com/diegosouzapw/OmniRoute",
+      "language": "TypeScript",
+      "description": "Never stop coding. Free MIT AI gateway: one endpoint, 290+ providers (90+ free), 500+ models — Kimi, Claude, GPT, OpenAI, Gemini, GLM, DeepSeek, MiniMax. Works with Claude Code, Codex, Cursor, OpenCode, Cline & Copilot. Quota-aware auto-fallback, RTK+Caveman compression saves 15-95% tokens, MCP/A2A, Desktop/PWA. Built by 500+ contributors",
+      "stars_total": 34917,
+      "stars_week": 9420,
+      "rank": 3
+    },
+    {
+      "owner": "bojieli",
+      "name": "ai-agent-book",
+      "url": "https://github.com/bojieli/ai-agent-book",
+      "language": "Python",
+      "description": "《深入理解 AI Agent：设计原理与工程实践》（李博杰 著）开源主仓库：全书正文、编译版 PDF 与按章配套代码",
+      "stars_total": 27295,
+      "stars_week": 8998,
+      "rank": 4
+    },
+    {
+      "owner": "koala73",
+      "name": "worldmonitor",
+      "url": "https://github.com/koala73/worldmonitor",
+      "language": "TypeScript",
+      "description": "Real-time global intelligence dashboard. AI-powered news aggregation, geopolitical monitoring, and infrastructure tracking in a unified situational awareness interface",
+      "stars_total": 76890,
+      "stars_week": 8681,
+      "rank": 5
+    },
+    {
+      "owner": "ayghri",
+      "name": "i-have-adhd",
+      "url": "https://github.com/ayghri/i-have-adhd",
+      "language": "Python",
+      "description": "A skill for your coding agent to stop it from burying the answer. ADHD-friendly output.",
+      "stars_total": 14098,
+      "stars_week": 5544,
+      "rank": 6
+    },
+    {
+      "owner": "earendil-works",
+      "name": "pi",
+      "url": "https://github.com/earendil-works/pi",
+      "language": "TypeScript",
+      "description": "AI agent toolkit: unified LLM API, agent loop, TUI, coding agent CLI",
+      "stars_total": 80872,
+      "stars_week": 4979,
+      "rank": 7
+    },
+    {
+      "owner": "alibaba",
+      "name": "open-code-review",
+      "url": "https://github.com/alibaba/open-code-review",
+      "language": "Go",
+      "description": "Open-source & free — Battle-tested at Alibaba's scale. Hybrid architecture code review tool: deterministic pipelines + LLM Agent, precise line-level comments, built-in fine-tuned ruleset (NPE, thread-safety, XSS, SQL injection), OpenAI & Anthropic compatible.",
+      "stars_total": 16498,
+      "stars_week": 4875,
+      "rank": 8
+    },
+    {
+      "owner": "citrolabs",
+      "name": "ego-lite",
+      "url": "https://github.com/citrolabs/ego-lite",
+      "language": "JavaScript",
+      "description": "The fastest browser for AI agents to run browser automation, built for sharing your logged-in browser state with your AI agents, like Codex or Claude Code, without disturbing you. Zero cost, zero config.",
+      "stars_total": 6413,
+      "stars_week": 4863,
+      "rank": 9
+    },
+    {
+      "owner": "virgiliojr94",
+      "name": "book-to-skill",
+      "url": "https://github.com/virgiliojr94/book-to-skill",
+      "language": "Python",
+      "description": "Turn any technical book PDF into a Claude Code skill — ready to study, reference, and use while you work.",
+      "stars_total": 13596,
+      "stars_week": 3094,
+      "rank": 10
+    }
+  ]
+}

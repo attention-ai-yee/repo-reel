@@ -83,7 +83,20 @@ def main() -> None:
         errors.append(f"audio sample rate is {audio_stream.get('sample_rate')}")
 
     decode = run(
-        ["ffmpeg", "-v", "error", "-i", str(video), "-f", "null", "-"],
+        [
+            "ffmpeg",
+            "-v",
+            "error",
+            "-i",
+            str(video),
+            "-c:v",
+            "rawvideo",
+            "-c:a",
+            "pcm_s16le",
+            "-f",
+            "null",
+            "-",
+        ],
         check=False,
     )
     if decode.returncode or decode.stderr.strip():
@@ -100,6 +113,8 @@ def main() -> None:
             "-vf",
             "blackdetect=d=0.3:pix_th=0.02",
             "-an",
+            "-c:v",
+            "rawvideo",
             "-f",
             "null",
             "-",
@@ -119,6 +134,8 @@ def main() -> None:
             "-af",
             "silencedetect=n=-45dB:d=2.5",
             "-vn",
+            "-c:a",
+            "pcm_s16le",
             "-f",
             "null",
             "-",
