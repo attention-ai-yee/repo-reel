@@ -64,6 +64,22 @@ V1 的卡片式画面与 Windows SAPI 旁白只保留作技术验证，不再作
 
 编辑模型本身有采样差异，因此重新生成 editorial 不承诺逐字一致；使用 `-ReuseEditorial` 才会固定文案。完整 1080×1920 本地编码仍需数分钟到十几分钟，但执行过程不再要求人工介入。详细产物和故障策略见 [`docs/WEEKLY_RUNBOOK.md`](docs/WEEKLY_RUNBOOK.md)。
 
+### 不依赖 Codex：任意工具生成口播（provider=manual）
+
+Codex 只负责“写口播”这一步，其余采集、素材、配音、渲染、响度、QA 全是确定性脚本。想让任意工具（手写、其他大模型、你自己的脚本）来产出文案、完全不装 Codex，把 [`config/weekly.json`](config/weekly.json) 的 `editorial.provider` 改成 `manual`：
+
+```jsonc
+"editorial": { "provider": "manual", ... }
+```
+
+然后用任意工具产出本期编辑方案 `data/editorial-<edition>.json`，它必须符合 [`schemas/editorial-plan.schema.json`](schemas/editorial-plan.schema.json)（10 个项目、rank 10→1、字数区间、禁用句式等；校验规则见 `scripts/auto_prepare.py` 的 `validate_editorial`）。再照常运行：
+
+```powershell
+.\video-flow.ps1 weekly -Edition 2026-07-31
+```
+
+流水线会采集榜单、校验你的编辑方案、下载素材、配音、渲染并做 QA，全程不调用 Codex。`provider=manual` 时 `doctor` 也不再把 Codex CLI 和登录当作必需项。若编辑方案已存在且想直接复用，用 `-ReuseEditorial` 亦可（与 provider 无关）。
+
 ## 环境
 
 - Windows

@@ -72,7 +72,7 @@ $Episode = Join-Path $Root "data\episode-$Edition.json"
 Push-Location $Root
 try {
     Invoke-Checked "Check local video toolchain" {
-        & scripts\doctor.ps1
+        & scripts\doctor.ps1 -EditorialProvider $EffectiveConfig.editorial.provider
     }
     Write-Host "`n== Collect current GitHub Trending weekly ranking ==" -ForegroundColor Cyan
     & $Python scripts\collect_weekly.py --edition $Edition --output $Weekly

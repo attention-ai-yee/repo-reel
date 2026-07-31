@@ -924,12 +924,23 @@ def main() -> None:
         errors = validate_editorial(editorial, dossier, minimum, maximum)
         if errors:
             raise RuntimeError("Existing editorial failed validation: " + " | ".join(errors))
+    elif config["editorial"]["provider"] == "manual":
+        if not editorial_path.exists():
+            raise FileNotFoundError(
+                "editorial.provider=manual requires a pre-authored editorial file: "
+                f"{editorial_path}. Write it with any tool (no Codex needed); it must "
+                "match schemas/editorial-plan.schema.json and the collected dossier."
+            )
+        editorial = load_json(editorial_path)
+        errors = validate_editorial(editorial, dossier, minimum, maximum)
+        if errors:
+            raise RuntimeError("Manual editorial failed validation: " + " | ".join(errors))
     else:
         provider = config["editorial"]["provider"]
         if provider != "codex_cli":
             raise RuntimeError(
-                f"Unsupported editorial provider '{provider}'. "
-                "Use codex_cli or provide a validated editorial file with --reuse-editorial."
+                f"Unsupported editorial provider '{provider}'. Use codex_cli, manual, "
+                "or provide a validated editorial file with --reuse-editorial."
             )
         editorial = invoke_codex(
             config,

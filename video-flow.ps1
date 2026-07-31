@@ -30,7 +30,12 @@ try {
             & scripts\setup.ps1 -SkipBrowser:$SkipBrowser
         }
         "doctor" {
-            & scripts\doctor.ps1
+            $DoctorConfigPath = if ([System.IO.Path]::IsPathRooted($Config)) { $Config } else { Join-Path $Root $Config }
+            $DoctorProvider = "codex_cli"
+            if (Test-Path $DoctorConfigPath) {
+                $DoctorProvider = (Get-Content -Raw -Encoding UTF8 $DoctorConfigPath | ConvertFrom-Json).editorial.provider
+            }
+            & scripts\doctor.ps1 -EditorialProvider $DoctorProvider
         }
         "weekly" {
             & scripts\auto_weekly.ps1 `
