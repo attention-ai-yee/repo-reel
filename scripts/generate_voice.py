@@ -23,6 +23,52 @@ DEFAULT_INPUT = ROOT / "data" / "pilot-v2.json"
 PUBLIC_AUDIO = ROOT / "remotion" / "public" / "audio"
 GENERATED = ROOT / "remotion" / "src" / "generated"
 VOICE_TESTS = ROOT / "output" / "voice-tests"
+PRONUNCIATION_FILE = ROOT / "config" / "pronunciation.json"
+
+
+def load_pronunciation() -> dict[str, str]:
+    """Load display->tts homophone substitutions for ambiguous polyphones.
+
+    Each rule must keep the same character length so word boundaries can be
+    mapped back onto the original display text for subtitles.
+    """
+    if not PRONUNCIATION_FILE.exists():
+        return {}
+    table = json.loads(PRONUNCIATION_FILE.read_text(encoding="utf-8"))
+    rules: dict[str, str] = {}
+    for display, spoken in table.items():
+        if display.startswith("_"):
+            continue
+        if len(display) != len(spoken):
+            raise SystemExit(
+                f"pronunciation rule must keep length: {display!r} -> {spoken!r}"
+            )
+        rules[display] = spoken
+    return rules
+
+
+def apply_pronunciation(text: str, rules: dict[str, str]) -> str:
+    for display, spoken in rules.items():
+        text = text.replace(display, spoken)
+    return text
+
+
+def restore_display_words(
+    words: list[dict], tts_text: str, display_text: str
+) -> list[dict]:
+    """Map word boundaries from substituted TTS text back to display text."""
+    if tts_text == display_text:
+        return words
+    restored: list[dict] = []
+    cursor = 0
+    for word in words:
+        index = tts_text.find(word["text"], cursor)
+        if index == -1:
+            restored.append(word)
+            continue
+        cursor = index + len(word["text"])
+        restored.append({**word, "text": display_text[index:cursor]})
+    return restored
 
 
 def duration_seconds(path: Path) -> float:
@@ -124,11 +170,13 @@ async def main() -> None:
     timeline = {"fps": fps, "voice": voice, "segments": []}
     speech_results: dict[str, tuple[Path, list[dict], float]] = {}
     semaphore = asyncio.Semaphore(4)
+    pronunciation = load_pronunciation()
 
     async def prepare_speech(segment: dict) -> None:
+        tts_text = apply_pronunciation(segment["spoken"], pronunciation)
         fingerprint = hashlib.sha1(
             (
-                segment["spoken"]
+                tts_text
                 + "\0"
                 + voice
                 + "\0"
@@ -142,8 +190,9 @@ async def main() -> None:
         )
         async with semaphore:
             words = await synthesize(
-                segment["spoken"], target, voice, rate, pitch
+                tts_text, target, voice, rate, pitch
             )
+        words = restore_display_words(words, tts_text, segment["spoken"])
         speech_results[segment["id"]] = (
             target,
             words,

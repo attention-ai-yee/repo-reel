@@ -926,7 +926,7 @@ const HookScene: React.FC<{segment: FullSegment}> = ({segment}) => {
           opacity: reveal(progress, 0.64, 0.8),
         }}
       >
-        3 MINUTES · COUNTDOWN
+        TOP 10 · COUNTDOWN
       </div>
       <Noise />
     </AbsoluteFill>

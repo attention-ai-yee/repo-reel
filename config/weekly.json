@@ -15,10 +15,10 @@
     "pitch": "+0Hz"
   },
   "episode": {
-    "spoken_characters_min": 880,
-    "spoken_characters_max": 950,
+    "spoken_characters_min": 800,
+    "spoken_characters_max": 1000,
     "target_duration_seconds": [
-      170,
+      150,
       190
     ]
   },

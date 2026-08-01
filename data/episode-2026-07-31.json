@@ -6,7 +6,7 @@
   "editorial": "data/editorial-2026-07-31.json",
   "fps": 30,
   "target_duration_seconds": [
-    170,
+    150,
     190
   ],
   "voice": {
@@ -19,7 +19,7 @@
     {
       "id": "hook",
       "kind": "spoken",
-      "spoken": "这周 GitHub 周榜前十，八个都在折腾 AI Agent，从团队协作做到直接开你的浏览器。从第十名往回数。",
+      "spoken": "这周 GitHub 周榜前十。",
       "onscreen": [
         "GITHUB WEEKLY",
         "TOP 10"
@@ -63,7 +63,7 @@
       "kind": "spoken",
       "layout": "focus",
       "accent": "#C8FF36",
-      "spoken": "第十名 book-to-skill。整本技术书塞给模型，token 烧得肉疼。它把 PDF、EPUB 编译成技能文件，核心常驻、章节按需加载，官方实测省二十到五十倍。",
+      "spoken": "第十名 book-to-skill，本周涨了三千多星。整本技术书塞给模型，token 烧得肉疼。它把 PDF、EPUB 编译成技能文件，核心常驻、章节按需加载，官方实测省二十到五十倍。",
       "headline": "把技术书编译成随取的技能",
       "verdict": "适合想省 token 又要常查书的人。",
       "facts": [
@@ -95,7 +95,7 @@
       "kind": "spoken",
       "layout": "cinematic",
       "accent": "#4DC7FF",
-      "spoken": "第九名 ego-lite。让 Agent 开浏览器，登录带不过去还老抢标签页。它干脆做成浏览器，把 Chrome 迁进来，用你现成的登录态跑操作，只支持 macOS。",
+      "spoken": "第九名 ego-lite，本周涨了四千八百多星。让 Agent 开浏览器，登录带不过去，还老抢你的标签页。它干脆自己做了个浏览器，迁入 Chrome 的登录态，目前只支持 macOS。",
       "headline": "把登录态借给 Agent 的浏览器",
       "verdict": "演示很顺，但目前只有 macOS。",
       "facts": [
@@ -133,7 +133,7 @@
       "kind": "spoken",
       "layout": "split",
       "accent": "#FFB84D",
-      "spoken": "第八名 open-code-review。阿里内部两年的代码评审开源了。选文件、定位行号交给确定性代码，判断才丢给模型，官方测 token 花九分之一，也直说漏报更多。",
+      "spoken": "第八名 open-code-review，本周涨了四千八百多星。阿里内部用了两年的代码评审，开源了。选文件、定位行号交给确定性代码，判断才交给模型，token 花费降到九分之一。",
       "headline": "阿里两年的代码评审开源了",
       "verdict": "想接进现有提交流程的团队合适。",
       "facts": [
@@ -171,7 +171,7 @@
       "kind": "spoken",
       "layout": "terminal",
       "accent": "#C8FF36",
-      "spoken": "第七名 pi。换一家模型厂商往往要重写适配。它把统一接口、运行时、终端界面、编码 Agent 拆成四个独立包，还把没做的权限系统写进文档，给了三套沙箱。",
+      "spoken": "第七名 pi，本周涨了近五千星。换一家模型厂商往往要重写适配。它把统一接口、运行时、终端界面、编码 Agent 拆成四个独立包，还把没做的权限系统写进文档，给了三套沙箱。",
       "headline": "拆成四个包的 Agent 工具箱",
       "verdict": "模块清楚，安全边界要自己补。",
       "facts": [
@@ -209,7 +209,7 @@
       "kind": "spoken",
       "layout": "focus",
       "accent": "#FFD400",
-      "spoken": "第六名 i-have-adhd。烦 AI 先寒暄、答案埋在第三段？这个插件立了十条硬规则，逼它先甩命令、步骤编号、砍客套，一行装进 Claude Code 或 Codex。",
+      "spoken": "第六名 i-have-adhd，本周涨了五千五百多星。烦 AI 先寒暄、答案埋在第三段？这个技能立了十条硬规则，逼它先给命令、步骤编号、少说废话，一条命令就装进 Claude Code。",
       "headline": "专治答案埋太深的技能",
       "verdict": "很轻见效快，只改说法不补能力。",
       "facts": [
@@ -243,20 +243,11 @@
       }
     },
     {
-      "id": "mid_reset",
-      "kind": "spoken",
-      "spoken": "接下来前五名，越往上，Agent 接手的活越贴近你每天在干的事。",
-      "onscreen": [
-        "TOP 5"
-      ],
-      "tail_seconds": 0.35
-    },
-    {
       "id": "rank_05",
       "kind": "spoken",
       "layout": "signal",
       "accent": "#4DC7FF",
-      "spoken": "第五名 worldmonitor。盯全球新闻平时得开十几个网页。它把五百多个信源塞进一张三维地球仪，给三十多个国家算了不稳定指数，接本地模型、免密钥就能跑。",
+      "spoken": "第五名 worldmonitor，本周涨了八千六百多星。盯全球新闻平时得开十几个网页。它把五百多个信源塞进一张三维地球仪，给三十多个国家算了不稳定指数，接本地模型、免密钥就能跑。",
       "headline": "把全球新闻揉成一张大盘",
       "verdict": "信息密度高，商用先核对授权。",
       "facts": [
@@ -294,7 +285,7 @@
       "kind": "spoken",
       "layout": "stack",
       "accent": "#FF6B6B",
-      "spoken": "第四名 ai-agent-book。多数 Agent 教程跑通一个 demo 就完了。这本开源书把九十多个实验钉死在提交号上，还把没做完的写清楚，全矩阵评估都标着待完成。",
+      "spoken": "第四名 ai-agent-book，本周涨了近九千星。多数 Agent 教程跑通一个 demo 就完了。这本开源书把九十多个实验钉死在提交号上，还把没做完的写清楚，全矩阵评估都标着待完成。",
       "headline": "敢公开未完成清单的开源书",
       "verdict": "系统补课合适，素材主要靠封面。",
       "facts": [
@@ -326,7 +317,7 @@
       "kind": "spoken",
       "layout": "split",
       "accent": "#39D0FF",
-      "spoken": "第三名 OmniRoute，上周也上过榜。这轮它补信任：每个回答带一个头信息告诉你走哪家供应商，成本照实记账，注入防护默认开着，敢拿去审计了。",
+      "spoken": "第三名 OmniRoute，上周也上过榜，这周又涨九千四百多星。这一轮它补信任：每个回答都标明走的是哪家供应商，成本照实记账，注入防护默认开着，敢拿去审计了。",
       "headline": "从能白嫖到敢审计的网关",
       "verdict": "多模型工作流实用，额度会波动。",
       "facts": [
@@ -364,7 +355,7 @@
       "kind": "spoken",
       "layout": "signal",
       "accent": "#FFD400",
-      "spoken": "第二名 skills。框架能管住流程，可流程一坏你却插不进手。这个仓库开源二十多个独立技能，让 Agent 反过来追问需求、走测试循环、定期扫架构，每个都能单独改。",
+      "spoken": "第二名 skills，本周涨了一万两千多星。框架能管住流程，可流程一坏，你却插不上手。这个仓库开源二十多个独立技能，让 Agent 反过来追问需求、走测试循环，每个都能单独改。",
       "headline": "工程师味很重的技能仓",
       "verdict": "方法论清楚，安装先选一种。",
       "facts": [
@@ -402,7 +393,7 @@
       "kind": "spoken",
       "layout": "terminal",
       "accent": "#C8FF36",
-      "spoken": "第一名 buzz，来自 Block。团队开七个标签页彼此不认，接进 Agent 更各干各的。它把消息、补丁、评审并进同一条带签名的事件日志，Agent 领个密钥就能进频道。",
+      "spoken": "第一名 buzz，来自 Block，本周涨了一万三千多星。团队开七个工具各聊各的，Agent 接进来也各干各的。它把消息、补丁、评审收进同一条带签名的事件日志，Agent 领个密钥就能进频道。",
       "headline": "把 Agent 拉进团队工作区",
       "verdict": "方向完整，默认部署还偏单点。",
       "facts": [

@@ -837,7 +837,7 @@ def build_episode_and_assets(
         if secondary:
             segment["secondary_visual"] = secondary
         segments.append(segment)
-        if project["rank"] == 6:
+        if project["rank"] == 6 and editorial.get("mid_reset"):
             segments.append(
                 {
                     "id": "mid_reset",

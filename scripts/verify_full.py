@@ -144,7 +144,7 @@ def main() -> None:
     )
     silence_segments = silence.stderr.count("silence_start:")
 
-    required_ids = {"hook", "scope", "mid_reset", "outro"}
+    required_ids = {"hook", "scope", "outro"}
     actual_ids = {item["id"] for item in timeline["segments"]}
     if not required_ids.issubset(actual_ids):
         errors.append(
