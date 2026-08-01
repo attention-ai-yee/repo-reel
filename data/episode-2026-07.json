@@ -1,0 +1,393 @@
+{
+  "edition": "2026-07",
+  "status": "auto_reviewed",
+  "source": "data/weekly-2026-07.json",
+  "dossier": "data/dossier-2026-07.json",
+  "editorial": "data/editorial-2026-07.json",
+  "fps": 30,
+  "target_duration_seconds": [
+    150,
+    190
+  ],
+  "voice": {
+    "provider": "edge",
+    "name": "zh-CN-XiaoxiaoNeural",
+    "rate": "+4%",
+    "pitch": "+0Hz"
+  },
+  "segments": [
+    {
+      "id": "hook",
+      "kind": "spoken",
+      "spoken": "GitHub 七月榜前十。",
+      "onscreen": [
+        "GITHUB WEEKLY",
+        "TOP 10"
+      ],
+      "chart": [
+        {
+          "name": "OMNIROUTE",
+          "stars": 27829
+        },
+        {
+          "name": "ORCA",
+          "stars": 25201
+        },
+        {
+          "name": "OPENCUT",
+          "stars": 19902
+        },
+        {
+          "name": "SKILLS",
+          "stars": 19439
+        },
+        {
+          "name": "STRIX",
+          "stars": 18958
+        }
+      ],
+      "tail_seconds": 0.45
+    },
+    {
+      "id": "scope",
+      "kind": "silent",
+      "fixed_seconds": 1.8,
+      "onscreen": [
+        "GITHUB TRENDING",
+        "WEEKLY CANDIDATES",
+        "CAPTURED 2026-07"
+      ]
+    },
+    {
+      "id": "rank_10",
+      "kind": "spoken",
+      "layout": "cinematic",
+      "accent": "#c8ff36",
+      "spoken": "第十名 system_prompts_leaks，本月涨了一万四千多星。各家模型的系统提示词怎么写的？这个仓库把 Claude、GPT 的系统提示词原样扒出来，想看大厂怎么调教模型，直接翻它。",
+      "headline": "扒出大厂的系统提示词",
+      "verdict": "适合想偷师提示词工程的人。",
+      "facts": [
+        "Claude GPT prompts",
+        "raw system prompts"
+      ],
+      "project": {
+        "rank": 10,
+        "owner": "asgeirtj",
+        "name": "system_prompts_leaks",
+        "url": "https://github.com/asgeirtj/system_prompts_leaks",
+        "stars_week": 14733
+      },
+      "visual": {
+        "type": "image",
+        "path": "assets/weekly-2026-07/system-prompts-leaks/primary-4e13130035.png",
+        "label": "OFFICIAL README ASSET",
+        "fit": "contain"
+      },
+      "onscreen": [
+        "#10",
+        "SYSTEM_PROMPTS_LEAKS",
+        "+14,733"
+      ],
+      "tail_seconds": 0.3
+    },
+    {
+      "id": "rank_09",
+      "kind": "spoken",
+      "layout": "cinematic",
+      "accent": "#c8ff36",
+      "spoken": "第九名 meetily，本月涨了一万四千多星。开会录音转写全走云端，隐私不放心。它本地跑 Whisper 转写、自动分说话人，还能接 Ollama 出纪要，数据不出你的电脑。",
+      "headline": "不上云的本地会议纪要",
+      "verdict": "隐私敏感团队合适。",
+      "facts": [
+        "local Whisper",
+        "Ollama notes"
+      ],
+      "project": {
+        "rank": 9,
+        "owner": "Zackriya-Solutions",
+        "name": "meetily",
+        "url": "https://github.com/Zackriya-Solutions/meetily",
+        "stars_week": 14907
+      },
+      "visual": {
+        "type": "image",
+        "path": "assets/weekly-2026-07/meetily/primary-8873152817.png",
+        "label": "OFFICIAL README ASSET",
+        "fit": "contain"
+      },
+      "onscreen": [
+        "#09",
+        "MEETILY",
+        "+14,907"
+      ],
+      "tail_seconds": 0.3
+    },
+    {
+      "id": "rank_08",
+      "kind": "spoken",
+      "layout": "cinematic",
+      "accent": "#c8ff36",
+      "spoken": "第八名 OfficeCLI，本月涨了一万五千多星。想让 Agent 直接改 Word、Excel、PPT？它把 Office 三件套包成命令行，读写排版都交给 Agent 来做。",
+      "headline": "给 Agent 用的 Office 命令行",
+      "verdict": "文档自动化团队可上手。",
+      "facts": [
+        "Word Excel PPT",
+        "agent-first CLI"
+      ],
+      "project": {
+        "rank": 8,
+        "owner": "iOfficeAI",
+        "name": "OfficeCLI",
+        "url": "https://github.com/iOfficeAI/OfficeCLI",
+        "stars_week": 15632
+      },
+      "visual": {
+        "type": "image",
+        "path": "assets/weekly-2026-07/officecli/primary-4e6368774c.webp",
+        "label": "OFFICIAL README ASSET",
+        "fit": "contain"
+      },
+      "onscreen": [
+        "#08",
+        "OFFICECLI",
+        "+15,632"
+      ],
+      "tail_seconds": 0.3
+    },
+    {
+      "id": "rank_07",
+      "kind": "spoken",
+      "layout": "cinematic",
+      "accent": "#c8ff36",
+      "spoken": "第七名 worldmonitor，本月涨了一万六千多星。盯全球新闻平时得开十几个网页。它把五百多个信源塞进一张三维地球仪，给三十多个国家算了不稳定指数，接本地模型、免密钥就能跑。",
+      "headline": "把全球新闻揉成一张大盘",
+      "verdict": "信息密度高，商用先核对授权。",
+      "facts": [
+        "500+ feeds",
+        "local no API key"
+      ],
+      "project": {
+        "rank": 7,
+        "owner": "koala73",
+        "name": "worldmonitor",
+        "url": "https://github.com/koala73/worldmonitor",
+        "stars_week": 16613
+      },
+      "visual": {
+        "type": "image",
+        "path": "assets/weekly-2026-07/worldmonitor/primary-fe93b2d46f.svg",
+        "label": "OFFICIAL README ASSET",
+        "fit": "contain"
+      },
+      "onscreen": [
+        "#07",
+        "WORLDMONITOR",
+        "+16,613"
+      ],
+      "tail_seconds": 0.3
+    },
+    {
+      "id": "rank_06",
+      "kind": "spoken",
+      "layout": "cinematic",
+      "accent": "#c8ff36",
+      "spoken": "第六名 hallmark，本月涨了一万六千多星。嫌 AI 生成的界面一股模板味？这个技能专治 AI 审美，给 Claude Code、Cursor、Codex 立设计规矩，让界面看起来不像流水线货。",
+      "headline": "专治 AI 界面模板味",
+      "verdict": "做前端的很实用。",
+      "facts": [
+        "anti AI-slop",
+        "design skill"
+      ],
+      "project": {
+        "rank": 6,
+        "owner": "Nutlope",
+        "name": "hallmark",
+        "url": "https://github.com/Nutlope/hallmark",
+        "stars_week": 16829
+      },
+      "visual": {
+        "type": "image",
+        "path": "assets/weekly-2026-07/hallmark/primary-46f67f8ff3.png",
+        "label": "OFFICIAL README ASSET",
+        "fit": "contain"
+      },
+      "onscreen": [
+        "#06",
+        "HALLMARK",
+        "+16,829"
+      ],
+      "tail_seconds": 0.3
+    },
+    {
+      "id": "rank_05",
+      "kind": "spoken",
+      "layout": "cinematic",
+      "accent": "#c8ff36",
+      "spoken": "第五名 strix，本月涨了一万八千多星。等渗透测试排期，漏洞早被人盯上了。这个开源工具让 AI 自己跑渗透，找出你应用的漏洞并给修复建议，安全左移到开发期。",
+      "headline": "让 AI 自己跑渗透测试",
+      "verdict": "小团队补安全的捷径。",
+      "facts": [
+        "AI pentest",
+        "find and fix"
+      ],
+      "project": {
+        "rank": 5,
+        "owner": "usestrix",
+        "name": "strix",
+        "url": "https://github.com/usestrix/strix",
+        "stars_week": 18958
+      },
+      "visual": {
+        "type": "image",
+        "path": "assets/weekly-2026-07/strix/primary-48cd36f5a8.png",
+        "label": "OFFICIAL README ASSET",
+        "fit": "contain"
+      },
+      "onscreen": [
+        "#05",
+        "STRIX",
+        "+18,958"
+      ],
+      "tail_seconds": 0.3
+    },
+    {
+      "id": "rank_04",
+      "kind": "spoken",
+      "layout": "cinematic",
+      "accent": "#c8ff36",
+      "spoken": "第四名 skills，本月涨了一万九千多星。设计工程师想让 Agent 也懂点审美。这个仓库把设计技能模块化，排版、配色、动效一条条教给 Agent，Vercel 设计总监出品。",
+      "headline": "设计工程师的技能仓",
+      "verdict": "想提升界面质感的可试。",
+      "facts": [
+        "design engineer",
+        "modular skills"
+      ],
+      "project": {
+        "rank": 4,
+        "owner": "emilkowalski",
+        "name": "skills",
+        "url": "https://github.com/emilkowalski/skills",
+        "stars_week": 19439
+      },
+      "visual": {
+        "type": "image",
+        "path": "assets/weekly-2026-07/skills/primary-fec50d8fbe.svg",
+        "label": "OFFICIAL README ASSET",
+        "fit": "contain"
+      },
+      "onscreen": [
+        "#04",
+        "SKILLS",
+        "+19,439"
+      ],
+      "tail_seconds": 0.3
+    },
+    {
+      "id": "rank_03",
+      "kind": "spoken",
+      "layout": "cinematic",
+      "accent": "#c8ff36",
+      "spoken": "第三名 OpenCut，本月涨了一万九千多星。剪映要会员还上传素材。这个开源替代品在本地剪视频，时间线、字幕、导出都有，素材不出电脑，免费版剪映平替。",
+      "headline": "开源版剪映平替",
+      "verdict": "注重隐私的创作者合适。",
+      "facts": [
+        "open-source CapCut",
+        "local editing"
+      ],
+      "project": {
+        "rank": 3,
+        "owner": "OpenCut-app",
+        "name": "OpenCut",
+        "url": "https://github.com/OpenCut-app/OpenCut",
+        "stars_week": 19902
+      },
+      "visual": {
+        "type": "image",
+        "path": "assets/weekly-2026-07/opencut/primary-f9b70dee6c.svg",
+        "label": "OFFICIAL README ASSET",
+        "fit": "contain"
+      },
+      "onscreen": [
+        "#03",
+        "OPENCUT",
+        "+19,902"
+      ],
+      "tail_seconds": 0.3
+    },
+    {
+      "id": "rank_02",
+      "kind": "spoken",
+      "layout": "cinematic",
+      "accent": "#c8ff36",
+      "spoken": "第二名 orca，本月涨了两万五千多星。一个 Agent 干活慢，开一堆又管不过来。它是个并行 Agent 工作台，让你自己的订阅跑一队编码 Agent，统一调度、看进度。",
+      "headline": "管一队并行 Agent 的工作台",
+      "verdict": "重度 Agent 用户可上手。",
+      "facts": [
+        "parallel agents",
+        "own subscription"
+      ],
+      "project": {
+        "rank": 2,
+        "owner": "stablyai",
+        "name": "orca",
+        "url": "https://github.com/stablyai/orca",
+        "stars_week": 25201
+      },
+      "visual": {
+        "type": "image",
+        "path": "assets/weekly-2026-07/orca/primary-8c8f07a4ad.png",
+        "label": "OFFICIAL README ASSET",
+        "fit": "contain"
+      },
+      "onscreen": [
+        "#02",
+        "ORCA",
+        "+25,201"
+      ],
+      "tail_seconds": 0.3
+    },
+    {
+      "id": "rank_01",
+      "kind": "spoken",
+      "layout": "cinematic",
+      "accent": "#c8ff36",
+      "spoken": "第一名 OmniRoute，本月涨了两万七千多星。一个接口接二百九十多家供应商、五百多个模型，九十多家还免费。它把路由、记账、注入防护全包了，这个月直接冲到榜首。",
+      "headline": "一个接口接五百个模型",
+      "verdict": "多模型工作流直接上。",
+      "facts": [
+        "290+ providers",
+        "500+ models"
+      ],
+      "project": {
+        "rank": 1,
+        "owner": "diegosouzapw",
+        "name": "OmniRoute",
+        "url": "https://github.com/diegosouzapw/OmniRoute",
+        "stars_week": 27829
+      },
+      "visual": {
+        "type": "image",
+        "path": "assets/weekly-2026-07/omniroute/primary-eb8d1955b8.png",
+        "label": "OFFICIAL README ASSET",
+        "fit": "contain"
+      },
+      "onscreen": [
+        "#01",
+        "OMNIROUTE",
+        "+27,829"
+      ],
+      "tail_seconds": 0.3
+    },
+    {
+      "id": "outro",
+      "kind": "spoken",
+      "spoken": "十个项目连起来，Agent 正从帮你写代码走到接手整条流程。下个月我挑一个亲手测一遍，你想先看哪个？",
+      "onscreen": [
+        "10 PROJECTS",
+        "ONE WEEK",
+        "NEXT · REAL TEST"
+      ],
+      "tail_seconds": 0.8
+    }
+  ]
+}

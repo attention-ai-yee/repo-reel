@@ -27,7 +27,7 @@ def parse_number(value: str) -> int:
     return int(value.replace(",", "").strip())
 
 
-def parse_articles(page: str) -> list[dict]:
+def parse_articles(page: str, label: str = "week") -> list[dict]:
     articles = re.findall(
         r'<article[^>]+class="[^"]*\bBox-row\b[^"]*"[^>]*>(.*?)</article>',
         page,
@@ -41,7 +41,7 @@ def parse_articles(page: str) -> list[dict]:
             flags=re.DOTALL | re.IGNORECASE,
         )
         week_match = re.search(
-            r"([\d,]+)\s+stars?\s+this\s+week",
+            rf"([\d,]+)\s+stars?\s+this\s+{label}",
             clean(article),
             flags=re.IGNORECASE,
         )
@@ -81,7 +81,9 @@ def parse_articles(page: str) -> list[dict]:
     return repos
 
 
-def fetch_trending_page(attempts: int = 4) -> str:
+def fetch_trending_page(
+    attempts: int = 4, url: str = TRENDING_URL, label: str = "week"
+) -> str:
     """Fetch Trending defensively.
 
     GitHub occasionally closes a chunked response after the useful HTML has
@@ -92,7 +94,7 @@ def fetch_trending_page(attempts: int = 4) -> str:
     best_count = 0
     for attempt in range(1, attempts + 1):
         request = urllib.request.Request(
-            TRENDING_URL,
+            url,
             headers={
                 "User-Agent": "RepoReel-weekly-collector/0.3",
                 "Accept": "text/html,application/xhtml+xml",
@@ -117,7 +119,7 @@ def fetch_trending_page(attempts: int = 4) -> str:
                 f"error={type(error).__name__}"
             )
         page = payload.decode("utf-8", errors="replace")
-        parsed_count = len(parse_articles(page))
+        parsed_count = len(parse_articles(page, label=label))
         if parsed_count > best_count:
             best_page = page
             best_count = parsed_count

@@ -1,0 +1,462 @@
+{
+  "edition": "2026-07",
+  "source_url": "https://github.com/trending?since=monthly",
+  "scope": "GitHub Trending monthly page candidates, re-ranked by displayed stars this month",
+  "repos": [
+    {
+      "owner": "diegosouzapw",
+      "name": "OmniRoute",
+      "url": "https://github.com/diegosouzapw/OmniRoute",
+      "language": "TypeScript",
+      "description": "Never stop coding. Free MIT AI gateway: one endpoint, 290+ providers (90+ free), 500+ models — Kimi, Claude, GPT, OpenAI, Gemini, GLM, DeepSeek, MiniMax. Works with Claude Code, Codex, Cursor, OpenCode, Cline & Copilot. Quota-aware auto-fallback, RTK+Caveman compression saves 15-95% tokens, MCP/A2A, Desktop/PWA. Built by 500+ contributors",
+      "stars_total": 36852,
+      "stars_week": 27829,
+      "rank": 1,
+      "full_name": "diegosouzapw/OmniRoute",
+      "default_branch": "release/v3.8.50",
+      "homepage": "https://omniroute.online",
+      "license": "MIT",
+      "readme_excerpt": "# 🚀 OmniRoute — The Free AI Gateway ## 💰 ~1.53B Free Tokens / Month > Stacking free tiers by hand is painful — dozens of SDKs, dozens of rate limits, and no idea how much you actually have. OmniRoute aggregates the **documented** free tiers of **43 provider pools / 516 models** into one honest number and shows it live on the dashboard (`/dashboard/free-tiers`). > Animated summary of the live `/dashboard/free-tiers` page. Full methodology (pool dedupe, credit tiers, provider terms): **[docs/reference/FREE_TIERS.md](docs/reference/FREE_TIERS.md)**. > > These figures are re-audited every two weeks against the live catalog and **move both ways** — a provider ends a free tier and the number drops; a new one lands and it climbs. We publish what the catalog actually computes, never a rounded-up best case. ⭐ Star the repo if OMNIROUTE helped you save money and make your work easier. [![Stars](https://img.shields.io/github/stars/diegosouzapw/OmniRoute?style=social)](https://github.com/diegosouzapw/OmniRoute) [![Star History Rank](https://api.star-history.com/badge?repo=diegosouzapw/OmniRoute&theme=dark)](https://www.star-history.com/diegosouzapw/omniroute) ### 💬 Join the community **👋 Follow the maintainer — get new providers, releases & tips first:** [![Follow Diego on LinkedIn](https://img.shields.io/badge/Follow_Diego_on-LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/diegosouzapw/) [![Follow @diegosouzapw on GitHub](https://img.shields.io/github/followers/diegosouzapw?style=for-the-badge&logo=github&logoColor=white&label=Follow%20on%20GitHub&color=181717)](https://github.com/diegosouzapw) [![Discord](https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/U47eFqAXCn) [![Telegram](https://img.shields.io/badge/Telegram-26A5E4?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/omnirouteOficial) [![WhatsApp Global](https://img.shields.io/badge/WhatsApp_Global-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://chat.whatsapp.com/JI7cDQ1GyaiDHhVBpLxf8b?mode=gi_t) [![WhatsApp Brasil](https://img.shields.io/badge/WhatsApp_Brasil-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://chat.whatsapp.com/LTSpdFhXTxjH4R6CCNiKWz) [![Website](https://img.shields.io/badge/Website-omniroute.online-blue?logo=google-chrome&logoColor=white)](https://omniroute.online) **Questions, provider tips, roadmap & support → [Discord](https://disc",
+      "asset_candidates": [
+        {
+          "url": "https://raw.githubusercontent.com/diegosouzapw/OmniRoute/release/v3.8.50/docs/screenshots/MainOmniRoute.png",
+          "kind": "image",
+          "source": "README"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/diegosouzapw/OmniRoute/release/v3.8.50/docs/diagrams/readme-hero.svg",
+          "kind": "image",
+          "source": "README"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/diegosouzapw/OmniRoute/release/v3.8.50/docs/diagrams/free-tier-budget.svg",
+          "kind": "image",
+          "source": "README"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/diegosouzapw/OmniRoute/release/v3.8.50/docs/assets/flags/us.svg",
+          "kind": "image",
+          "source": "README"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/diegosouzapw/OmniRoute/release/v3.8.50/docs/assets/flags/br.svg",
+          "kind": "image",
+          "source": "README"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/diegosouzapw/OmniRoute/release/v3.8.50/docs/assets/flags/pt.svg",
+          "kind": "image",
+          "source": "README"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/diegosouzapw/OmniRoute/release/v3.8.50/docs/assets/flags/es.svg",
+          "kind": "image",
+          "source": "README"
+        },
+        {
+          "url": "https://opengraph.githubassets.com/reporeel-2026-07/diegosouzapw/OmniRoute",
+          "kind": "image",
+          "source": "GitHub OpenGraph fallback"
+        }
+      ]
+    },
+    {
+      "owner": "stablyai",
+      "name": "orca",
+      "url": "https://github.com/stablyai/orca",
+      "language": "TypeScript",
+      "description": "Orca is the ADE for working with a fleet of parallel agents. Run any coding agent with your own subscription. Available on desktop, mobile and VPS.",
+      "stars_total": 35075,
+      "stars_week": 25201,
+      "rank": 2,
+      "full_name": "stablyai/orca",
+      "default_branch": "main",
+      "homepage": "https://onOrca.dev",
+      "license": "MIT",
+      "readme_excerpt": "Orca 中文 · 日本語 · 한국어 · Español · Français · Português The AI Orchestrator for 100x builders. Run Codex, ClaudeCode, OpenCode or Pi side-by-side — each in its own worktree, tracked in one place. Download Orca ## Features ### Mobile Companion Monitor and steer your agents from your phone — get notified when an agent finishes and send follow-ups from anywhere. [iOS App Store](https://apps.apple.com/us/app/orca-ide/id6766130217) · [TestFlight](https://testflight.apple.com/join/YjeGMQBA) · [Android APK 0.0.36](https://github.com/stablyai/orca/releases/download/mobile-android-v0.0.36/app-release.apk) · [Docs →](https://www.onorca.dev/docs/mobile) ### Parallel Worktrees Fan one prompt across five agents, each in its own isolated git worktree — compare the results and merge the winner. [Docs →](https://www.onorca.dev/docs/model/worktrees) ### Terminal Splits Ghostty-class terminals with WebGL rendering, infinite splits, and scrollback that survives restarts. [Docs →](https://www.onorca.dev/docs/terminal) ### Design Mode Click any UI element in a real Chromium window to send its HTML, CSS, and a cropped screenshot straight into your agent's prompt. [Docs →](https://www.onorca.dev/docs/browser/design-mode) ### GitHub & Linear, Native Browse PRs, issues, and project boards in-app — open a worktree from any task and review without a context switch. [Docs →](https://www.onorca.dev/docs/review/linear) ### SSH Worktrees Run agents on a beefy remote box with full file editing, git, and terminals — auto-reconnect and port forwarding included. [Docs →](https://www.onorca.dev/docs/ssh) ### Annotate AI Diffs Drop comments on any diff line and ship them back to the agent — review, edit, and commit without leaving Orca. [Docs →](https://www.onorca.dev/docs/review/annotate-ai-diff) ### Drag Files to Agents VS Code's editor with autosave everywhere — drag files or images straight into an agent prompt. [Docs →](https://www.onorca.dev/docs/editing/file-explorer) ### Orca CLI Agents drive Orca too — script every workflow with `orca worktree create`, `snapshot`, `click`, and `fill`. [Docs →](https://www.onorca.dev/docs/cli/overview) **Also in the box:** - **[Quick open](https://www.onorca.dev/docs/model/quick-open)** — Search across worktrees, files, agents, commands, and repo context without leaving your flow. - **[Account switcher & usage tracking](https://www.onorca.dev/docs/agents/usage-tracking)** — See Claude and Codex usage and rate-limit resets, and hot-swap accounts without r",
+      "asset_candidates": [
+        {
+          "url": "https://raw.githubusercontent.com/stablyai/orca/main/resources/build/icon.png",
+          "kind": "image",
+          "source": "README"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/stablyai/orca/main/docs/assets/readme-downloads.svg",
+          "kind": "image",
+          "source": "README"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/stablyai/orca/main/docs/assets/readme-hero.jpg",
+          "kind": "image",
+          "source": "README"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/stablyai/orca/main/docs/assets/feature-wall/mobile-companion-app-showcase.gif",
+          "kind": "video",
+          "source": "README"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/stablyai/orca/main/docs/assets/feature-wall/mobile-companion-app-showcase.jpg",
+          "kind": "image",
+          "source": "README"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/stablyai/orca/main/docs/assets/feature-wall/parallel-worktrees.gif",
+          "kind": "video",
+          "source": "README"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/stablyai/orca/main/docs/assets/feature-wall/parallel-worktrees.jpg",
+          "kind": "image",
+          "source": "README"
+        },
+        {
+          "url": "https://opengraph.githubassets.com/reporeel-2026-07/stablyai/orca",
+          "kind": "image",
+          "source": "GitHub OpenGraph fallback"
+        }
+      ]
+    },
+    {
+      "owner": "OpenCut-app",
+      "name": "OpenCut",
+      "url": "https://github.com/OpenCut-app/OpenCut",
+      "language": "TypeScript",
+      "description": "The open-source CapCut alternative",
+      "stars_total": 80321,
+      "stars_week": 19902,
+      "rank": 3,
+      "full_name": "OpenCut-app/OpenCut",
+      "default_branch": "main",
+      "homepage": "https://opencut.app",
+      "license": "MIT",
+      "readme_excerpt": "OpenCut A free and open source video editor for web, desktop, and mobile. [![Discord](https://img.shields.io/discord/1386309140057690133?label=Discord&logo=discord&logoColor=fff&color=5865F2&style=flat)](https://discord.gg/zmR9N35cjK) [![X](https://img.shields.io/badge/follow-%40opencutapp-000?logo=x&logoColor=fff&style=flat)](https://x.com/opencutapp) [![License: MIT](https://img.shields.io/badge/license-MIT-green?style=flat)](LICENSE) ## Status **OpenCut is being rewritten from the ground up.** What's coming: - An Editor API - First-class third party plugins (made possible by a plugin-first architecture) - Desktop, mobile, and browser from one codebase (Rust core) - MCP server (for AI agents) - Headless mode (automation, batch rendering) - A scripting tab directly in the editor You can still find the previous version at [opencut-app/opencut-classic](https://github.com/opencut-app/opencut-classic), which is the one to reach for today. [opencut.app](https://opencut.app) still runs the classic version. The rewrite will live at [new.opencut.app](https://new.opencut.app) until it's ready to take over. ## Development Install [proto](https://moonrepo.dev/proto) if you haven't already: **Linux, macOS, WSL:** ```sh bash <(curl -fsSL https://moonrepo.dev/install/proto.sh) ``` **Windows (PowerShell):** ```powershell irm https://moonrepo.dev/install/proto.ps1 | iex ``` If shims fail to run, allow local scripts for your user: ```powershell Set-ExecutionPolicy -Scope CurrentUser RemoteSigned ``` From the repo root: ```sh proto use # installs the tools pinned in .prototools ``` ```sh moon run web:dev # localhost:5173 moon run api:dev # localhost:8787 moon run desktop:dev # see apps/desktop/README.md ``` ## Contributing We're not set up to take outside contributions yet while the architecture is being designed. If you want to follow along, ask questions, or just hang out, [join the Discord](https://discord.gg/zmR9N35cjK) or [open an issue](https://github.com/opencut-app/opencut/issues). ## Sponsors OpenCut is supported by companies that believe in open source creator tools. - [**fal.ai**](https://fal.ai?utm_source=github-opencut&utm_campaign=oss): Generative image, video, and audio models all in one place. Want your logo here? Reach out at [sponsor@opencut.app](mailto:sponsor@opencut.app). ## License [MIT](LICENSE)",
+      "asset_candidates": [
+        {
+          "url": "https://assets.opencut.app/branding/symbol.svg",
+          "kind": "image",
+          "source": "README"
+        },
+        {
+          "url": "https://opengraph.githubassets.com/reporeel-2026-07/OpenCut-app/OpenCut",
+          "kind": "image",
+          "source": "GitHub OpenGraph fallback"
+        }
+      ]
+    },
+    {
+      "owner": "emilkowalski",
+      "name": "skills",
+      "url": "https://github.com/emilkowalski/skills",
+      "language": null,
+      "description": "Skills for Design Engineers.",
+      "stars_total": 23593,
+      "stars_week": 19439,
+      "rank": 4,
+      "full_name": "emilkowalski/skills",
+      "default_branch": "main",
+      "homepage": "https://emilkowal.ski/skill",
+      "license": "MIT",
+      "readme_excerpt": "# Skills For Design Engineers [![skills.sh](https://skills.sh/b/emilkowalski/skills)](https://skills.sh/emilkowalski/skills) For designers and engineers to help them build better user interfaces. Knowing whether you made a right choice when it comes to animations, or design in general, is hard. These skills aim to help you get to those right decisions faster. They are based on my years of experience working at companies like Vercel and Linear. All the skills here are a side-effect of domain-expertise. AI doesn’t replace such expertise, it amplifies what you can get out of it and makes you way better relative to others. So learn to code, design, or develop expertise in any other field. It’s extremely valuable. You can stay up to date with my skills here: [Sign Up To The Newsletter](https://animations.dev/skills) ## Install ```bash npx skills@latest add emilkowalski/skills ``` ## Why use it? Agents don’t have great taste I have seen plenty of times that agents don’t pick the right ingredients for an animation. An `ease-in` easing for an enter animation when it’s supposed to be `ease-out` ([here’s why](https://emilkowal.ski/ui/7-practical-animation-tips#4.-choose-the-right-easing)). Or they choose a solid border instead of a semi-transparent shadow for your UIs. All these small things compound and make your interface either amazing, or just... not that great. As explained in [Agents with Taste](https://emilkowal.ski/ui/agents-with-taste), these skills list all the little mistakes agents can potentially make and explain how to fix them. This is your shortcut to great interfaces. A shortcut to stand out in a sea of slop. ## Reference - **[emil-design-eng](./skills/emil-design-eng/SKILL.md)** — The main skill that consists of mostly animation, but also some design advice. - **[review-animations](./skills/review-animations/SKILL.md)** — Review your animations in a strict way, based on my rules. - **[improve-animations](./skills/improve-animations/SKILL.md)** — Audit all the animations in your codebase and get prioritized, self-contained plans that any agent can execute. - **[find-animation-opportunities](./skills/find-animation-opportunities/SKILL.md)** — Search your UI for places that would genuinely benefit from motion, while also telling you what not to animate. - **[animation-vocabulary](./skills/animation-vocabulary/SKILL.md)** — Get better animations from an AI by telling it exactly what you want by using the right words. - **[apple-design](./skills/apple-d",
+      "asset_candidates": [
+        {
+          "url": "https://skills.sh/b/emilkowalski/skills",
+          "kind": "image",
+          "source": "README"
+        },
+        {
+          "url": "https://github.com/user-attachments/assets/a405a37f-1a1a-4e8d-8fd6-269ee6d4fba6",
+          "kind": "video",
+          "source": "README"
+        },
+        {
+          "url": "https://opengraph.githubassets.com/reporeel-2026-07/emilkowalski/skills",
+          "kind": "image",
+          "source": "GitHub OpenGraph fallback"
+        }
+      ]
+    },
+    {
+      "owner": "usestrix",
+      "name": "strix",
+      "url": "https://github.com/usestrix/strix",
+      "language": "Python",
+      "description": "Open-source AI penetration testing tool to find and fix your app’s vulnerabilities.",
+      "stars_total": 46402,
+      "stars_week": 18958,
+      "rank": 5,
+      "full_name": "usestrix/strix",
+      "default_branch": "main",
+      "homepage": "https://strix.ai",
+      "license": "Apache-2.0",
+      "readme_excerpt": "# Strix ### The open-source AI pentesting tool. Autonomous AI hackers that find and fix your app’s vulnerabilities. [![](https://dcbadge.limes.pink/api/server/strix-ai)](https://discord.gg/strix-ai) > [!TIP] > **New!** Strix integrates seamlessly with GitHub Actions and CI/CD pipelines. Automatically scan for vulnerabilities on every pull request and block insecure code before it reaches production - [Get started with no setup required](https://app.strix.ai). --- ## Strix Overview Strix are autonomous AI penetration testing agents that act just like real hackers - they run your code dynamically, find vulnerabilities, and validate them through actual proofs-of-concept. Built for developers and security teams who need fast, accurate security testing without the overhead of manual pentesting or the false positives of static analysis tools. **Key Capabilities:** - **Full pentesting toolkit** - reconnaissance, exploitation, and validation out of the box - **Multi-agent orchestration** - teams of AI pentesters that collaborate and scale - **Real exploit validation** - working PoCs, not false positives like legacy vulnerability scanners - **Developer‑first CLI** - actionable findings with remediation guidance - **Auto‑fix & reporting** - generate patches and compliance-ready pentest reports ## Use Cases - **Application Security Testing** - Detect and validate critical vulnerabilities in your applications - **Rapid Penetration Testing** - Get penetration tests done in hours, not weeks, with compliance reports - **Bug Bounty Automation** - Automate bug bounty research and generate PoCs for faster reporting - **CI/CD Integration** - Run tests in CI/CD to block vulnerabilities before reaching production ## 🚀 Quick Start **Prerequisites:** - Docker (running) - An LLM API key from any [supported provider](https://docs.strix.ai/llm-providers/overview) (OpenAI, Anthropic, Google, etc.) ### Installation & First Scan ```bash # Install Strix curl -sSL https://strix.ai/install | bash # Configure your AI provider export STRIX_LLM=\"openai/gpt-5.4\" export LLM_API_KEY=\"your-api-key\" # Run your first security assessment strix --target ./app-directory ``` > [!NOTE] > First run automatically pulls the sandbox Docker image. Results are saved to `strix_runs/ ` --- ## ☁️ Strix Platform Try the Strix full-stack penetration testing platform at **[app.strix.ai](https://app.strix.ai)** - sign up for free, connect your repos and domains, and launch a pentest in minutes. - **Validated findi",
+      "asset_candidates": [
+        {
+          "url": "https://github.com/usestrix/.github/raw/main/imgs/cover.png",
+          "kind": "image",
+          "source": "README"
+        },
+        {
+          "url": "https://github.com/usestrix/.github/raw/main/imgs/X.png",
+          "kind": "image",
+          "source": "README"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/usestrix/strix/main/github/screenshot.png",
+          "kind": "image",
+          "source": "README"
+        },
+        {
+          "url": "https://opengraph.githubassets.com/reporeel-2026-07/usestrix/strix",
+          "kind": "image",
+          "source": "GitHub OpenGraph fallback"
+        }
+      ]
+    },
+    {
+      "owner": "Nutlope",
+      "name": "hallmark",
+      "url": "https://github.com/Nutlope/hallmark",
+      "language": "CSS",
+      "description": "Anti-AI-slop design skill for Claude Code, Cursor, and Codex.",
+      "stars_total": 20541,
+      "stars_week": 16829,
+      "rank": 6,
+      "full_name": "Nutlope/hallmark",
+      "default_branch": "main",
+      "homepage": "https://www.usehallmark.com/",
+      "license": "MIT",
+      "readme_excerpt": "# Hallmark **A design skill for Claude Code, Cursor, and Codex that refuses to look AI-generated.** [Live demo →](https://www.usehallmark.com) · twenty themes · four verbs · press `T` to cycle. Made by Together AI. Hallmark picks a macrostructure for the brief, dresses it in one of twenty themes, runs fifty-seven slop-test gates plus a pre-emit self-critique, and refuses the on-distribution defaults every LLM was trained into. Two pages by Hallmark for two different briefs feel like different sites, not colour-swaps of the same template. --- ## Four verbs | Verb | What it does | | --- | --- | | *(default)* | Build new UI. Picks a macrostructure, applies the rule-set, runs the slop test before handing back. | | `hallmark audit ` | Score existing code against the anti-patterns. Punch list, no edits. | | `hallmark redesign ` | Throw out the structure, keep copy + IA + brand, rebuild with a different fingerprint. | | `hallmark study ` | Extract the **DNA** from a design you admire: macrostructure, type-pairing, colour anchor. Refuses pixel-clones and paid templates. Optionally emits a portable `design.md` for handoff to other AI tools. | --- ## Different briefs, different shapes Each generated from a different brief. The skill picks the theme, structure, and craft to fit each one, not from a template. Bubble Sourdough app · Hum Distil Extraction API · Cobalt Cold Snap Record label · Carnival Cinder AI tool · Lumen Ferns & Fathom Tea menu · Custom Hollowback Apiary Honey farm · Garden Off-Register Print fair · Riso Press Quaternary Type studio · Custom Tally SaaS · modern-minimal Wayfare Travel · atmospheric NAJM Fashion brand Hyperlane Dev infrastructure Each page is self-contained HTML + CSS, stamped with its macrostructure in the CSS comment. Browse the full set at [usehallmark.com](https://www.usehallmark.com) or under [`site/_tests/`](site/_tests/). --- ## Custom NEW When a brief carries creative intent that no catalog theme fits, Hallmark switches to **Custom** and designs the page from scratch: a made-to-measure palette, type, and layout. Same 57 slop-test gates, no template underneath. The Cascadia Nightjar Sleeper-train ticket · Custom The Mend Assembly Repair-café broadsheet · Custom It stays a quiet branch; vanilla briefs never see it. The protocol lives in [`custom-theme.md`](skills/hallmark/references/custom-theme.md). --- ## Install ``` npx skills add nutlope/hallmark ``` Re-run any time to update. Or copy [`SKILL.md`](skills/hallmark/SKILL.md) + ",
+      "asset_candidates": [
+        {
+          "url": "https://raw.githubusercontent.com/Nutlope/hallmark/main/site/OG-hallmark.png",
+          "kind": "image",
+          "source": "README"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/Nutlope/hallmark/main/docs/screenshots/hero-hum-07.jpg",
+          "kind": "image",
+          "source": "README"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/Nutlope/hallmark/main/docs/screenshots/hero-cobalt-01.jpg",
+          "kind": "image",
+          "source": "README"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/Nutlope/hallmark/main/docs/screenshots/hero-carnival-01.jpg",
+          "kind": "image",
+          "source": "README"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/Nutlope/hallmark/main/docs/screenshots/hero-lumen-01.jpg",
+          "kind": "image",
+          "source": "README"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/Nutlope/hallmark/main/docs/screenshots/hero-custom-03.jpg",
+          "kind": "image",
+          "source": "README"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/Nutlope/hallmark/main/docs/screenshots/hero-garden-01.jpg",
+          "kind": "image",
+          "source": "README"
+        },
+        {
+          "url": "https://opengraph.githubassets.com/reporeel-2026-07/Nutlope/hallmark",
+          "kind": "image",
+          "source": "GitHub OpenGraph fallback"
+        }
+      ]
+    },
+    {
+      "owner": "koala73",
+      "name": "worldmonitor",
+      "url": "https://github.com/koala73/worldmonitor",
+      "language": "TypeScript",
+      "description": "Real-time global intelligence dashboard. AI-powered news aggregation, geopolitical monitoring, and infrastructure tracking in a unified situational awareness interface",
+      "stars_total": 77729,
+      "stars_week": 16613,
+      "rank": 7,
+      "full_name": "koala73/worldmonitor",
+      "default_branch": "main",
+      "homepage": "https://worldmonitor.app",
+      "license": "NOASSERTION",
+      "readme_excerpt": "# World Monitor [简体中文](README.zh-CN.md) | [日本語](README.ja-JP.md) **Real-time global intelligence dashboard** — AI-powered news aggregation, geopolitical monitoring, and infrastructure tracking in a unified situational awareness interface. [![GitHub stars](https://img.shields.io/github/stars/koala73/worldmonitor?style=social)](https://github.com/koala73/worldmonitor/stargazers) [![Discord](https://img.shields.io/badge/Discord-Join-5865F2?style=flat&logo=discord&logoColor=white)](https://discord.gg/re63kWKxaz) [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0) [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=flat&logo=typescript&logoColor=white)](https://www.typescriptlang.org/) [![Last commit](https://img.shields.io/github/last-commit/koala73/worldmonitor)](https://github.com/koala73/worldmonitor/commits/main) [![Latest release](https://img.shields.io/github/v/release/koala73/worldmonitor?style=flat)](https://github.com/koala73/worldmonitor/releases/latest) [![npm: worldmonitor](https://img.shields.io/npm/v/worldmonitor?logo=npm&label=npm)](https://www.npmjs.com/package/worldmonitor) [![smithery badge](https://smithery.ai/badge/worldmonitor/wm-mcp)](https://smithery.ai/servers/worldmonitor/wm-mcp) [![skills.sh](https://skills.sh/b/koala73/worldmonitor)](https://skills.sh/koala73/worldmonitor) Documentation · Releases · Contributing ![World Monitor Dashboard](docs/images/worldmonitor-7-mar-2026.jpg) --- ## What It Does - **500+ curated news feeds** across 15 categories, AI-synthesized into briefs - **Dual map engine** — 3D globe (globe.gl) and WebGL flat map (deck.gl) with 56 map layer types - **Cross-stream correlation** — military, economic, disaster, and escalation signal convergence - **Country Instability Index (CII)** — server-authoritative CII v8 stress scoring for 31 Tier-1 countries - **Finance radar** — 29 stock exchanges, commodities, crypto, and 7-signal market composite - **Local AI** — run everything with Ollama, no API keys required - **6 site variants** from a single codebase (world, tech, finance, commodity, happy, energy) - **Native desktop app** (Tauri 2) for macOS, Windows, and Linux - **25 languages** with native-language feeds and RTL support For the full feature list, architecture, data sources, and algorithms, see the **[documentation](https://www.worldmonitor.app/docs/documentation)**. --- ## Support Status All site variants and desktop binaries are",
+      "asset_candidates": [
+        {
+          "url": "https://skills.sh/b/koala73/worldmonitor",
+          "kind": "image",
+          "source": "README"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/koala73/worldmonitor/main/docs/images/worldmonitor-7-mar-2026.jpg",
+          "kind": "image",
+          "source": "README"
+        },
+        {
+          "url": "https://opengraph.githubassets.com/reporeel-2026-07/koala73/worldmonitor",
+          "kind": "image",
+          "source": "GitHub OpenGraph fallback"
+        }
+      ]
+    },
+    {
+      "owner": "iOfficeAI",
+      "name": "OfficeCLI",
+      "url": "https://github.com/iOfficeAI/OfficeCLI",
+      "language": "C#",
+      "description": "OfficeCLI is the first and best Office suite  purpose-built for AI agents to read, edit, and automate Word, Excel, and PowerPoint files. Free, open-source, single binary, no Office installation required.",
+      "stars_total": 24035,
+      "stars_week": 15632,
+      "rank": 8,
+      "full_name": "iOfficeAI/OfficeCLI",
+      "default_branch": "main",
+      "homepage": "https://officecli.ai",
+      "license": "Apache-2.0",
+      "readme_excerpt": "# OfficeCLI > **OfficeCLI is the world's first and the best Office suite designed for AI agents.** **Give any AI agent full control over Word, Excel, and PowerPoint — in one line of code.** Open-source. Single binary. No Office installation. No dependencies. Works everywhere. **OfficeCLI's built-in HTML rendering engine reproduces documents with high fidelity — and that's what gives AI eyes.** It renders `.docx` / `.xlsx` / `.pptx` to HTML or PNG, closing the *render → look → fix* loop. [![GitHub Release](https://img.shields.io/github/v/release/iOfficeAI/OfficeCLI)](https://github.com/iOfficeAI/OfficeCLI/releases) [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE) **English** | [中文](README_zh.md) | [日本語](README_ja.md) | [한국어](README_ko.md) 🌐 Website: officecli.ai | 💬 Community: Discord PPT creation process using OfficeCLI on AionUi PowerPoint Presentations — Word Documents — Excel Spreadsheets All documents above were created entirely by AI agents using OfficeCLI — no templates, no manual editing. ## For AI Agents — Get Started in One Line Paste this into your AI agent's chat — it will read the skill file and install everything automatically: ``` curl -fsSL https://officecli.ai/SKILL.md ``` That's it. The skill file teaches the agent how to install the binary and use all commands. ## For Humans **Option A — GUI:** Install [**AionUi**](https://github.com/iOfficeAI/AionUi) — a desktop app that lets you create and edit Office documents through natural language, powered by OfficeCLI under the hood. Just describe what you want, and AionUi handles the rest. **Option B — CLI:** Download the binary for your platform from [GitHub Releases](https://github.com/iOfficeAI/OfficeCLI/releases), then run: ```bash officecli install ``` This copies the binary to your PATH and installs the **officecli skill** into every AI coding agent it detects — Claude Code, Cursor, Windsurf, GitHub Copilot, and more. Your agent can immediately create, read, and edit Office documents on your behalf, no extra configuration needed. ## For Developers — See It Live in 30 Seconds ```bash # 1. Install (macOS / Linux) — or: brew install officecli / npm install -g @officecli/officecli curl -fsSL https://raw.githubusercontent.com/iOfficeAI/OfficeCLI/main/install.sh | bash # Windows (PowerShell): irm https://raw.githubusercontent.com/iOfficeAI/OfficeCLI/main/install.ps1 | iex # 2. Create a blank PowerPoint officecli create deck.pptx # 3. Start live preview — opens htt",
+      "asset_candidates": [
+        {
+          "url": "https://raw.githubusercontent.com/iOfficeAI/OfficeCLI/main/assets/ppt-process.webp",
+          "kind": "image",
+          "source": "README"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/iOfficeAI/OfficeCLI/main/assets/designwhatmovesyou.gif",
+          "kind": "video",
+          "source": "README"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/iOfficeAI/OfficeCLI/main/assets/horizon.gif",
+          "kind": "video",
+          "source": "README"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/iOfficeAI/OfficeCLI/main/assets/efforless.gif",
+          "kind": "video",
+          "source": "README"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/iOfficeAI/OfficeCLI/main/assets/blackhole.gif",
+          "kind": "video",
+          "source": "README"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/iOfficeAI/OfficeCLI/main/assets/first-ppt-aionui.gif",
+          "kind": "video",
+          "source": "README"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/iOfficeAI/OfficeCLI/main/assets/shiba.gif",
+          "kind": "video",
+          "source": "README"
+        },
+        {
+          "url": "https://opengraph.githubassets.com/reporeel-2026-07/iOfficeAI/OfficeCLI",
+          "kind": "image",
+          "source": "GitHub OpenGraph fallback"
+        }
+      ]
+    },
+    {
+      "owner": "Zackriya-Solutions",
+      "name": "meetily",
+      "url": "https://github.com/Zackriya-Solutions/meetily",
+      "language": "Rust",
+      "description": "Privacy first, AI meeting assistant with 4x faster Parakeet/Whisper live transcription, speaker diarization, and Ollama summarization built on Rust. 100% local processing. no cloud required. Meetily (Meetly Ai - https://meetily.ai) is the #1 Self-hosted, Open-source Ai meeting note taker for macOS & Windows. Understand How to write meeting minutes",
+      "stars_total": 27814,
+      "stars_week": 14907,
+      "rank": 9,
+      "full_name": "Zackriya-Solutions/meetily",
+      "default_branch": "main",
+      "homepage": "https://meetily.ai",
+      "license": "MIT",
+      "readme_excerpt": "Privacy-First AI Meeting Assistant Open Source • Privacy-First • Enterprise-Ready Get latest Product updates Website • LinkedIn • Meetily Discord • Privacy-First AI • Reddit A privacy-first AI meeting assistant that captures, transcribes, and summarizes meetings entirely on your infrastructure. Built by expert AI engineers passionate about data sovereignty and open source solutions. Perfect for enterprises that need advanced meeting intelligence without compromising on privacy, compliance, or control. View full Demo Video --- > **Meetily PRO Upgrade Offer** - Meetily PRO is available for users who need enhanced accuracy, advanced exports, custom summary workflows, and team-ready features. Use coupon code **LAUNCH20** for **20% off** until the next Meetily Community Edition release. Speaker diarization is also planned for PRO in mid-June. [Explore Meetily PRO →](https://meetily.ai/pro/) --- Table of Contents - [Introduction](#introduction) - [Why Meetily?](#why-meetily) - [Features](#features) - [Installation](#installation) - [Key Features in Action](#key-features-in-action) - [System Architecture](#system-architecture) - [For Developers](#for-developers) - [Meetily PRO](#meetily-pro) - [Contributing](#contributing) - [License](#license) ## Introduction Meetily is a privacy-first AI meeting assistant that runs entirely on your local machine. It captures your meetings, transcribes them in real-time, and generates summaries, all without sending any data to the cloud. This makes it the perfect solution for professionals and enterprises who need to maintain complete control over their sensitive information. ## Why Meetily? While there are many meeting transcription tools available, this solution stands out by offering: - **Privacy First:** All processing happens locally on your device. - **Cost-Effective:** Uses open-source AI models instead of expensive APIs. - **Flexible:** Works offline and supports multiple meeting platforms. - **Customizable:** Self-host and modify for your specific needs. The Privacy Problem Meeting AI tools create significant privacy and compliance risks across all sectors: - **$4.4M average cost per data breach** (IBM 2024) - **€5.88 billion in GDPR fines** issued by 2025 - **400+ unlawful recording cases** filed in California this year Whether you're a defense consultant, enterprise executive, legal professional, or healthcare provider, your sensitive discussions shouldn't live on servers you don't control. Cloud meeting tools promise",
+      "asset_candidates": [
+        {
+          "url": "https://raw.githubusercontent.com/Zackriya-Solutions/meetily/main/docs/Meetily-6.png",
+          "kind": "image",
+          "source": "README"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/Zackriya-Solutions/meetily/main/docs/meetily_demo.gif",
+          "kind": "video",
+          "source": "README"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/Zackriya-Solutions/meetily/main/docs/home.png",
+          "kind": "image",
+          "source": "README"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/Zackriya-Solutions/meetily/main/docs/meetily-export.gif",
+          "kind": "video",
+          "source": "README"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/Zackriya-Solutions/meetily/main/docs/summary.png",
+          "kind": "image",
+          "source": "README"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/Zackriya-Solutions/meetily/main/docs/editor1.png",
+          "kind": "image",
+          "source": "README"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/Zackriya-Solutions/meetily/main/docs/settings.png",
+          "kind": "image",
+          "source": "README"
+        },
+        {
+          "url": "https://opengraph.githubassets.com/reporeel-2026-07/Zackriya-Solutions/meetily",
+          "kind": "image",
+          "source": "GitHub OpenGraph fallback"
+        }
+      ]
+    },
+    {
+      "owner": "asgeirtj",
+      "name": "system_prompts_leaks",
+      "url": "https://github.com/asgeirtj/system_prompts_leaks",
+      "language": "JavaScript",
+      "description": "Extracted system prompts from Anthropic - Claude Fable 5, Opus 5, Claude Design, Claude Code. OpenAI - ChatGPT GPT-5.6-Sol, Codex. Google - Gemini 3.5 Flash, 3.1 Pro, Antigravity. xAI - Grok, Cursor, Copilot, VS Code, Perplexity, and more. Updated regularly.",
+      "stars_total": 61817,
+      "stars_week": 14733,
+      "rank": 10,
+      "full_name": "asgeirtj/system_prompts_leaks",
+      "default_branch": "main",
+      "homepage": "",
+      "license": "CC0-1.0",
+      "readme_excerpt": "Thanks to ### [Make your AI agents self-healing](https://go.asgeirtj.workers.dev/latitude) [Open Source AI Monitoring](https://go.asgeirtj.workers.dev/latitude) --- > **The Washington Post** built its interactive story on prompts from this repo: [See the hidden rules behind AI. Then use them to rewrite this article.](https://wapo.st/49t4gSb) (May 11, 2026) > > **CEPS' AI World** built a live data dashboard from this repo's files: [System prompts and what they tell us about the chat before the chat](https://aiworld.eu/story/system-prompts-and-what-they-tell-us-about-the-chat-before-the-chat) (July 10, 2026) # System Prompts Leaks Leaked system prompts, captured verbatim — the hidden instructions and rules that ChatGPT, Claude, Gemini, Grok and every other AI chatbot receives before your first message. ![Last Commit](https://img.shields.io/github/last-commit/asgeirtj/system_prompts_leaks?style=flat) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)](http://makeapullrequest.com) ## Recently Updated | What | Date | Link | |------|------|------| | **Codex GPT-5.6 (Sol variant)** | July 26, 2026 | [Codex GPT-5.6 system prompt (Terra/Luna)](OpenAI/Codex/gpt-5.6.md) · [Sol](OpenAI/Codex/gpt-5.6-sol.md) | | **Grok 4.5** | July 26, 2026 | [Grok 4.5 system prompt](xAI/grok-4.5.md) | | **Claude Opus 5** | July 24, 2026 | [Claude Opus 5 system prompt](Anthropic/claude-opus-5.md) · [Claude Code (Opus 5)](Anthropic/Claude%20Code/claude-code-opus-5.md) | | **Claude Design (full prompt + 53 tools + 22 skills + 10 starter components)** | July 23, 2026 | [Claude Design system prompt](Anthropic/claude-design.md) · [skills](Anthropic/Claude%20Design/Skills) · [starter components](Anthropic/Claude%20Design/Starter%20components) | | **Perplexity** | July 17, 2026 | [Perplexity AI system prompt](Perplexity/perplexity-ai.md) | | **Claude Code (new models)** | July 16, 2026 | [Claude Code system prompt (Fable 5)](Anthropic/Claude%20Code/claude-code-fable-5.md) · [Sonnet 5](Anthropic/Claude%20Code/claude-code-sonnet-5.md) | | **OpenCode · Pi · CommandCode** | July 16, 2026 | [OpenCode system prompt](OpenCode/opencode.md) · [Pi system prompt](Pi/instructions.md) · [CommandCode CLI system prompt](Misc/commandcode-cli.md) | | **Kimi K2.6** | July 14, 2026 | [Kimi K2.6 system prompt](Kimi/kimi-2.6.md) | | **Perplexity Deep Research** | July 14, 2026 | [Perplexity Deep Research system prompt](Perplexity/deep-research.md) | | **DeepSeek** | July 14, 2026 | [DeepSeek sy",
+      "asset_candidates": [
+        {
+          "url": "https://raw.githubusercontent.com/asgeirtj/system_prompts_leaks/main/assets/latitude-dark.png",
+          "kind": "image",
+          "source": "README"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/asgeirtj/system_prompts_leaks/main/github/banner-dark.png",
+          "kind": "image",
+          "source": "README"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/asgeirtj/system_prompts_leaks/main/github/banner-light.png",
+          "kind": "image",
+          "source": "README"
+        },
+        {
+          "url": "https://github.com/user-attachments/assets/444e3fcc-9374-4964-afd3-069222713dc0",
+          "kind": "video",
+          "source": "README"
+        },
+        {
+          "url": "https://opengraph.githubassets.com/reporeel-2026-07/asgeirtj/system_prompts_leaks",
+          "kind": "image",
+          "source": "GitHub OpenGraph fallback"
+        }
+      ]
+    }
+  ]
+}
