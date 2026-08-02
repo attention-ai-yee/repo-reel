@@ -40,6 +40,18 @@ BANNED = (
 )
 LAYOUTS = ("split", "cinematic", "signal", "terminal", "stack", "focus")
 ACCENTS = ("#FFB84D", "#4DC7FF", "#C8FF36", "#E8E8E8", "#FF74B8", "#8B8CFF")
+# URL words that mark an asset as a logo/icon/wordmark rather than a real
+# screenshot. These render as a tiny emblem and look wrong full-frame.
+LOGO_ASSET_WORDS = (
+    "logo",
+    "icon",
+    "symbol",
+    "wordmark",
+    "avatar",
+    "favicon",
+    "skills.sh/b/",
+    "readme-downloads",
+)
 IGNORE_ASSET_WORDS = (
     "badge",
     "shield",
@@ -157,6 +169,16 @@ def extract_asset_candidates(
     )
     for pattern in patterns:
         raw_urls.extend(re.findall(pattern, readme, flags=re.IGNORECASE))
+    opengraph = {
+        "url": f"https://opengraph.githubassets.com/reporeel-{edition}/{repo}",
+        "kind": "image",
+        "source": "GitHub OpenGraph fallback",
+    }
+    readme_render = {
+        "url": f"https://github.com/{repo}",
+        "kind": "image",
+        "source": "GitHub README render",
+    }
     candidates: list[dict] = []
     seen: set[str] = set()
     for raw in raw_urls:
@@ -165,6 +187,8 @@ def extract_asset_candidates(
             continue
         lowered = url.lower()
         if any(word in lowered for word in IGNORE_ASSET_WORDS):
+            continue
+        if any(word in lowered for word in LOGO_ASSET_WORDS):
             continue
         parsed = urllib.parse.urlparse(url)
         suffix = Path(parsed.path).suffix.lower()
@@ -192,15 +216,12 @@ def extract_asset_candidates(
                 "source": "README",
             }
         )
-        if len(candidates) >= limit - 1:
+        if len(candidates) >= limit - 2:
             break
-    candidates.append(
-        {
-            "url": f"https://opengraph.githubassets.com/reporeel-{edition}/{repo}",
-            "kind": "image",
-            "source": "GitHub OpenGraph fallback",
-        }
-    )
+    # Always keep the repo OpenGraph card (name + description + stats) and a
+    # rendered-README page screenshot as guaranteed legible fallbacks.
+    candidates.append(opengraph)
+    candidates.append(readme_render)
     return candidates[:limit]
 
 
@@ -552,9 +573,45 @@ def invoke_codex(
     )
 
 
+def screenshot_page(url: str, target: Path) -> None:
+    """Capture a live page (e.g. a repo's rendered README) to a PNG via Chrome.
+
+    Falls back to the SVG placeholder if no headless browser is available.
+    """
+    chrome = shutil.which("chrome") or shutil.which("chrome.exe")
+    if not chrome:
+        for candidate in (
+            Path(os.environ.get("PROGRAMFILES", "")) / "Google/Chrome/Application/chrome.exe",
+            Path(os.environ.get("PROGRAMFILES(X86)", "")) / "Google/Chrome/Application/chrome.exe",
+            Path(os.environ.get("LOCALAPPDATA", "")) / "Google/Chrome/Application/chrome.exe",
+            Path(os.environ.get("PROGRAMFILES", "")) / "Microsoft/Edge/Application/msedge.exe",
+            Path(os.environ.get("PROGRAMFILES(X86)", "")) / "Microsoft/Edge/Application/msedge.exe",
+        ):
+            if candidate.exists():
+                chrome = str(candidate)
+                break
+    if not chrome:
+        raise RuntimeError("no headless browser found for page screenshot")
+    subprocess.run(
+        [
+            str(chrome),
+            "--headless",
+            "--disable-gpu",
+            "--hide-scrollbars",
+            "--window-size=1280,2000",
+            f"--screenshot={target}",
+            "--virtual-time-budget=5000",
+            url,
+        ],
+        check=True,
+        capture_output=True,
+        timeout=90,
+    )
+    if not target.exists() or target.stat().st_size < 2048:
+        raise RuntimeError("page screenshot came out empty")
+
+
 def extension_for(content_type: str, final_url: str, kind: str) -> str:
-    if kind == "video":
-        return ".mp4"
     mapping = {
         "image/png": ".png",
         "image/jpeg": ".jpg",
@@ -638,53 +695,103 @@ def materialize_asset(
         target = fallback_cached
         detected_video = target.suffix.lower() == ".mp4"
     else:
-        try:
-            payload, content_type, final_url = fetch(
-                selected["url"], attempts=2, timeout=20
-            )
-        except Exception as error:
-            print(
-                f"warning=asset_fallback repo={repo} error={type(error).__name__}"
-            )
-            selected = fallback
-            selected_stem = hashed_stem(selected)
-            cached = existing_target(selected_stem)
-            if cached:
-                target = cached
-                detected_video = target.suffix.lower() == ".mp4"
-            else:
-                try:
-                    payload, content_type, final_url = fetch(
-                        selected["url"], attempts=2, timeout=20
-                    )
-                except Exception as fallback_error:
-                    print(
-                        f"warning=asset_placeholder repo={repo} "
-                        f"error={type(fallback_error).__name__}"
-                    )
-                    selected = {
-                        "url": f"https://github.com/{repo}",
-                        "source": "generated fallback",
-                        "kind": "image",
-                    }
-                    selected_stem = hashed_stem(selected)
-                    target = selected_stem.with_suffix(".svg")
-                    owner, name = repo.split("/", 1)
-                    target.write_text(
-                        (
-                            '<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720">'
-                            '<rect width="1280" height="720" fill="#0b1020"/>'
-                            '<circle cx="112" cy="112" r="36" fill="#7dd3fc"/>'
-                            '<text x="80" y="340" fill="#f8fafc" '
-                            'font-family="Arial,sans-serif" font-size="70" font-weight="700">'
-                            f"{html.escape(name)}</text>"
-                            '<text x="82" y="420" fill="#94a3b8" '
-                            'font-family="Arial,sans-serif" font-size="36">'
-                            f"github.com/{html.escape(owner)}</text></svg>"
-                        ),
-                        encoding="utf-8",
-                    )
-                    detected_video = False
+        if selected.get("source") == "GitHub README render":
+            try:
+                target = selected_stem.with_suffix(".png")
+                screenshot_page(selected["url"], target)
+                detected_video = False
+            except Exception as error:
+                print(
+                    f"warning=readme_render_failed repo={repo} "
+                    f"error={type(error).__name__}"
+                )
+                selected = fallback
+                selected_stem = hashed_stem(selected)
+                cached = existing_target(selected_stem)
+                if cached:
+                    target = cached
+                    detected_video = target.suffix.lower() == ".mp4"
+                else:
+                    try:
+                        payload, content_type, final_url = fetch(
+                            selected["url"], attempts=2, timeout=20
+                        )
+                    except Exception as fallback_error:
+                        print(
+                            f"warning=asset_placeholder repo={repo} "
+                            f"error={type(fallback_error).__name__}"
+                        )
+                        selected = {
+                            "url": f"https://github.com/{repo}",
+                            "source": "generated fallback",
+                            "kind": "image",
+                        }
+                        selected_stem = hashed_stem(selected)
+                        target = selected_stem.with_suffix(".svg")
+                        owner, name = repo.split("/", 1)
+                        target.write_text(
+                            (
+                                '<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720">'
+                                '<rect width="1280" height="720" fill="#0b1020"/>'
+                                '<circle cx="112" cy="112" r="36" fill="#7dd3fc"/>'
+                                '<text x="80" y="340" fill="#f8fafc" '
+                                'font-family="Arial,sans-serif" font-size="70" font-weight="700">'
+                                f"{html.escape(name)}</text>"
+                                '<text x="82" y="420" fill="#94a3b8" '
+                                'font-family="Arial,sans-serif" font-size="36">'
+                                f"github.com/{html.escape(owner)}</text></svg>"
+                            ),
+                            encoding="utf-8",
+                        )
+                        detected_video = False
+        else:
+            try:
+                payload, content_type, final_url = fetch(
+                    selected["url"], attempts=2, timeout=20
+                )
+            except Exception as error:
+                print(
+                    f"warning=asset_fallback repo={repo} error={type(error).__name__}"
+                )
+                selected = fallback
+                selected_stem = hashed_stem(selected)
+                cached = existing_target(selected_stem)
+                if cached:
+                    target = cached
+                    detected_video = target.suffix.lower() == ".mp4"
+                else:
+                    try:
+                        payload, content_type, final_url = fetch(
+                            selected["url"], attempts=2, timeout=20
+                        )
+                    except Exception as fallback_error:
+                        print(
+                            f"warning=asset_placeholder repo={repo} "
+                            f"error={type(fallback_error).__name__}"
+                        )
+                        selected = {
+                            "url": f"https://github.com/{repo}",
+                            "source": "generated fallback",
+                            "kind": "image",
+                        }
+                        selected_stem = hashed_stem(selected)
+                        target = selected_stem.with_suffix(".svg")
+                        owner, name = repo.split("/", 1)
+                        target.write_text(
+                            (
+                                '<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720">'
+                                '<rect width="1280" height="720" fill="#0b1020"/>'
+                                '<circle cx="112" cy="112" r="36" fill="#7dd3fc"/>'
+                                '<text x="80" y="340" fill="#f8fafc" '
+                                'font-family="Arial,sans-serif" font-size="70" font-weight="700">'
+                                f"{html.escape(name)}</text>"
+                                '<text x="82" y="420" fill="#94a3b8" '
+                                'font-family="Arial,sans-serif" font-size="36">'
+                                f"github.com/{html.escape(owner)}</text></svg>"
+                            ),
+                            encoding="utf-8",
+                        )
+                        detected_video = False
     if payload is not None:
         detected_video = selected["kind"] == "video" or content_type.startswith("video/")
         if content_type == "image/gif":
@@ -709,6 +816,8 @@ def materialize_asset(
             if selected["source"] == "README"
             else "GITHUB REPOSITORY"
             if selected["source"] == "GitHub OpenGraph fallback"
+            else "RENDERED README"
+            if selected["source"] == "GitHub README render"
             else "REPOSITORY PLACEHOLDER"
         ),
         "fit": "cover" if visual_type == "video" else "contain",

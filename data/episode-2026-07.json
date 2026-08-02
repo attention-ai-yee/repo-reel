@@ -175,7 +175,7 @@
       },
       "visual": {
         "type": "image",
-        "path": "assets/weekly-2026-07/worldmonitor/primary-fe93b2d46f.svg",
+        "path": "assets/weekly-2026-07/worldmonitor/primary-9ca15c59c4.jpg",
         "label": "OFFICIAL README ASSET",
         "fit": "contain"
       },
@@ -270,10 +270,10 @@
         "stars_week": 19439
       },
       "visual": {
-        "type": "image",
-        "path": "assets/weekly-2026-07/skills/primary-fec50d8fbe.svg",
+        "type": "video",
+        "path": "assets/weekly-2026-07/skills/primary-92732e95d9.mp4",
         "label": "OFFICIAL README ASSET",
-        "fit": "contain"
+        "fit": "cover"
       },
       "onscreen": [
         "#04",
@@ -303,8 +303,8 @@
       },
       "visual": {
         "type": "image",
-        "path": "assets/weekly-2026-07/opencut/primary-f9b70dee6c.svg",
-        "label": "OFFICIAL README ASSET",
+        "path": "assets/weekly-2026-07/opencut/primary-02d48fb439.png",
+        "label": "GITHUB REPOSITORY",
         "fit": "contain"
       },
       "onscreen": [
@@ -335,7 +335,7 @@
       },
       "visual": {
         "type": "image",
-        "path": "assets/weekly-2026-07/orca/primary-8c8f07a4ad.png",
+        "path": "assets/weekly-2026-07/orca/primary-b9c9254593.jpg",
         "label": "OFFICIAL README ASSET",
         "fit": "contain"
       },

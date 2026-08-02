@@ -49,14 +49,14 @@
           "source": "README"
         },
         {
-          "url": "https://raw.githubusercontent.com/diegosouzapw/OmniRoute/release/v3.8.50/docs/assets/flags/es.svg",
-          "kind": "image",
-          "source": "README"
-        },
-        {
           "url": "https://opengraph.githubassets.com/reporeel-2026-07/diegosouzapw/OmniRoute",
           "kind": "image",
           "source": "GitHub OpenGraph fallback"
+        },
+        {
+          "url": "https://github.com/diegosouzapw/OmniRoute",
+          "kind": "image",
+          "source": "GitHub README render"
         }
       ]
     },
@@ -75,16 +75,6 @@
       "license": "MIT",
       "readme_excerpt": "Orca 中文 · 日本語 · 한국어 · Español · Français · Português The AI Orchestrator for 100x builders. Run Codex, ClaudeCode, OpenCode or Pi side-by-side — each in its own worktree, tracked in one place. Download Orca ## Features ### Mobile Companion Monitor and steer your agents from your phone — get notified when an agent finishes and send follow-ups from anywhere. [iOS App Store](https://apps.apple.com/us/app/orca-ide/id6766130217) · [TestFlight](https://testflight.apple.com/join/YjeGMQBA) · [Android APK 0.0.36](https://github.com/stablyai/orca/releases/download/mobile-android-v0.0.36/app-release.apk) · [Docs →](https://www.onorca.dev/docs/mobile) ### Parallel Worktrees Fan one prompt across five agents, each in its own isolated git worktree — compare the results and merge the winner. [Docs →](https://www.onorca.dev/docs/model/worktrees) ### Terminal Splits Ghostty-class terminals with WebGL rendering, infinite splits, and scrollback that survives restarts. [Docs →](https://www.onorca.dev/docs/terminal) ### Design Mode Click any UI element in a real Chromium window to send its HTML, CSS, and a cropped screenshot straight into your agent's prompt. [Docs →](https://www.onorca.dev/docs/browser/design-mode) ### GitHub & Linear, Native Browse PRs, issues, and project boards in-app — open a worktree from any task and review without a context switch. [Docs →](https://www.onorca.dev/docs/review/linear) ### SSH Worktrees Run agents on a beefy remote box with full file editing, git, and terminals — auto-reconnect and port forwarding included. [Docs →](https://www.onorca.dev/docs/ssh) ### Annotate AI Diffs Drop comments on any diff line and ship them back to the agent — review, edit, and commit without leaving Orca. [Docs →](https://www.onorca.dev/docs/review/annotate-ai-diff) ### Drag Files to Agents VS Code's editor with autosave everywhere — drag files or images straight into an agent prompt. [Docs →](https://www.onorca.dev/docs/editing/file-explorer) ### Orca CLI Agents drive Orca too — script every workflow with `orca worktree create`, `snapshot`, `click`, and `fill`. [Docs →](https://www.onorca.dev/docs/cli/overview) **Also in the box:** - **[Quick open](https://www.onorca.dev/docs/model/quick-open)** — Search across worktrees, files, agents, commands, and repo context without leaving your flow. - **[Account switcher & usage tracking](https://www.onorca.dev/docs/agents/usage-tracking)** — See Claude and Codex usage and rate-limit resets, and hot-swap accounts without r",
       "asset_candidates": [
-        {
-          "url": "https://raw.githubusercontent.com/stablyai/orca/main/resources/build/icon.png",
-          "kind": "image",
-          "source": "README"
-        },
-        {
-          "url": "https://raw.githubusercontent.com/stablyai/orca/main/docs/assets/readme-downloads.svg",
-          "kind": "image",
-          "source": "README"
-        },
         {
           "url": "https://raw.githubusercontent.com/stablyai/orca/main/docs/assets/readme-hero.jpg",
           "kind": "image",
@@ -111,9 +101,19 @@
           "source": "README"
         },
         {
+          "url": "https://raw.githubusercontent.com/stablyai/orca/main/docs/assets/feature-wall/terminal-splits.gif",
+          "kind": "video",
+          "source": "README"
+        },
+        {
           "url": "https://opengraph.githubassets.com/reporeel-2026-07/stablyai/orca",
           "kind": "image",
           "source": "GitHub OpenGraph fallback"
+        },
+        {
+          "url": "https://github.com/stablyai/orca",
+          "kind": "image",
+          "source": "GitHub README render"
         }
       ]
     },
@@ -133,14 +133,14 @@
       "readme_excerpt": "OpenCut A free and open source video editor for web, desktop, and mobile. [![Discord](https://img.shields.io/discord/1386309140057690133?label=Discord&logo=discord&logoColor=fff&color=5865F2&style=flat)](https://discord.gg/zmR9N35cjK) [![X](https://img.shields.io/badge/follow-%40opencutapp-000?logo=x&logoColor=fff&style=flat)](https://x.com/opencutapp) [![License: MIT](https://img.shields.io/badge/license-MIT-green?style=flat)](LICENSE) ## Status **OpenCut is being rewritten from the ground up.** What's coming: - An Editor API - First-class third party plugins (made possible by a plugin-first architecture) - Desktop, mobile, and browser from one codebase (Rust core) - MCP server (for AI agents) - Headless mode (automation, batch rendering) - A scripting tab directly in the editor You can still find the previous version at [opencut-app/opencut-classic](https://github.com/opencut-app/opencut-classic), which is the one to reach for today. [opencut.app](https://opencut.app) still runs the classic version. The rewrite will live at [new.opencut.app](https://new.opencut.app) until it's ready to take over. ## Development Install [proto](https://moonrepo.dev/proto) if you haven't already: **Linux, macOS, WSL:** ```sh bash <(curl -fsSL https://moonrepo.dev/install/proto.sh) ``` **Windows (PowerShell):** ```powershell irm https://moonrepo.dev/install/proto.ps1 | iex ``` If shims fail to run, allow local scripts for your user: ```powershell Set-ExecutionPolicy -Scope CurrentUser RemoteSigned ``` From the repo root: ```sh proto use # installs the tools pinned in .prototools ``` ```sh moon run web:dev # localhost:5173 moon run api:dev # localhost:8787 moon run desktop:dev # see apps/desktop/README.md ``` ## Contributing We're not set up to take outside contributions yet while the architecture is being designed. If you want to follow along, ask questions, or just hang out, [join the Discord](https://discord.gg/zmR9N35cjK) or [open an issue](https://github.com/opencut-app/opencut/issues). ## Sponsors OpenCut is supported by companies that believe in open source creator tools. - [**fal.ai**](https://fal.ai?utm_source=github-opencut&utm_campaign=oss): Generative image, video, and audio models all in one place. Want your logo here? Reach out at [sponsor@opencut.app](mailto:sponsor@opencut.app). ## License [MIT](LICENSE)",
       "asset_candidates": [
         {
-          "url": "https://assets.opencut.app/branding/symbol.svg",
-          "kind": "image",
-          "source": "README"
-        },
-        {
           "url": "https://opengraph.githubassets.com/reporeel-2026-07/OpenCut-app/OpenCut",
           "kind": "image",
           "source": "GitHub OpenGraph fallback"
+        },
+        {
+          "url": "https://github.com/OpenCut-app/OpenCut",
+          "kind": "image",
+          "source": "GitHub README render"
         }
       ]
     },
@@ -160,11 +160,6 @@
       "readme_excerpt": "# Skills For Design Engineers [![skills.sh](https://skills.sh/b/emilkowalski/skills)](https://skills.sh/emilkowalski/skills) For designers and engineers to help them build better user interfaces. Knowing whether you made a right choice when it comes to animations, or design in general, is hard. These skills aim to help you get to those right decisions faster. They are based on my years of experience working at companies like Vercel and Linear. All the skills here are a side-effect of domain-expertise. AI doesn’t replace such expertise, it amplifies what you can get out of it and makes you way better relative to others. So learn to code, design, or develop expertise in any other field. It’s extremely valuable. You can stay up to date with my skills here: [Sign Up To The Newsletter](https://animations.dev/skills) ## Install ```bash npx skills@latest add emilkowalski/skills ``` ## Why use it? Agents don’t have great taste I have seen plenty of times that agents don’t pick the right ingredients for an animation. An `ease-in` easing for an enter animation when it’s supposed to be `ease-out` ([here’s why](https://emilkowal.ski/ui/7-practical-animation-tips#4.-choose-the-right-easing)). Or they choose a solid border instead of a semi-transparent shadow for your UIs. All these small things compound and make your interface either amazing, or just... not that great. As explained in [Agents with Taste](https://emilkowal.ski/ui/agents-with-taste), these skills list all the little mistakes agents can potentially make and explain how to fix them. This is your shortcut to great interfaces. A shortcut to stand out in a sea of slop. ## Reference - **[emil-design-eng](./skills/emil-design-eng/SKILL.md)** — The main skill that consists of mostly animation, but also some design advice. - **[review-animations](./skills/review-animations/SKILL.md)** — Review your animations in a strict way, based on my rules. - **[improve-animations](./skills/improve-animations/SKILL.md)** — Audit all the animations in your codebase and get prioritized, self-contained plans that any agent can execute. - **[find-animation-opportunities](./skills/find-animation-opportunities/SKILL.md)** — Search your UI for places that would genuinely benefit from motion, while also telling you what not to animate. - **[animation-vocabulary](./skills/animation-vocabulary/SKILL.md)** — Get better animations from an AI by telling it exactly what you want by using the right words. - **[apple-design](./skills/apple-d",
       "asset_candidates": [
         {
-          "url": "https://skills.sh/b/emilkowalski/skills",
-          "kind": "image",
-          "source": "README"
-        },
-        {
           "url": "https://github.com/user-attachments/assets/a405a37f-1a1a-4e8d-8fd6-269ee6d4fba6",
           "kind": "video",
           "source": "README"
@@ -173,6 +168,11 @@
           "url": "https://opengraph.githubassets.com/reporeel-2026-07/emilkowalski/skills",
           "kind": "image",
           "source": "GitHub OpenGraph fallback"
+        },
+        {
+          "url": "https://github.com/emilkowalski/skills",
+          "kind": "image",
+          "source": "GitHub README render"
         }
       ]
     },
@@ -210,6 +210,11 @@
           "url": "https://opengraph.githubassets.com/reporeel-2026-07/usestrix/strix",
           "kind": "image",
           "source": "GitHub OpenGraph fallback"
+        },
+        {
+          "url": "https://github.com/usestrix/strix",
+          "kind": "image",
+          "source": "GitHub README render"
         }
       ]
     },
@@ -259,14 +264,14 @@
           "source": "README"
         },
         {
-          "url": "https://raw.githubusercontent.com/Nutlope/hallmark/main/docs/screenshots/hero-garden-01.jpg",
-          "kind": "image",
-          "source": "README"
-        },
-        {
           "url": "https://opengraph.githubassets.com/reporeel-2026-07/Nutlope/hallmark",
           "kind": "image",
           "source": "GitHub OpenGraph fallback"
+        },
+        {
+          "url": "https://github.com/Nutlope/hallmark",
+          "kind": "image",
+          "source": "GitHub README render"
         }
       ]
     },
@@ -286,11 +291,6 @@
       "readme_excerpt": "# World Monitor [简体中文](README.zh-CN.md) | [日本語](README.ja-JP.md) **Real-time global intelligence dashboard** — AI-powered news aggregation, geopolitical monitoring, and infrastructure tracking in a unified situational awareness interface. [![GitHub stars](https://img.shields.io/github/stars/koala73/worldmonitor?style=social)](https://github.com/koala73/worldmonitor/stargazers) [![Discord](https://img.shields.io/badge/Discord-Join-5865F2?style=flat&logo=discord&logoColor=white)](https://discord.gg/re63kWKxaz) [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0) [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=flat&logo=typescript&logoColor=white)](https://www.typescriptlang.org/) [![Last commit](https://img.shields.io/github/last-commit/koala73/worldmonitor)](https://github.com/koala73/worldmonitor/commits/main) [![Latest release](https://img.shields.io/github/v/release/koala73/worldmonitor?style=flat)](https://github.com/koala73/worldmonitor/releases/latest) [![npm: worldmonitor](https://img.shields.io/npm/v/worldmonitor?logo=npm&label=npm)](https://www.npmjs.com/package/worldmonitor) [![smithery badge](https://smithery.ai/badge/worldmonitor/wm-mcp)](https://smithery.ai/servers/worldmonitor/wm-mcp) [![skills.sh](https://skills.sh/b/koala73/worldmonitor)](https://skills.sh/koala73/worldmonitor) Documentation · Releases · Contributing ![World Monitor Dashboard](docs/images/worldmonitor-7-mar-2026.jpg) --- ## What It Does - **500+ curated news feeds** across 15 categories, AI-synthesized into briefs - **Dual map engine** — 3D globe (globe.gl) and WebGL flat map (deck.gl) with 56 map layer types - **Cross-stream correlation** — military, economic, disaster, and escalation signal convergence - **Country Instability Index (CII)** — server-authoritative CII v8 stress scoring for 31 Tier-1 countries - **Finance radar** — 29 stock exchanges, commodities, crypto, and 7-signal market composite - **Local AI** — run everything with Ollama, no API keys required - **6 site variants** from a single codebase (world, tech, finance, commodity, happy, energy) - **Native desktop app** (Tauri 2) for macOS, Windows, and Linux - **25 languages** with native-language feeds and RTL support For the full feature list, architecture, data sources, and algorithms, see the **[documentation](https://www.worldmonitor.app/docs/documentation)**. --- ## Support Status All site variants and desktop binaries are",
       "asset_candidates": [
         {
-          "url": "https://skills.sh/b/koala73/worldmonitor",
-          "kind": "image",
-          "source": "README"
-        },
-        {
           "url": "https://raw.githubusercontent.com/koala73/worldmonitor/main/docs/images/worldmonitor-7-mar-2026.jpg",
           "kind": "image",
           "source": "README"
@@ -299,6 +299,11 @@
           "url": "https://opengraph.githubassets.com/reporeel-2026-07/koala73/worldmonitor",
           "kind": "image",
           "source": "GitHub OpenGraph fallback"
+        },
+        {
+          "url": "https://github.com/koala73/worldmonitor",
+          "kind": "image",
+          "source": "GitHub README render"
         }
       ]
     },
@@ -348,14 +353,14 @@
           "source": "README"
         },
         {
-          "url": "https://raw.githubusercontent.com/iOfficeAI/OfficeCLI/main/assets/shiba.gif",
-          "kind": "video",
-          "source": "README"
-        },
-        {
           "url": "https://opengraph.githubassets.com/reporeel-2026-07/iOfficeAI/OfficeCLI",
           "kind": "image",
           "source": "GitHub OpenGraph fallback"
+        },
+        {
+          "url": "https://github.com/iOfficeAI/OfficeCLI",
+          "kind": "image",
+          "source": "GitHub README render"
         }
       ]
     },
@@ -405,14 +410,14 @@
           "source": "README"
         },
         {
-          "url": "https://raw.githubusercontent.com/Zackriya-Solutions/meetily/main/docs/settings.png",
-          "kind": "image",
-          "source": "README"
-        },
-        {
           "url": "https://opengraph.githubassets.com/reporeel-2026-07/Zackriya-Solutions/meetily",
           "kind": "image",
           "source": "GitHub OpenGraph fallback"
+        },
+        {
+          "url": "https://github.com/Zackriya-Solutions/meetily",
+          "kind": "image",
+          "source": "GitHub README render"
         }
       ]
     },
@@ -455,6 +460,11 @@
           "url": "https://opengraph.githubassets.com/reporeel-2026-07/asgeirtj/system_prompts_leaks",
           "kind": "image",
           "source": "GitHub OpenGraph fallback"
+        },
+        {
+          "url": "https://github.com/asgeirtj/system_prompts_leaks",
+          "kind": "image",
+          "source": "GitHub README render"
         }
       ]
     }

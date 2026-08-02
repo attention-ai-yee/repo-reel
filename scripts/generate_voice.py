@@ -53,6 +53,16 @@ def apply_pronunciation(text: str, rules: dict[str, str]) -> str:
     return text
 
 
+def soften_for_tts(text: str) -> str:
+    """Make symbols read naturally without changing display text.
+
+    Underscores and slashes inside identifiers (repo names, file names) should
+    be silent, not read aloud as "下划线" / "斜杠". Replacing them with a space
+    keeps the same word order so boundaries still map back to the display text.
+    """
+    return text.replace("_", " ").replace("/", " ")
+
+
 def restore_display_words(
     words: list[dict], tts_text: str, display_text: str
 ) -> list[dict]:
@@ -173,7 +183,7 @@ async def main() -> None:
     pronunciation = load_pronunciation()
 
     async def prepare_speech(segment: dict) -> None:
-        tts_text = apply_pronunciation(segment["spoken"], pronunciation)
+        tts_text = soften_for_tts(apply_pronunciation(segment["spoken"], pronunciation))
         fingerprint = hashlib.sha1(
             (
                 tts_text
