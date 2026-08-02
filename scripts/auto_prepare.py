@@ -666,8 +666,13 @@ def _screenshot_readme_via_cdp(chrome: str, url: str, target: Path) -> None:
 
         send("Page.enable")
         send("Runtime.enable")
+        # Render at 2x so the README text stays crisp when the frame is scaled
+        # up inside the video. The on-screen media window is ~840x550 (about
+        # 1.53:1), so we capture the README at that aspect ratio instead of a
+        # tall strip -- a tall strip gets center-cropped by objectFit=cover and
+        # only ~30% of it shows, which is what made the content look tiny.
         send("Emulation.setDeviceMetricsOverride", {
-            "width": 1280, "height": 2000, "deviceScaleFactor": 1, "mobile": False,
+            "width": 1280, "height": 2000, "deviceScaleFactor": 2, "mobile": False,
         })
         send("Page.navigate", {"url": url})
         # Wait for the README article to appear (client-side render).
@@ -690,17 +695,44 @@ def _screenshot_readme_via_cdp(chrome: str, url: str, target: Path) -> None:
         if not box:
             raise RuntimeError("README article not found on page")
 
+        # Wait for images inside the README to finish loading, otherwise the
+        # article height is measured too short (lazy-loaded images haven't
+        # expanded it yet) and the capture comes out as a thin strip.
+        send("Runtime.evaluate", {
+            "expression": (
+                "Promise.all(Array.from(document.querySelectorAll("
+                "'article.markdown-body img')).map(i=>i.complete?1:"
+                "new Promise(r=>{i.onload=r;i.onerror=r;})))"
+            ),
+            "awaitPromise": True,
+        })
+        # Re-measure now that images have expanded the article.
+        res = send("Runtime.evaluate", {"expression": find_js, "returnByValue": True})
+        box = res["result"]["result"]["value"]
+
         # Capture the README region using absolute document coordinates. The
         # clip in Page.captureScreenshot is in page (document) space, so no
-        # scrolling is needed. Cap the height to a vertical-friendly frame.
-        clip_height = min(box["h"], 1900)
+        # scrolling is needed. Match the media window's ~1.53:1 aspect ratio so
+        # the whole captured region is visible (no center-crop), and cap the
+        # height so very long READMEs still show their top section.
+        #
+        # The on-screen MediaContent applies a slow zoom animation
+        # (scale up to ~1.06x). With objectFit=cover that zoom crops the left
+        # and right edges, which was cutting off the first characters of each
+        # line. Capture a wider region (horizontal padding around the article)
+        # so the zoom crops into empty margin instead of the text.
+        media_aspect = 840 / 550
+        pad_x = box["w"] * 0.07
+        clip_x = max(0, box["x"] - pad_x)
+        clip_w = box["w"] + pad_x * 2
+        clip_height = min(box["h"], clip_w / media_aspect)
         shot = send("Page.captureScreenshot", {
             "format": "png",
             "captureBeyondViewport": True,
             "clip": {
-                "x": box["x"],
+                "x": clip_x,
                 "y": box["y"],
-                "width": box["w"],
+                "width": clip_w,
                 "height": clip_height,
                 "scale": 1,
             },
