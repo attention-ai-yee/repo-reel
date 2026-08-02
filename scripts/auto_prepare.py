@@ -310,6 +310,7 @@ def enrich(weekly: dict, edition: str, candidate_limit: int) -> dict:
         "edition": edition,
         "source_url": weekly["source_url"],
         "scope": weekly["scope"],
+        "period": weekly.get("period", "weekly"),
         "repos": dossiers,
     }
 
@@ -600,12 +601,12 @@ def screenshot_page(url: str, target: Path) -> None:
             "--hide-scrollbars",
             "--window-size=1280,2000",
             f"--screenshot={target}",
-            "--virtual-time-budget=5000",
+            "--virtual-time-budget=12000",
             url,
         ],
         check=True,
         capture_output=True,
-        timeout=90,
+        timeout=120,
     )
     if not target.exists() or target.stat().st_size < 2048:
         raise RuntimeError("page screenshot came out empty")
@@ -808,6 +809,7 @@ def materialize_asset(
             target.write_bytes(payload)
     visual_type = "video" if detected_video else "image"
     relative = target.relative_to(ROOT / "remotion" / "public").as_posix()
+    is_readme_render = selected["source"] == "GitHub README render"
     visual = {
         "type": visual_type,
         "path": relative,
@@ -817,10 +819,10 @@ def materialize_asset(
             else "GITHUB REPOSITORY"
             if selected["source"] == "GitHub OpenGraph fallback"
             else "RENDERED README"
-            if selected["source"] == "GitHub README render"
+            if is_readme_render
             else "REPOSITORY PLACEHOLDER"
         ),
-        "fit": "cover" if visual_type == "video" else "contain",
+        "fit": "cover" if visual_type == "video" or is_readme_render else "contain",
     }
     manifest = {
         "repo": repo,
@@ -841,6 +843,9 @@ def build_episode_and_assets(
     manifest_path: Path,
 ) -> dict:
     edition = dossier["edition"]
+    period = dossier.get("period", "weekly")
+    period_word = "MONTHLY" if period == "monthly" else "WEEKLY"
+    period_days = "30" if period == "monthly" else "7"
     public_root = ROOT / "remotion" / "public"
     asset_root = public_root / "assets" / f"weekly-{edition}"
     editorial_by_name = {item["repo"]: item for item in editorial["projects"]}
@@ -850,7 +855,7 @@ def build_episode_and_assets(
             "id": "hook",
             "kind": "spoken",
             "spoken": editorial["hook"],
-            "onscreen": ["GITHUB WEEKLY", "TOP 10"],
+            "onscreen": [f"GITHUB {period_word}", "TOP 10"],
             "chart": [
                 {"name": item["name"].upper(), "stars": item["stars_week"]}
                 for item in sorted(dossier["repos"], key=lambda row: row["rank"])[:5]
@@ -863,8 +868,10 @@ def build_episode_and_assets(
             "fixed_seconds": 1.8,
             "onscreen": [
                 "GITHUB TRENDING",
-                "WEEKLY CANDIDATES",
+                f"{period_word} CANDIDATES",
                 f"CAPTURED {edition}",
+                f"PERIOD {period_word}",
+                f"DAYS {period_days}",
             ],
         },
     ]
@@ -877,7 +884,13 @@ def build_episode_and_assets(
         edit = editorial_by_name[full_name]
         candidates = project["asset_candidates"]
         fallback = candidates[-1]
-        primary_candidate = candidates[edit["primary_asset"]]
+        # Every project shows its rendered README landing page as the primary
+        # visual, so no project ever falls back to a bare logo or a broken image.
+        readme_render = next(
+            (c for c in candidates if c.get("source") == "GitHub README render"),
+            fallback,
+        )
+        primary_candidate = readme_render
         secondary_index = edit.get("secondary_asset")
         slug = re.sub(r"[^a-z0-9-]+", "-", project["name"].lower()).strip("-")
         directory = asset_root / slug

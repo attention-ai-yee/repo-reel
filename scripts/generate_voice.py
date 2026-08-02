@@ -44,7 +44,9 @@ def load_pronunciation() -> dict[str, str]:
                 f"pronunciation rule must keep length: {display!r} -> {spoken!r}"
             )
         rules[display] = spoken
-    return rules
+    # Apply longer phrases first so a short key never consumes part of a longer
+    # one (e.g. "一行命令" must win over a hypothetical "一行").
+    return dict(sorted(rules.items(), key=lambda item: len(item[0]), reverse=True))
 
 
 def apply_pronunciation(text: str, rules: dict[str, str]) -> str:

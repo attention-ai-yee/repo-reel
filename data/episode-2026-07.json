@@ -21,7 +21,7 @@
       "kind": "spoken",
       "spoken": "GitHub 七月榜前十。",
       "onscreen": [
-        "GITHUB WEEKLY",
+        "GITHUB MONTHLY",
         "TOP 10"
       ],
       "chart": [
@@ -54,8 +54,10 @@
       "fixed_seconds": 1.8,
       "onscreen": [
         "GITHUB TRENDING",
-        "WEEKLY CANDIDATES",
-        "CAPTURED 2026-07"
+        "MONTHLY CANDIDATES",
+        "CAPTURED 2026-07",
+        "PERIOD MONTHLY",
+        "DAYS 30"
       ]
     },
     {
@@ -79,9 +81,9 @@
       },
       "visual": {
         "type": "image",
-        "path": "assets/weekly-2026-07/system-prompts-leaks/primary-4e13130035.png",
-        "label": "OFFICIAL README ASSET",
-        "fit": "contain"
+        "path": "assets/weekly-2026-07/system-prompts-leaks/primary-a699cca176.png",
+        "label": "RENDERED README",
+        "fit": "cover"
       },
       "onscreen": [
         "#10",
@@ -111,9 +113,9 @@
       },
       "visual": {
         "type": "image",
-        "path": "assets/weekly-2026-07/meetily/primary-8873152817.png",
-        "label": "OFFICIAL README ASSET",
-        "fit": "contain"
+        "path": "assets/weekly-2026-07/meetily/primary-e92215021f.png",
+        "label": "RENDERED README",
+        "fit": "cover"
       },
       "onscreen": [
         "#09",
@@ -143,9 +145,9 @@
       },
       "visual": {
         "type": "image",
-        "path": "assets/weekly-2026-07/officecli/primary-4e6368774c.webp",
-        "label": "OFFICIAL README ASSET",
-        "fit": "contain"
+        "path": "assets/weekly-2026-07/officecli/primary-f99d93502f.png",
+        "label": "RENDERED README",
+        "fit": "cover"
       },
       "onscreen": [
         "#08",
@@ -175,9 +177,9 @@
       },
       "visual": {
         "type": "image",
-        "path": "assets/weekly-2026-07/worldmonitor/primary-9ca15c59c4.jpg",
-        "label": "OFFICIAL README ASSET",
-        "fit": "contain"
+        "path": "assets/weekly-2026-07/worldmonitor/primary-9d110a9f87.png",
+        "label": "RENDERED README",
+        "fit": "cover"
       },
       "onscreen": [
         "#07",
@@ -207,9 +209,9 @@
       },
       "visual": {
         "type": "image",
-        "path": "assets/weekly-2026-07/hallmark/primary-46f67f8ff3.png",
-        "label": "OFFICIAL README ASSET",
-        "fit": "contain"
+        "path": "assets/weekly-2026-07/hallmark/primary-e2469c92ba.png",
+        "label": "RENDERED README",
+        "fit": "cover"
       },
       "onscreen": [
         "#06",
@@ -239,9 +241,9 @@
       },
       "visual": {
         "type": "image",
-        "path": "assets/weekly-2026-07/strix/primary-48cd36f5a8.png",
-        "label": "OFFICIAL README ASSET",
-        "fit": "contain"
+        "path": "assets/weekly-2026-07/strix/primary-9d0f79dbc9.png",
+        "label": "RENDERED README",
+        "fit": "cover"
       },
       "onscreen": [
         "#05",
@@ -270,9 +272,9 @@
         "stars_week": 19439
       },
       "visual": {
-        "type": "video",
-        "path": "assets/weekly-2026-07/skills/primary-92732e95d9.mp4",
-        "label": "OFFICIAL README ASSET",
+        "type": "image",
+        "path": "assets/weekly-2026-07/skills/primary-a6b84e2791.png",
+        "label": "RENDERED README",
         "fit": "cover"
       },
       "onscreen": [
@@ -303,9 +305,9 @@
       },
       "visual": {
         "type": "image",
-        "path": "assets/weekly-2026-07/opencut/primary-02d48fb439.png",
-        "label": "GITHUB REPOSITORY",
-        "fit": "contain"
+        "path": "assets/weekly-2026-07/opencut/primary-e83635563f.png",
+        "label": "RENDERED README",
+        "fit": "cover"
       },
       "onscreen": [
         "#03",
@@ -335,9 +337,9 @@
       },
       "visual": {
         "type": "image",
-        "path": "assets/weekly-2026-07/orca/primary-b9c9254593.jpg",
-        "label": "OFFICIAL README ASSET",
-        "fit": "contain"
+        "path": "assets/weekly-2026-07/orca/primary-4747a804fd.png",
+        "label": "RENDERED README",
+        "fit": "cover"
       },
       "onscreen": [
         "#02",
@@ -367,9 +369,9 @@
       },
       "visual": {
         "type": "image",
-        "path": "assets/weekly-2026-07/omniroute/primary-eb8d1955b8.png",
-        "label": "OFFICIAL README ASSET",
-        "fit": "contain"
+        "path": "assets/weekly-2026-07/omniroute/primary-586d93ecfa.png",
+        "label": "RENDERED README",
+        "fit": "cover"
       },
       "onscreen": [
         "#01",

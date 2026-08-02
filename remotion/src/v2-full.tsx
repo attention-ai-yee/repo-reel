@@ -78,11 +78,19 @@ const timeline = fullTimelineJson as {
   voice: string;
   segments: FullSegment[];
 };
+const scopeSegment = timeline.segments.find((segment) => segment.id === 'scope');
 const scopeDate =
-  timeline.segments
-    .find((segment) => segment.id === 'scope')
-    ?.onscreen.find((item) => item.startsWith('CAPTURED '))
+  scopeSegment?.onscreen
+    .find((item) => item.startsWith('CAPTURED '))
     ?.replace('CAPTURED ', '') ?? 'WEEKLY';
+const periodWord =
+  scopeSegment?.onscreen
+    .find((item) => item.startsWith('PERIOD '))
+    ?.replace('PERIOD ', '') ?? 'WEEKLY';
+const periodDays =
+  scopeSegment?.onscreen
+    .find((item) => item.startsWith('DAYS '))
+    ?.replace('DAYS ', '') ?? '7';
 
 const clamp = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
 const editorialFont = '"Noto Serif SC", "Source Han Serif SC", serif';
@@ -274,7 +282,7 @@ const Chrome: React.FC<{section: string; accent: string}> = ({
         color: C.paper,
       }}
     >
-      REPOREEL / WEEKLY SIGNAL
+      REPOREEL / {periodWord} SIGNAL
     </div>
     <div
       style={{
@@ -371,7 +379,7 @@ const RankStrip: React.FC<{project: Project; accent: string}> = ({
             textOverflow: 'ellipsis',
           }}
         >
-          {project.owner.toUpperCase()} · +{project.stars_week.toLocaleString('en-US')} / 7 DAYS
+          {project.owner.toUpperCase()} · +{project.stars_week.toLocaleString('en-US')} / {periodDays} DAYS
         </div>
       </div>
     </div>
@@ -836,7 +844,7 @@ const HookScene: React.FC<{segment: FullSegment}> = ({segment}) => {
       >
         GITHUB
         <br />
-        <span style={{color: C.acid}}>WEEKLY TOP 10</span>
+        <span style={{color: C.acid}}>{periodWord} TOP 10</span>
       </div>
       <div
         style={{
@@ -849,7 +857,7 @@ const HookScene: React.FC<{segment: FullSegment}> = ({segment}) => {
           letterSpacing: 3,
         }}
       >
-        TRENDING CANDIDATES / STARS THIS WEEK
+        TRENDING CANDIDATES / STARS THIS {periodWord === 'MONTHLY' ? 'MONTH' : 'WEEK'}
       </div>
       <div
         style={{
@@ -957,7 +965,7 @@ const ScopeScene: React.FC<{segment: FullSegment}> = ({segment}) => {
           transform: `translateX(${-frame * 7}px)`,
         }}
       >
-        WEEKLY WEEKLY WEEKLY
+        {periodWord} {periodWord} {periodWord}
       </div>
       <div
         style={{
@@ -976,7 +984,7 @@ const ScopeScene: React.FC<{segment: FullSegment}> = ({segment}) => {
       >
         GITHUB TRENDING
         <br />
-        WEEKLY CANDIDATES
+        {periodWord} CANDIDATES
       </div>
       <div
         style={{

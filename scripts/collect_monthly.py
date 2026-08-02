@@ -41,6 +41,7 @@ def main() -> None:
         "edition": args.edition,
         "captured_at": datetime.now().astimezone().isoformat(timespec="seconds"),
         "source_url": TRENDING_URL,
+        "period": "monthly",
         "scope": "GitHub Trending monthly page candidates, re-ranked by displayed stars this month",
         "candidate_count": len(candidates),
         "repos": top,
