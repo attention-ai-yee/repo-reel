@@ -575,9 +575,12 @@ def invoke_codex(
 
 
 def screenshot_page(url: str, target: Path) -> None:
-    """Capture a live page (e.g. a repo's rendered README) to a PNG via Chrome.
+    """Capture a repo's rendered README preview (not the code file list).
 
-    Falls back to the SVG placeholder if no headless browser is available.
+    GitHub's repo landing page shows the file browser on top and the README
+    below the fold. We want the README markdown preview itself. We drive
+    headless Chrome over the DevTools Protocol: load the page, locate the
+    README <article> bounding box, then screenshot just that clip region.
     """
     chrome = shutil.which("chrome") or shutil.which("chrome.exe")
     if not chrome:
@@ -593,23 +596,127 @@ def screenshot_page(url: str, target: Path) -> None:
                 break
     if not chrome:
         raise RuntimeError("no headless browser found for page screenshot")
-    subprocess.run(
+    _screenshot_readme_via_cdp(str(chrome), url, target)
+    if not target.exists() or target.stat().st_size < 2048:
+        raise RuntimeError("page screenshot came out empty")
+
+
+def _free_port() -> int:
+    import socket
+
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
+        sock.bind(("127.0.0.1", 0))
+        return sock.getsockname()[1]
+
+
+def _screenshot_readme_via_cdp(chrome: str, url: str, target: Path) -> None:
+    """Drive headless Chrome via CDP to clip the screenshot to the README."""
+    import base64
+    import json as _json
+    import urllib.request as _urlreq
+
+    try:
+        import websocket  # type: ignore
+    except Exception as exc:  # pragma: no cover - dependency guard
+        raise RuntimeError("websocket-client not installed") from exc
+
+    debug_port = _free_port()
+    proc = subprocess.Popen(
         [
-            str(chrome),
+            chrome,
             "--headless",
             "--disable-gpu",
             "--hide-scrollbars",
+            f"--remote-debugging-port={debug_port}",
+            "--remote-allow-origins=*",
             "--window-size=1280,2000",
-            f"--screenshot={target}",
-            "--virtual-time-budget=12000",
-            url,
+            "about:blank",
         ],
-        check=True,
-        capture_output=True,
-        timeout=120,
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
     )
-    if not target.exists() or target.stat().st_size < 2048:
-        raise RuntimeError("page screenshot came out empty")
+    try:
+        ws_url = None
+        for _ in range(50):
+            try:
+                with _urlreq.urlopen(
+                    f"http://127.0.0.1:{debug_port}/json", timeout=1
+                ) as resp:
+                    tabs = _json.load(resp)
+                page = next((t for t in tabs if t.get("type") == "page"), None)
+                if page and page.get("webSocketDebuggerUrl"):
+                    ws_url = page["webSocketDebuggerUrl"]
+                    break
+            except Exception:
+                time.sleep(0.2)
+        if not ws_url:
+            raise RuntimeError("could not reach Chrome DevTools endpoint")
+
+        ws = websocket.create_connection(ws_url, timeout=30)
+        msg_id = 0
+
+        def send(method: str, params: dict | None = None) -> dict:
+            nonlocal msg_id
+            msg_id += 1
+            ws.send(_json.dumps({"id": msg_id, "method": method, "params": params or {}}))
+            while True:
+                reply = _json.loads(ws.recv())
+                if reply.get("id") == msg_id:
+                    return reply
+
+        send("Page.enable")
+        send("Runtime.enable")
+        send("Emulation.setDeviceMetricsOverride", {
+            "width": 1280, "height": 2000, "deviceScaleFactor": 1, "mobile": False,
+        })
+        send("Page.navigate", {"url": url})
+        # Wait for the README article to appear (client-side render).
+        deadline = time.time() + 30
+        box = None
+        # Return the article's absolute document coordinates (not viewport).
+        find_js = (
+            "(()=>{const a=document.querySelector('article.markdown-body');"
+            "if(!a)return null;const r=a.getBoundingClientRect();"
+            "return {x:r.x+window.scrollX,y:r.y+window.scrollY,"
+            "w:r.width,h:r.height};})()"
+        )
+        while time.time() < deadline:
+            res = send("Runtime.evaluate", {"expression": find_js, "returnByValue": True})
+            val = res.get("result", {}).get("result", {}).get("value")
+            if val:
+                box = val
+                break
+            time.sleep(0.4)
+        if not box:
+            raise RuntimeError("README article not found on page")
+
+        # Capture the README region using absolute document coordinates. The
+        # clip in Page.captureScreenshot is in page (document) space, so no
+        # scrolling is needed. Cap the height to a vertical-friendly frame.
+        clip_height = min(box["h"], 1900)
+        shot = send("Page.captureScreenshot", {
+            "format": "png",
+            "captureBeyondViewport": True,
+            "clip": {
+                "x": box["x"],
+                "y": box["y"],
+                "width": box["w"],
+                "height": clip_height,
+                "scale": 1,
+            },
+        })
+        data = shot.get("result", {}).get("data")
+        if not data:
+            raise RuntimeError("CDP screenshot returned no data")
+        target.write_bytes(base64.b64decode(data))
+        ws.close()
+    finally:
+        proc.terminate()
+        try:
+            proc.wait(timeout=5)
+        except Exception:
+            proc.kill()
+
 
 
 def extension_for(content_type: str, final_url: str, kind: str) -> str:
