@@ -1,8 +1,8 @@
 param(
     [Parameter(Position = 0)]
-    [ValidateSet("setup", "doctor", "weekly", "prepare", "preview", "full", "package", "publish")]
+    [ValidateSet("setup", "doctor", "weekly", "monthly", "prepare", "preview", "full", "package", "publish")]
     [string]$Command = "doctor",
-    [string]$Edition = (Get-Date -Format "yyyy-MM-dd"),
+    [string]$Edition = "",
     [string]$Config = "config\weekly.json",
     [string]$Model = "",
     [string]$Voice = "",
@@ -25,6 +25,13 @@ $Root = Split-Path -Parent $MyInvocation.MyCommand.Path
 
 Push-Location $Root
 try {
+    if (-not $Edition) {
+        $Edition = if ($Command -eq "monthly") {
+            Get-Date -Format "yyyy-MM"
+        } else {
+            Get-Date -Format "yyyy-MM-dd"
+        }
+    }
     switch ($Command) {
         "setup" {
             & scripts\setup.ps1 -SkipBrowser:$SkipBrowser
@@ -39,6 +46,19 @@ try {
         }
         "weekly" {
             & scripts\auto_weekly.ps1 `
+                -Edition $Edition `
+                -Config $Config `
+                -Model $Model `
+                -Voice $Voice `
+                -Concurrency $Concurrency `
+                -ReuseEditorial:$ReuseEditorial `
+                -DossierOnly:$DossierOnly `
+                -PreviewOnly:$PreviewOnly `
+                -SkipInstall:$SkipInstall
+        }
+        "monthly" {
+            & .\run.ps1 `
+                -Period monthly `
                 -Edition $Edition `
                 -Config $Config `
                 -Model $Model `

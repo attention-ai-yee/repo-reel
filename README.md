@@ -44,6 +44,24 @@ V1 的卡片式画面与 Windows SAPI 旁白只保留作技术验证，不再作
 .\video-flow.ps1 weekly -Voice zh-CN-XiaoyiNeural
 ```
 
+## 每月工作流
+
+月榜与周榜共用同一条流水线，只是采集脚本、榜单口径（`stars this month`）和画面文案（`MONTHLY` / 30 DAYS）不同。入口：
+
+```powershell
+.\video-flow.ps1 monthly
+```
+
+默认取当前月份（`yyyy-MM`）作为期号，产出 `output\github-monthly-<yyyy-MM>.mp4`。指定某一月、预览、复用文案：
+
+```powershell
+.\video-flow.ps1 monthly -Edition 2026-07
+.\video-flow.ps1 monthly -PreviewOnly
+.\video-flow.ps1 monthly -Edition 2026-07 -ReuseEditorial
+```
+
+月度数据写入 `data\monthly-<edition>.json`，期号、榜单口径与周榜互不干扰。其余编辑模型、女声、QA 与周更完全一致。
+
 默认值统一放在 [`config/weekly.json`](config/weekly.json)。Codex CLI 只承担“根据事实包写口播、选镜头和填结构化编辑方案”；它不渲染视频，也不生成配音。画面由 Remotion 在本机逐帧渲染，FFmpeg 负责编码与响度，Edge TTS 生成当前女声。
 
 脚本会自动拒绝禁用句式、项目缺失、顺序错误、半句截断、异常 JSON 字符和超长口播。README 素材下载失败时会切换到 GitHub 仓库封面；封面也失败时使用本地仓库占位图，不会让整期无限等待。
