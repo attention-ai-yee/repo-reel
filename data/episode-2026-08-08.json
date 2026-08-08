@@ -1,0 +1,465 @@
+{
+  "edition": "2026-08-08",
+  "status": "auto_reviewed",
+  "source": "data/weekly-2026-08-08.json",
+  "dossier": "data/dossier-2026-08-08.json",
+  "editorial": "data/editorial-2026-08-08.json",
+  "fps": 30,
+  "target_duration_seconds": [
+    150,
+    190
+  ],
+  "voice": {
+    "provider": "doubao",
+    "name": "zh_female_wanwanxiaohe_moon_bigtts",
+    "rate": "+0%",
+    "pitch": "+0Hz",
+    "speech_rate": 1.3
+  },
+  "segments": [
+    {
+      "id": "hook",
+      "kind": "spoken",
+      "spoken": "这周榜单从图像工作流到安全路由都有硬货，我按第十到第一顺着讲，让你一遍听懂它们能拿来干什么。",
+      "onscreen": [
+        "GITHUB WEEKLY",
+        "TOP 10"
+      ],
+      "chart": [
+        {
+          "name": "REVERSE-SKILL",
+          "stars": 10400
+        },
+        {
+          "name": "AI-FOR-BEGINNERS",
+          "stars": 8224
+        },
+        {
+          "name": "TENCENTDB-AGENT-MEMORY",
+          "stars": 7501
+        },
+        {
+          "name": "AIRLLM",
+          "stars": 5521
+        },
+        {
+          "name": "DEEPSEEK-REASONIX",
+          "stars": 4739
+        }
+      ],
+      "tail_seconds": 0.45
+    },
+    {
+      "id": "scope",
+      "kind": "silent",
+      "fixed_seconds": 1.8,
+      "onscreen": [
+        "GITHUB TRENDING",
+        "WEEKLY CANDIDATES",
+        "CAPTURED 2026-08-08",
+        "PERIOD WEEKLY",
+        "DAYS 7"
+      ]
+    },
+    {
+      "id": "rank_10",
+      "kind": "spoken",
+      "layout": "split",
+      "accent": "#7CFF00",
+      "spoken": "排在第十的是 ComfyUI。做图、做视频、接模型全靠节点拖拽，工作流能拼得很深，还能连 API 和后端。上手会花点时间，可一旦跑顺，扩展空间特别大。",
+      "headline": "节点流图像工坊登榜",
+      "verdict": "会折腾工作流的人，很容易越用越上头。",
+      "facts": [
+        "node workflows",
+        "diffusion GUI+API"
+      ],
+      "project": {
+        "rank": 10,
+        "owner": "Comfy-Org",
+        "name": "ComfyUI",
+        "url": "https://github.com/Comfy-Org/ComfyUI",
+        "stars_week": 1682
+      },
+      "visual": {
+        "type": "image",
+        "path": "assets/weekly-2026-08-08/comfyui/primary-f34c241277.png",
+        "label": "RENDERED README",
+        "fit": "cover"
+      },
+      "onscreen": [
+        "#10",
+        "COMFYUI",
+        "+1,682"
+      ],
+      "tail_seconds": 0.3,
+      "secondary_visual": {
+        "type": "image",
+        "path": "assets/weekly-2026-08-08/comfyui/secondary-f34c241277.svg",
+        "label": "RENDERED README",
+        "fit": "cover"
+      }
+    },
+    {
+      "id": "rank_09",
+      "kind": "spoken",
+      "layout": "focus",
+      "accent": "#FF6A00",
+      "spoken": "第九名 openwork，想把 Claude Cowork 那套协作体验搬进开源栈。它基于 opencode，适合团队一起盯任务、看上下文、分配动作，自己部署也更踏实。",
+      "headline": "开源协作台上桌了",
+      "verdict": "面向团队的 AI 协作界面，味道很新。",
+      "facts": [
+        "opencode powered",
+        "team workspace"
+      ],
+      "project": {
+        "rank": 9,
+        "owner": "different-ai",
+        "name": "openwork",
+        "url": "https://github.com/different-ai/openwork",
+        "stars_week": 2367
+      },
+      "visual": {
+        "type": "image",
+        "path": "assets/weekly-2026-08-08/openwork/primary-a7aeb4c8ba.png",
+        "label": "RENDERED README",
+        "fit": "cover"
+      },
+      "onscreen": [
+        "#09",
+        "OPENWORK",
+        "+2,367"
+      ],
+      "tail_seconds": 0.3,
+      "secondary_visual": {
+        "type": "image",
+        "path": "assets/weekly-2026-08-08/openwork/secondary-a7aeb4c8ba.svg",
+        "label": "RENDERED README",
+        "fit": "cover"
+      }
+    },
+    {
+      "id": "rank_08",
+      "kind": "spoken",
+      "layout": "stack",
+      "accent": "#00C2FF",
+      "spoken": "第八名 system-design-primer，很多工程师刷系统设计面试都绕不过它。缓存、分片、队列这些大题拆得够细，还顺手给了 Anki 卡片，复习和查漏都很顺。",
+      "headline": "系统设计老牌教材回潮",
+      "verdict": "面试备战和基础回炉，都有稳定参考。",
+      "facts": [
+        "system design",
+        "Anki flashcards"
+      ],
+      "project": {
+        "rank": 8,
+        "owner": "donnemartin",
+        "name": "system-design-primer",
+        "url": "https://github.com/donnemartin/system-design-primer",
+        "stars_week": 2507
+      },
+      "visual": {
+        "type": "image",
+        "path": "assets/weekly-2026-08-08/system-design-primer/primary-e950f4980b.png",
+        "label": "RENDERED README",
+        "fit": "cover"
+      },
+      "onscreen": [
+        "#08",
+        "SYSTEM-DESIGN-PRIMER",
+        "+2,507"
+      ],
+      "tail_seconds": 0.3,
+      "secondary_visual": {
+        "type": "image",
+        "path": "assets/weekly-2026-08-08/system-design-primer/secondary-e950f4980b.svg",
+        "label": "RENDERED README",
+        "fit": "cover"
+      }
+    },
+    {
+      "id": "rank_07",
+      "kind": "spoken",
+      "layout": "cinematic",
+      "accent": "#FFD400",
+      "spoken": "第七名 kaneo，给讨厌臃肿项目管理工具的人准备。界面干净，支持自托管，页面反应也快；团队开任务、排优先级、跟进进度时，干扰会少很多。",
+      "headline": "轻量项目管理很对胃口",
+      "verdict": "想把 PM 工具收拾利落，这个方向讨喜。",
+      "facts": [
+        "self-hosted PM",
+        "fast UI"
+      ],
+      "project": {
+        "rank": 7,
+        "owner": "usekaneo",
+        "name": "kaneo",
+        "url": "https://github.com/usekaneo/kaneo",
+        "stars_week": 2925
+      },
+      "visual": {
+        "type": "image",
+        "path": "assets/weekly-2026-08-08/kaneo/primary-7cb4746f05.png",
+        "label": "RENDERED README",
+        "fit": "cover"
+      },
+      "onscreen": [
+        "#07",
+        "KANEO",
+        "+2,925"
+      ],
+      "tail_seconds": 0.3,
+      "secondary_visual": {
+        "type": "image",
+        "path": "assets/weekly-2026-08-08/kaneo/secondary-7cb4746f05.svg",
+        "label": "RENDERED README",
+        "fit": "cover"
+      }
+    },
+    {
+      "id": "rank_06",
+      "kind": "spoken",
+      "layout": "signal",
+      "accent": "#FF2D55",
+      "spoken": "第六名 book-to-skill，能把技术书 PDF 直接转成 Claude Code skill。边读边用的味道很强，做笔记、复盘和随手查询都方便，厚书也更容易沉成可复用经验。",
+      "headline": "技术书直接变技能包",
+      "verdict": "把阅读成果塞回工作流，这点很实用。",
+      "facts": [
+        "PDF to skill",
+        "Claude Code"
+      ],
+      "project": {
+        "rank": 6,
+        "owner": "virgiliojr94",
+        "name": "book-to-skill",
+        "url": "https://github.com/virgiliojr94/book-to-skill",
+        "stars_week": 3957
+      },
+      "visual": {
+        "type": "image",
+        "path": "assets/weekly-2026-08-08/book-to-skill/primary-a58fde932d.png",
+        "label": "RENDERED README",
+        "fit": "cover"
+      },
+      "onscreen": [
+        "#06",
+        "BOOK-TO-SKILL",
+        "+3,957"
+      ],
+      "tail_seconds": 0.3,
+      "secondary_visual": {
+        "type": "image",
+        "path": "assets/weekly-2026-08-08/book-to-skill/secondary-a58fde932d.svg",
+        "label": "RENDERED README",
+        "fit": "cover"
+      }
+    },
+    {
+      "id": "mid_reset",
+      "kind": "spoken",
+      "spoken": "前半段偏效率和学习，后半段开始上强工具和团队能力，风格会明显变硬。",
+      "onscreen": [
+        "TOP 5"
+      ],
+      "tail_seconds": 0.35
+    },
+    {
+      "id": "rank_05",
+      "kind": "spoken",
+      "layout": "terminal",
+      "accent": "#39FFB6",
+      "spoken": "第五名 DeepSeek-Reasonix，是个贴着 DeepSeek 缓存机制设计的终端编码代理。长会话省 token 很猛，不过老的 TypeScript 线已转维护，新活主要在 Go 重写版。",
+      "headline": "终端代理专盯缓存效率",
+      "verdict": "深度绑定 DeepSeek，适合长时段连续干活。",
+      "facts": [
+        "DeepSeek only",
+        "Go rewrite"
+      ],
+      "project": {
+        "rank": 5,
+        "owner": "esengine",
+        "name": "DeepSeek-Reasonix",
+        "url": "https://github.com/esengine/DeepSeek-Reasonix",
+        "stars_week": 4739
+      },
+      "visual": {
+        "type": "image",
+        "path": "assets/weekly-2026-08-08/deepseek-reasonix/primary-201fe558a4.svg",
+        "label": "RENDERED README",
+        "fit": "cover"
+      },
+      "onscreen": [
+        "#05",
+        "DEEPSEEK-REASONIX",
+        "+4,739"
+      ],
+      "tail_seconds": 0.3,
+      "secondary_visual": {
+        "type": "image",
+        "path": "assets/weekly-2026-08-08/deepseek-reasonix/secondary-dc9abdc7a9.svg",
+        "label": "OFFICIAL README ASSET",
+        "fit": "contain"
+      }
+    },
+    {
+      "id": "rank_04",
+      "kind": "spoken",
+      "layout": "split",
+      "accent": "#9B5CFF",
+      "spoken": "第四名 airllm，主打小显存也能跑超大模型推理，还尽量不先做量化。单张 4GB GPU 就敢碰 70B，这对本地实验党和旧卡用户，吸引力很直接。",
+      "headline": "小显存冲大模型推理",
+      "verdict": "手里卡不豪华的人，看完很难不心动。",
+      "facts": [
+        "4GB GPU",
+        "70B inference"
+      ],
+      "project": {
+        "rank": 4,
+        "owner": "lyogavin",
+        "name": "airllm",
+        "url": "https://github.com/lyogavin/airllm",
+        "stars_week": 5521
+      },
+      "visual": {
+        "type": "image",
+        "path": "assets/weekly-2026-08-08/airllm/primary-26149269af.svg",
+        "label": "RENDERED README",
+        "fit": "cover"
+      },
+      "onscreen": [
+        "#04",
+        "AIRLLM",
+        "+5,521"
+      ],
+      "tail_seconds": 0.3,
+      "secondary_visual": {
+        "type": "image",
+        "path": "assets/weekly-2026-08-08/airllm/secondary-20e1829610.png",
+        "label": "OFFICIAL README ASSET",
+        "fit": "contain"
+      }
+    },
+    {
+      "id": "rank_03",
+      "kind": "spoken",
+      "layout": "focus",
+      "accent": "#00E5FF",
+      "spoken": "第三名 TencentDB-Agent-Memory，给多 Agent 团队管记忆。聊天、技能、知识和代码图谱能一起沉淀，少喂重复上下文，长任务更省 token，协作也更顺。",
+      "headline": "团队记忆层开始成型",
+      "verdict": "多代理协作想跑久一点，这类底座很关键。",
+      "facts": [
+        "team memory hub",
+        "Code-Graph"
+      ],
+      "project": {
+        "rank": 3,
+        "owner": "TencentCloud",
+        "name": "TencentDB-Agent-Memory",
+        "url": "https://github.com/TencentCloud/TencentDB-Agent-Memory",
+        "stars_week": 7501
+      },
+      "visual": {
+        "type": "image",
+        "path": "assets/weekly-2026-08-08/tencentdb-agent-memory/primary-d046e10f48.svg",
+        "label": "RENDERED README",
+        "fit": "cover"
+      },
+      "onscreen": [
+        "#03",
+        "TENCENTDB-AGENT-MEMORY",
+        "+7,501"
+      ],
+      "tail_seconds": 0.3,
+      "secondary_visual": {
+        "type": "image",
+        "path": "assets/weekly-2026-08-08/tencentdb-agent-memory/secondary-d046e10f48.svg",
+        "label": "RENDERED README",
+        "fit": "cover"
+      }
+    },
+    {
+      "id": "rank_02",
+      "kind": "spoken",
+      "layout": "stack",
+      "accent": "#FFB000",
+      "spoken": "第二名 AI-For-Beginners，把 AI 入门拆成 12 周 24 课，课程节奏配得很成体系。适合刚起步的人按章节往前走，拿它搭学习计划，比东翻西找省心。",
+      "headline": "微软入门课又热起来",
+      "verdict": "新手想系统开局，这套课还是很稳。",
+      "facts": [
+        "12 weeks",
+        "24 lessons"
+      ],
+      "project": {
+        "rank": 2,
+        "owner": "microsoft",
+        "name": "AI-For-Beginners",
+        "url": "https://github.com/microsoft/AI-For-Beginners",
+        "stars_week": 8224
+      },
+      "visual": {
+        "type": "image",
+        "path": "assets/weekly-2026-08-08/ai-for-beginners/primary-3eadfa87ae.svg",
+        "label": "RENDERED README",
+        "fit": "cover"
+      },
+      "onscreen": [
+        "#02",
+        "AI-FOR-BEGINNERS",
+        "+8,224"
+      ],
+      "tail_seconds": 0.3,
+      "secondary_visual": {
+        "type": "image",
+        "path": "assets/weekly-2026-08-08/ai-for-beginners/secondary-32c96eae4f.png",
+        "label": "GITHUB REPOSITORY",
+        "fit": "contain"
+      }
+    },
+    {
+      "id": "rank_01",
+      "kind": "spoken",
+      "layout": "cinematic",
+      "accent": "#FF3B30",
+      "spoken": "第一名 reverse-skill，给逆向、授权渗透和安全研究场景做技能路由。遇到 APK、ELF、JS 加密或 CTF，它会先分流再起工具链，少走弯路，流程也更稳。",
+      "headline": "安全技能路由包冲到榜首",
+      "verdict": "安全活最怕乱试命令，这套分流思路很抓人。",
+      "facts": [
+        "skill router",
+        "authorized pentest"
+      ],
+      "project": {
+        "rank": 1,
+        "owner": "zhaoxuya520",
+        "name": "reverse-skill",
+        "url": "https://github.com/zhaoxuya520/reverse-skill",
+        "stars_week": 10400
+      },
+      "visual": {
+        "type": "image",
+        "path": "assets/weekly-2026-08-08/reverse-skill/primary-a84eba5647.svg",
+        "label": "RENDERED README",
+        "fit": "cover"
+      },
+      "onscreen": [
+        "#01",
+        "REVERSE-SKILL",
+        "+10,400"
+      ],
+      "tail_seconds": 0.3,
+      "secondary_visual": {
+        "type": "image",
+        "path": "assets/weekly-2026-08-08/reverse-skill/secondary-a84eba5647.png",
+        "label": "RENDERED README",
+        "fit": "cover"
+      }
+    },
+    {
+      "id": "outro",
+      "kind": "spoken",
+      "spoken": "这十个项目里，有的适合马上装来用，有的适合先收藏慢慢啃。先记住名字，周末挑一个动手就够了。",
+      "onscreen": [
+        "10 PROJECTS",
+        "ONE WEEK",
+        "NEXT · REAL TEST"
+      ],
+      "tail_seconds": 0.8
+    }
+  ]
+}

@@ -1,0 +1,378 @@
+{
+  "edition": "2026-08-08",
+  "source_url": "https://github.com/trending?since=weekly",
+  "scope": "GitHub Trending weekly page candidates, re-ranked by displayed stars this week",
+  "period": "weekly",
+  "repos": [
+    {
+      "owner": "zhaoxuya520",
+      "name": "reverse-skill",
+      "url": "https://github.com/zhaoxuya520/reverse-skill",
+      "language": "PowerShell",
+      "description": "Reverse Engineering / Authorized Penetration Testing / Security Research Skill Router Pack AI-powered routing + On-demand toolchain bootstrapping + Self-evolving knowledge base Supports Claude Code, Kiro, Cursor, Cline, and other AI coding clients 逆向/渗透/安全技能路由包 - AI 自动路由 + 按需自举工具链 + 自动进化经验库 | 支持 Claude Code / Kiro / Cursor / Cline 等代码 AI 客户端",
+      "stars_total": 20957,
+      "stars_week": 10400,
+      "rank": 1,
+      "full_name": "zhaoxuya520/reverse-skill",
+      "default_branch": "main",
+      "homepage": "",
+      "license": null,
+      "readme_excerpt": "reverse-skill Cybersecurity Skills Router · 逆向技能路由包 Navigate the dark waters, sail against the stream. About · Getting Started · Usage · Fast route · Routing · Ops contracts · AI Bootstrap · Sponsors · Contributing 🌐 中文 ## About > **If you are an AI Agent, jump to [README_AI.md](README_AI.md) and follow the instructions strictly.** When an AI agent (Claude Code, Codex, Cursor, OpenCode, or another compatible client) encounters an APK, a binary, frontend JS encryption, a CTF challenge, or a pentesting target, this package routes it to the right methodology, checks available tools, and executes a repeatable workflow instead of guessing commands. ``` User task → RULES.md → MASTER-ROUTING / master-route.ps1 (PRIMARY) → case-init / scope.md (auth + network_profile; no target ACT until ready) → Scenario skill → tools / MCP / scripts → timeline + Evidence→Finding→Path → report + field-journal ``` **Why this exists:** - AI agents don't know whether to use jadx, apktool, Frida, IDA, or BurpSuite for a given task - APK, ELF, JS, PCAP, and CTF tasks each need different playbooks - Tools, MCP servers, and scripts are scattered across machines - The same mistakes get repeated because experience isn't reused ### Current status | Routing rules | Regression benchmark | Core skill modules | CI platforms | Client model | |---:|---:|---:|---|---| | 41 (R0–R40) | 163 cases | 42 tracked modules | Windows + Ubuntu | Client-neutral | The routing core is driven by one structured configuration, validated by cross-platform CI, and kept separate from optional client adapters. PRIMARY ladder: [skills/MASTER-ROUTING.md](skills/MASTER-ROUTING.md) · Full matrix: [skills/routing.md](skills/routing.md) · Ops: [skills/ops/](skills/ops/) ( back to top ) ### Built With IDA Pro · radare2 · Ghidra ( back to top ) ## Getting Started ### Prerequisites - **Java / JDK** — for jadx and apktool - **Node.js 22.12+** — for JS toolchain and MCP servers - **Python 3.x** — for Frida and helper scripts - **A code AI client** — Claude Code, Codex, Cursor, OpenCode, or another compatible client ### Installation ``` git clone https://github.com/zhaoxuya520/reverse-skill.git ``` Then refresh the tool index per platform: | Platform | Command | |----------|---------| | Windows | `powershell -File skills/scripts/refresh-tool-index.ps1` | | Linux / macOS | `bash skills/scripts/refresh-tool-index.sh` | | Kali Linux | `bash kali/scripts/refresh-tool-index.sh` | Check [skills/tool-index.md](skills/tool-index.md) to ",
+      "asset_candidates": [
+        {
+          "url": "https://raw.githubusercontent.com/zhaoxuya520/reverse-skill/main/reverse-skill.png",
+          "kind": "image",
+          "source": "README"
+        },
+        {
+          "url": "https://www.atlascloud.ai/oss-program/powered-by-atlas-cloud.svg",
+          "kind": "image",
+          "source": "README"
+        },
+        {
+          "url": "https://opengraph.githubassets.com/reporeel-2026-08-08/zhaoxuya520/reverse-skill",
+          "kind": "image",
+          "source": "GitHub OpenGraph fallback"
+        },
+        {
+          "url": "https://github.com/zhaoxuya520/reverse-skill",
+          "kind": "image",
+          "source": "GitHub README render"
+        }
+      ]
+    },
+    {
+      "owner": "microsoft",
+      "name": "AI-For-Beginners",
+      "url": "https://github.com/microsoft/AI-For-Beginners",
+      "language": "Jupyter Notebook",
+      "description": "12 Weeks, 24 Lessons, AI for All!",
+      "stars_total": 63447,
+      "stars_week": 8224,
+      "rank": 2,
+      "full_name": "microsoft/AI-For-Beginners",
+      "default_branch": "main",
+      "homepage": "",
+      "license": null,
+      "readme_excerpt": "[![GitHub license](https://img.shields.io/github/license/microsoft/AI-For-Beginners.svg)](https://github.com/microsoft/AI-For-Beginners/blob/main/LICENSE) [![GitHub contributors](https://img.shields.io/github/contributors/microsoft/AI-For-Beginners.svg)](https://GitHub.com/microsoft/AI-For-Beginners/graphs/contributors/) [![GitHub issues](https://img.shields.io/github/issues/microsoft/AI-For-Beginners.svg)](https://GitHub.com/microsoft/AI-For-Beginners/issues/) [![GitHub pull-requests](https://img.shields.io/github/issues-pr/microsoft/AI-For-Beginners.svg)](https://GitHub.com/microsoft/AI-For-Beginners/pulls/) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) [![GitHub watchers](https://img.shields.io/github/watchers/microsoft/AI-For-Beginners.svg?style=social&label=Watch)](https://GitHub.com/microsoft/AI-For-Beginners/watchers/) [![GitHub forks](https://img.shields.io/github/forks/microsoft/AI-For-Beginners.svg?style=social&label=Fork)](https://GitHub.com/microsoft/AI-For-Beginners/network/) [![GitHub stars](https://img.shields.io/github/stars/microsoft/AI-For-Beginners.svg?style=social&label=Star)](https://GitHub.com/microsoft/AI-For-Beginners/stargazers/) [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/microsoft/ai-for-beginners/HEAD) [![Gitter](https://badges.gitter.im/Microsoft/ai-for-beginners.svg)](https://gitter.im/Microsoft/ai-for-beginners?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge) [![Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/nTYy5BXMWG)](https://discord.gg/nTYy5BXMWG) # Artificial Intelligence for Beginners - A Curriculum |![Sketchnote by @girlie_mac https://twitter.com/girlie_mac](https://github.com/microsoft/AI-For-Beginners/raw/main/lessons/sketchnotes/ai-overview.png)| |:---:| | AI For Beginners - _Sketchnote by [@girlie_mac](https://twitter.com/girlie_mac)_ | Explore the world of **Artificial Intelligence** (AI) with our 12-week, 24-lesson curriculum! It includes practical lessons, quizzes, and labs. The curriculum is beginner-friendly and covers tools like TensorFlow and PyTorch, as well as ethics in AI ### 🌐 Multi-Language Support #### Supported via GitHub Action (Automated & Always Up-to-Date) [Arabic](./translations/ar/README.md) | [Bengali](./translations/bn/README.md) | [Bulgarian](./translations/bg/README.md) | [Burmese (Myanmar)](./translations/my/README.md) | [Chinese (Simplified)](./translations/",
+      "asset_candidates": [
+        {
+          "url": "https://github.com/microsoft/AI-For-Beginners/raw/main/lessons/sketchnotes/ai-overview.png",
+          "kind": "image",
+          "source": "README"
+        },
+        {
+          "url": "https://opengraph.githubassets.com/reporeel-2026-08-08/microsoft/AI-For-Beginners",
+          "kind": "image",
+          "source": "GitHub OpenGraph fallback"
+        },
+        {
+          "url": "https://github.com/microsoft/AI-For-Beginners",
+          "kind": "image",
+          "source": "GitHub README render"
+        }
+      ]
+    },
+    {
+      "owner": "TencentCloud",
+      "name": "TencentDB-Agent-Memory",
+      "url": "https://github.com/TencentCloud/TencentDB-Agent-Memory",
+      "language": "TypeScript",
+      "description": "TencentDB Agent Memory is a team-level memory hub for AI Agents — turning conversations, docs, and code into four reusable memory assets (Chat Memory, Skill, LLM-Wiki, Code-Graph) that are governed, shared, and equipped across agents and frameworks.",
+      "stars_total": 18008,
+      "stars_week": 7501,
+      "rank": 3,
+      "full_name": "TencentCloud/TencentDB-Agent-Memory",
+      "default_branch": "main",
+      "homepage": "",
+      "license": null,
+      "readme_excerpt": "### Agents remember,Humans innovate. [![npm](https://img.shields.io/npm/v/@tencentdb-agent-memory/memory-tencentdb?color=blue)](https://www.npmjs.com/package/@tencentdb-agent-memory/memory-tencentdb) [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE) [![Node](https://img.shields.io/badge/node-%3E=22.16-brightgreen)](https://nodejs.org/) [![OpenClaw](https://img.shields.io/badge/OpenClaw-%3E=2026.3.13-orange)](https://github.com/openclaw/openclaw) [![Hermes](https://img.shields.io/badge/Hermes-Gateway-7B61FF)](https://hermes-agent.nousresearch.com/docs/) [![Discord](https://img.shields.io/badge/Discord-Join-5865F2?logo=discord&logoColor=white)](https://discord.gg/dJQM6mKMF) [Highlights](#-highlights) · [Overview](#overview) · [Core Technology](#core-technology-reject-flat-storage-embrace-layering-and-symbolization) · [Features](#-features) · [Quick Start](#quick-start) [**English**](./README.md) · [简体中文](./README_CN.md) --- ## ✨ Highlights > **TencentDB Agent Memory = symbolic short-term memory + layered long-term memory.** > > - **Symbolic short-term memory** offloads heavy tool logs and condenses them into compact Mermaid symbols, cutting token usage and improving task success. > - **Layered long-term memory** distills fragmented conversations into structured personas and scenes, instead of flat vector piles. When integrated with OpenClaw, it cuts token usage by up to **61.38%**, improves pass rate by **51.52%** (relative), and raises PersonaMem accuracy from **48%** to **76%**. | Memory Capability | Benchmark | OpenClaw Success | With Plugin | Relative Δ | OpenClaw Tokens | With Plugin Tokens | Relative Δ | | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | | **Short-term** | WideSearch | 33% | **50%** | **+51.52%** | 221.31M | **85.64M** | **−61.38%** | | **Short-term** | SWE-bench | 58.4% | **64.2%** | **+9.93%** | 3474.1M | **2375.4M** | **−33.09%** | | **Short-term** | AA-LCR | 44.0% | **47.5%** | **+7.95%** | 112.0M | **77.3M** | **−30.98%** | | **Long-term** | PersonaMem | 48% | **76%** | **+59%** | — | — | — | > These results are measured over continuous long-horizon sessions, not isolated turns. For example, SWE-bench runs 50 consecutive tasks per session to simulate the context-accumulation pressure of real-world long-horizon agents. --- ## Overview **Memory is not about hoarding everything in the AI — it is about sparing humans from having to repeat themselves.** In practice, we constantly re-explain t",
+      "asset_candidates": [
+        {
+          "url": "https://raw.githubusercontent.com/TencentCloud/TencentDB-Agent-Memory/main/assets/images/memory-pyramid-en.jpg",
+          "kind": "image",
+          "source": "README"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/TencentCloud/TencentDB-Agent-Memory/main/assets/images/flowchart1.png",
+          "kind": "image",
+          "source": "README"
+        },
+        {
+          "url": "https://github.com/user-attachments/assets/09c64a2c-9997-42c0-90a3-a15e250cfa43",
+          "kind": "video",
+          "source": "README"
+        },
+        {
+          "url": "https://github.com/user-attachments/assets/69045512-e75f-4c84-99dd-52ffa6e9e317",
+          "kind": "video",
+          "source": "README"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/TencentCloud/TencentDB-Agent-Memory/main/assets/images/star-helper.png",
+          "kind": "image",
+          "source": "README"
+        },
+        {
+          "url": "https://opengraph.githubassets.com/reporeel-2026-08-08/TencentCloud/TencentDB-Agent-Memory",
+          "kind": "image",
+          "source": "GitHub OpenGraph fallback"
+        },
+        {
+          "url": "https://github.com/TencentCloud/TencentDB-Agent-Memory",
+          "kind": "image",
+          "source": "GitHub README render"
+        }
+      ]
+    },
+    {
+      "owner": "lyogavin",
+      "name": "airllm",
+      "url": "https://github.com/lyogavin/airllm",
+      "language": "Jupyter Notebook",
+      "description": "AirLLM 70B inference with single 4GB GPU",
+      "stars_total": 30062,
+      "stars_week": 5521,
+      "rank": 4,
+      "full_name": "lyogavin/airllm",
+      "default_branch": "main",
+      "homepage": "",
+      "license": null,
+      "readme_excerpt": "![airllm_logo](https://github.com/lyogavin/airllm/blob/main/assets/airllm_logo_sm.png?v=3&raw=true) [**Quickstart**](#quickstart) | [**Configurations**](#configurations) | [**MacOS**](#macos) | [**Example notebooks**](#example-python-notebook) | [**FAQ**](#faq) **AirLLM** dramatically reduces inference memory usage, letting 70B large language models run on a single 4GB GPU card — without quantization, distillation, or pruning. You can even run **405B Llama 3.1** on **8GB**, **DeepSeek-V3 (671B)** on **~12GB**, and **Kimi K3 (2.8T)** — the largest open-source model released to date — on **under 4GB**, because sparse MoE models stream one expert at a time rather than a whole layer. ![GitHub Repo stars](https://img.shields.io/github/stars/lyogavin/airllm?style=social) [![Downloads](https://static.pepy.tech/personalized-badge/airllm?period=total&units=international_system&left_color=grey&right_color=blue&left_text=downloads)](https://pepy.tech/project/airllm) [![Code License](https://img.shields.io/badge/Code%20License-Apache_2.0-green.svg)](https://github.com/LianjiaTech/BELLE/blob/main/LICENSE) [![Generic badge](https://img.shields.io/badge/wechat-Anima-brightgreen?logo=wechat)](https://static.aicompose.cn/static/wecom_barcode.png?t=1671918938) [![Discord](https://img.shields.io/discord/1175437549783760896?logo=discord&color=7289da )](https://discord.gg/2xffU5sn) [![PyPI - AirLLM](https://img.shields.io/pypi/format/airllm?logo=pypi&color=3571a3) ](https://pypi.org/project/airllm/) [![Website](https://img.shields.io/website?up_message=blog&url=https%3A%2F%2Fmedium.com%2F%40lyo.gavin&logo=medium&color=black)](https://medium.com/@lyo.gavin) [![Website](https://img.shields.io/badge/Gavin_Li-Blog-blue)](https://gavinliblog.com) [![Support me on Patreon](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fshieldsio-patreon.vercel.app%2Fapi%3Fusername%3Dgavinli%26type%3Dpatrons&style=flat)](https://patreon.com/gavinli) [![GitHub Sponsors](https://img.shields.io/github/sponsors/lyogavin?logo=GitHub&color=lightgray)](https://github.com/sponsors/lyogavin) ## AI Agents Recommendation: * [Best AI Game Sprite Generator](https://godmodeai.co) * [Best AI Facial Expression Editor](https://crazyfaceai.com) * [Bloome — build & run AI agent teams in the cloud, zero setup](https://bloome.im/app?ref=G6BYnov0&utm_medium=github&utm_source=lyogavin-airllm-ivor-202606) ## Updates [2026/07] **Kimi K3 (2.8T)** support: the largest open-source model runs on a single card in **3.72GB*",
+      "asset_candidates": [
+        {
+          "url": "https://github.com/lyogavin/airllm/blob/main/assets/airllm2_time_improvement.png?v=2&raw=true",
+          "kind": "image",
+          "source": "README"
+        },
+        {
+          "url": "https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png",
+          "kind": "image",
+          "source": "README"
+        },
+        {
+          "url": "https://github.com/lyogavin/airllm/blob/main/assets/bloome.png?raw=true",
+          "kind": "image",
+          "source": "README"
+        },
+        {
+          "url": "https://opengraph.githubassets.com/reporeel-2026-08-08/lyogavin/airllm",
+          "kind": "image",
+          "source": "GitHub OpenGraph fallback"
+        },
+        {
+          "url": "https://github.com/lyogavin/airllm",
+          "kind": "image",
+          "source": "GitHub README render"
+        }
+      ]
+    },
+    {
+      "owner": "esengine",
+      "name": "DeepSeek-Reasonix",
+      "url": "https://github.com/esengine/DeepSeek-Reasonix",
+      "language": "Go",
+      "description": "DeepSeek-native AI coding agent for your terminal. Engineered around prefix-cache stability — leave it running.",
+      "stars_total": 33034,
+      "stars_week": 4739,
+      "rank": 5,
+      "full_name": "esengine/DeepSeek-Reasonix",
+      "default_branch": "main",
+      "homepage": "",
+      "license": null,
+      "readme_excerpt": "> [!WARNING] > **This is the legacy TypeScript line (Reasonix 0.x), in maintenance mode.** > Active development moved to the **Go rewrite** — see the [`main-v2`](https://github.com/esengine/DeepSeek-Reasonix/tree/main-v2) branch (the new default) and the [migration guide](https://github.com/esengine/DeepSeek-Reasonix/blob/main-v2/docs/MIGRATING.md). Only bug fixes land here. English · 简体中文 · 日本語 · Website · Guide · Architecture · Benchmarks · Discord A DeepSeek-native AI coding agent for your terminal. Engineered around prefix-cache stability — so token costs stay low across long sessions, and you can leave it running. > [!TIP] > **Cache stability isn't a feature you turn on; it's an invariant the loop is designed around.** That's the whole reason Reasonix is DeepSeek-only — every layer is tuned to the byte-stable prefix-cache mechanic. > [!NOTE] > **Real user, single day (2026-05-01):** 435M input tokens, **99.82% cache hit**, ~$12 instead of the ~$61 the same workload would cost with no cache on `v4-flash` — see the [case study](./benchmarks/real-world-cache/README.md). DeepSeek provides the cacheable bytes; the four mechanisms in [Pillar 1](./docs/ARCHITECTURE.md#pillar-1--cache-first-loop) are how Reasonix keeps them cacheable across long sessions. > [!IMPORTANT] > **Community · 加入社区** — bilingual Discord with channels for setup help (`#help` / `#求助`), workflow showcases, feature ideas, and contributor-only PR coordination. Verify your GitHub in-server to get the **Contributor** role automatically. → ** ** ## Install Requires Node ≥ 22. Works on macOS · Linux · Windows (PowerShell · Git Bash · Windows Terminal). Install Reasonix globally if you want the `reasonix` command available on your `PATH`: ~~~bash npm install -g reasonix reasonix code my-project # paste a DeepSeek API key on first run; persists after ~~~ Or run it once without installing globally: ~~~bash cd my-project npx reasonix code # always uses the latest package by default ~~~ Grab a [DeepSeek API key →](https://platform.deepseek.com/api_keys) · `reasonix code --help` for flags. If you use Reasonix daily, global install is the simplest path. If you just want to try it, use `npx`. **Prefer fewer keystrokes?** The shorter `dsnix` alias resolves to the same CLI: ~~~bash npm install -g dsnix # exposes `dsnix` on PATH, depends on reasonix npx dsnix@latest code # one-shot via the shorter command ~~~ A global `npm install -g reasonix` also drops a `dsnix` shim on PATH, so the two are interchang",
+      "asset_candidates": [
+        {
+          "url": "https://raw.githubusercontent.com/esengine/DeepSeek-Reasonix/main/docs/assets/hero-terminal.svg",
+          "kind": "image",
+          "source": "README"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/esengine/DeepSeek-Reasonix/main/docs/assets/feature-grid.svg",
+          "kind": "image",
+          "source": "README"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/esengine/DeepSeek-Reasonix/main/github/sponsor/wechat-pay.jpg",
+          "kind": "image",
+          "source": "README"
+        },
+        {
+          "url": "https://opengraph.githubassets.com/reporeel-2026-08-08/esengine/DeepSeek-Reasonix",
+          "kind": "image",
+          "source": "GitHub OpenGraph fallback"
+        },
+        {
+          "url": "https://github.com/esengine/DeepSeek-Reasonix",
+          "kind": "image",
+          "source": "GitHub README render"
+        }
+      ]
+    },
+    {
+      "owner": "virgiliojr94",
+      "name": "book-to-skill",
+      "url": "https://github.com/virgiliojr94/book-to-skill",
+      "language": "Python",
+      "description": "Turn any technical book PDF into a Claude Code skill — ready to study, reference, and use while you work.",
+      "stars_total": 18673,
+      "stars_week": 3957,
+      "rank": 6,
+      "full_name": "virgiliojr94/book-to-skill",
+      "default_branch": "main",
+      "homepage": "",
+      "license": null,
+      "readme_excerpt": "",
+      "asset_candidates": [
+        {
+          "url": "https://opengraph.githubassets.com/reporeel-2026-08-08/virgiliojr94/book-to-skill",
+          "kind": "image",
+          "source": "GitHub OpenGraph fallback"
+        },
+        {
+          "url": "https://github.com/virgiliojr94/book-to-skill",
+          "kind": "image",
+          "source": "GitHub README render"
+        }
+      ]
+    },
+    {
+      "owner": "usekaneo",
+      "name": "kaneo",
+      "url": "https://github.com/usekaneo/kaneo",
+      "language": "TypeScript",
+      "description": "🎯 All you need. Nothing you don't. Open source project management that works for you, not against you.",
+      "stars_total": 7685,
+      "stars_week": 2925,
+      "rank": 7,
+      "full_name": "usekaneo/kaneo",
+      "default_branch": "main",
+      "homepage": "",
+      "license": null,
+      "readme_excerpt": "[![license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE) [![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/usekaneo/kaneo/ci.yml?branch=main)](https://github.com/usekaneo/kaneo/actions) [![Discord](https://img.shields.io/discord/1326250681530843178?color=7389D8&label=&logo=discord&logoColor=ffffff)](https://discord.gg/rU4tSyhXXU) [![Sponsors](https://img.shields.io/github/sponsors/andrejsshell)](https://github.com/sponsors/andrejsshell) Quick Start | Website | Cloud | Discord ## Why Kaneo? After years of using bloated, overcomplicated project management platforms that distracted from actual work, we built Kaneo to be different. The problem with most tools isn't that they lack features, it's that they have **too many**. Every notification, every unnecessary button, every complex workflow pulls your team away from what matters: **building great products**. We believe the best tools are **invisible**. They should amplify your team's natural workflow, not force you to adapt to theirs. Kaneo is built on the principle that **less is more**: every feature exists because it solves a real problem, not because it looks impressive in a demo. **What makes it different:** - **Clean interface** that focuses on your work, not the tool - **Self-hosted** so your data stays yours - **Actually fast** because we care about performance - **Open source** with a permissive MIT license Learn more about Kaneo's features and capabilities in our [documentation](https://kaneo.app/docs/core). ## Sponsors Kaneo is open source. If you find it useful, consider [sponsoring the project](https://github.com/sponsors/andrejsshell) to help support ongoing development. ## Getting Started ### One-Click Deployment with drim For straightforward deployments, use [drim](https://github.com/usekaneo/drim) - a CLI tool that handles everything for you: ```bash curl -fsSL https://assets.kaneo.app/install.sh | sh drim setup ``` That's it. Your Kaneo instance will be running with automatic HTTPS, database setup, and all services configured. Perfect for quick deployments and production setups where you want things to just work. ### Quick Start with Docker Compose The fastest way to try Kaneo is with Docker Compose. This sets up Kaneo and PostgreSQL with a single Kaneo container: ```yaml services: postgres: image: postgres:16-alpine env_file: - .env ports: - \"5432:5432\" volumes: - postgres_data:/var/lib/postgresql/data restart: unless-stopped healthcheck: test: ",
+      "asset_candidates": [
+        {
+          "url": "https://assets.kaneo.app/readme.png",
+          "kind": "image",
+          "source": "README"
+        },
+        {
+          "url": "https://github.com/danielsada.png",
+          "kind": "image",
+          "source": "README"
+        },
+        {
+          "url": "https://github.com/randoneering.png",
+          "kind": "image",
+          "source": "README"
+        },
+        {
+          "url": "https://github.com/floreabogdan.png",
+          "kind": "image",
+          "source": "README"
+        },
+        {
+          "url": "https://github.com/meruw.png",
+          "kind": "image",
+          "source": "README"
+        },
+        {
+          "url": "https://repobeats.axiom.co/api/embed/3e8367ec2b2350e4fc48662df33c81dac657b833.svg",
+          "kind": "image",
+          "source": "README"
+        },
+        {
+          "url": "https://opengraph.githubassets.com/reporeel-2026-08-08/usekaneo/kaneo",
+          "kind": "image",
+          "source": "GitHub OpenGraph fallback"
+        },
+        {
+          "url": "https://github.com/usekaneo/kaneo",
+          "kind": "image",
+          "source": "GitHub README render"
+        }
+      ]
+    },
+    {
+      "owner": "donnemartin",
+      "name": "system-design-primer",
+      "url": "https://github.com/donnemartin/system-design-primer",
+      "language": "Python",
+      "description": "Learn how to design large-scale systems. Prep for the system design interview. Includes Anki flashcards.",
+      "stars_total": 362375,
+      "stars_week": 2507,
+      "rank": 8,
+      "full_name": "donnemartin/system-design-primer",
+      "default_branch": "main",
+      "homepage": "",
+      "license": null,
+      "readme_excerpt": "",
+      "asset_candidates": [
+        {
+          "url": "https://opengraph.githubassets.com/reporeel-2026-08-08/donnemartin/system-design-primer",
+          "kind": "image",
+          "source": "GitHub OpenGraph fallback"
+        },
+        {
+          "url": "https://github.com/donnemartin/system-design-primer",
+          "kind": "image",
+          "source": "GitHub README render"
+        }
+      ]
+    },
+    {
+      "owner": "different-ai",
+      "name": "openwork",
+      "url": "https://github.com/different-ai/openwork",
+      "language": "TypeScript",
+      "description": "The open-source alternative to Claude Cowork (powered by opencode)",
+      "stars_total": 21535,
+      "stars_week": 2367,
+      "rank": 9,
+      "full_name": "different-ai/openwork",
+      "default_branch": "main",
+      "homepage": "",
+      "license": null,
+      "readme_excerpt": "",
+      "asset_candidates": [
+        {
+          "url": "https://opengraph.githubassets.com/reporeel-2026-08-08/different-ai/openwork",
+          "kind": "image",
+          "source": "GitHub OpenGraph fallback"
+        },
+        {
+          "url": "https://github.com/different-ai/openwork",
+          "kind": "image",
+          "source": "GitHub README render"
+        }
+      ]
+    },
+    {
+      "owner": "Comfy-Org",
+      "name": "ComfyUI",
+      "url": "https://github.com/Comfy-Org/ComfyUI",
+      "language": "Python",
+      "description": "The most powerful and modular diffusion model GUI, api and backend with a graph/nodes interface.",
+      "stars_total": 124796,
+      "stars_week": 1682,
+      "rank": 10,
+      "full_name": "Comfy-Org/ComfyUI",
+      "default_branch": "main",
+      "homepage": "",
+      "license": null,
+      "readme_excerpt": "",
+      "asset_candidates": [
+        {
+          "url": "https://opengraph.githubassets.com/reporeel-2026-08-08/Comfy-Org/ComfyUI",
+          "kind": "image",
+          "source": "GitHub OpenGraph fallback"
+        },
+        {
+          "url": "https://github.com/Comfy-Org/ComfyUI",
+          "kind": "image",
+          "source": "GitHub README render"
+        }
+      ]
+    }
+  ]
+}
