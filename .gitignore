@@ -6,6 +6,9 @@ output/v2-stills/
 output/full-stills/
 output/playwright/
 output/voice-tests/
+output/voice-samples/
+output/frame-*.png
+output/hook-*.png
 output/*-frame-*.png
 output/*-contact-sheet.jpg
 output/*-test.json
@@ -30,3 +33,6 @@ docs/MVP_GOAL.md
 scripts/render_sample.py
 scripts/synthesize.ps1
 output/sample-manifest.json
+
+# Local TTS credentials (never commit)
+config/doubao.json

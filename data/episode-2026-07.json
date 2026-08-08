@@ -10,9 +10,9 @@
     190
   ],
   "voice": {
-    "provider": "edge",
-    "name": "zh-CN-XiaoxiaoNeural",
-    "rate": "+4%",
+    "provider": "doubao",
+    "name": "zh_female_wanwanxiaohe_moon_bigtts",
+    "rate": "+0%",
     "pitch": "+0Hz"
   },
   "segments": [
